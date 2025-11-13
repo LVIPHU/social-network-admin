@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-11-13 15:36+0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/services/errors/translate-error.ts:10
+msgid "A user with this email address and/or username already exists."
+msgstr "A user with this email address and/or username already exists."
+
+#: src/components/templates/sign-in.form.tsx:121
+msgid "Enter password"
+msgstr "Enter password"
+
+#: src/components/templates/sign-in.form.tsx:74
+msgid "Enter your username below to sign in to your account"
+msgstr "Enter your username below to sign in to your account"
+
+#: src/components/templates/sign-in.form.tsx:114
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
+
+#: src/components/templates/sign-in.form.tsx:138
+msgid "Hide password"
+msgstr "Hide password"
+
+#: src/services/errors/translate-error.ts:7
+msgid "It doesn't look like a user exists with the credentials you provided."
+msgstr "It doesn't look like a user exists with the credentials you provided."
+
+#: src/services/errors/translate-error.ts:19
+msgid "It looks like the reset token you provided is invalid. Please try restarting the password reset process again."
+msgstr "It looks like the reset token you provided is invalid. Please try restarting the password reset process again."
+
+#: src/services/errors/translate-error.ts:22
+msgid "It looks like the verification token you provided is invalid. Please try restarting the verification process again."
+msgstr "It looks like the verification token you provided is invalid. Please try restarting the verification process again."
+
+#: src/services/errors/translate-error.ts:25
+msgid "It looks like your email address has already been verified."
+msgstr "It looks like your email address has already been verified."
+
+#: src/components/templates/sign-in.form.tsx:91
+msgid "m@example.com"
+msgstr "m@example.com"
+
+#: src/packages/libs/axios.ts:30
+msgid "Oops, the server returned an error."
+msgstr "Oops, the server returned an error."
+
+#: src/components/templates/sign-in.form.tsx:108
+msgid "Password"
+msgstr "Password"
+
+#: src/components/templates/sign-in.form.tsx:138
+msgid "Show password"
+msgstr "Show password"
+
+#: src/components/templates/sign-in.form.tsx:150
+msgid "Sign in"
+msgstr "Sign in"
+
+#: src/components/templates/sign-in.form.tsx:71
+msgid "Sign in to your account"
+msgstr "Sign in to your account"
+
+#: src/components/templates/sign-in.form.tsx:157
+msgid "Sign up"
+msgstr "Sign up"
+
+#: src/services/errors/translate-error.ts:28
+msgid "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
+msgstr "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
+
+#: src/services/errors/translate-error.ts:16
+msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
+msgstr "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
+
+#: src/services/errors/translate-error.ts:13
+msgid "User does not have an associated 'secrets' record. Please report this issue on GitHub."
+msgstr "User does not have an associated 'secrets' record. Please report this issue on GitHub."
+
+#: src/components/templates/sign-in.form.tsx:85
+msgid "Username"
+msgstr "Username"

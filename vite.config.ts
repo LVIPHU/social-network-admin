@@ -1,7 +1,7 @@
 import { URL, fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
-import { lingui } from "@lingui/vite-plugin"
+import { lingui } from '@lingui/vite-plugin'
 import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -15,13 +15,11 @@ export default defineConfig({
       target: 'react',
       autoCodeSplitting: true,
     }),
-    viteReact(
-      {
-        babel: {
-          plugins: ["@lingui/babel-plugin-lingui-macro"],
-        },
-      }
-    ),
+    viteReact({
+      babel: {
+        plugins: ['@lingui/babel-plugin-lingui-macro'],
+      },
+    }),
     tailwindcss(),
     lingui(),
   ],

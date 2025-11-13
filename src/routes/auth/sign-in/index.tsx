@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import SignInForm from '@/components/templates/sign-in.form.tsx'
 
 export const Route = createFileRoute('/auth/sign-in/')({
-  component: SignIn,
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      redirect: (search.redirect as string) || undefined,
+    }
+  },
+  component: SignInForm,
 })
-
-export default function SignIn() {
-  return <div>Signin</div>;
-}

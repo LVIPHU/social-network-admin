@@ -1,43 +1,49 @@
-import dayjs from "dayjs";
-import { z } from "zod";
+import dayjs from 'dayjs'
+import { z } from 'zod'
 
-export const dateSchema = z.union([z.date(), z.string().datetime()]).transform((value) => {
-  if (typeof value === "string") return dayjs(value).toDate();
-  return value;
-});
+export const dateSchema = z
+  .union([z.date(), z.string().datetime()])
+  .transform((value) => {
+    if (typeof value === 'string') return dayjs(value).toDate()
+    return value
+  })
 
 export const sortByDate = <T>(a: T, b: T, key: keyof T, desc = true) => {
-  if (!a[key] || !b[key]) return 0;
-  if (!(a[key] instanceof Date) || !(b[key] instanceof Date)) return 0;
+  if (!a[key] || !b[key]) return 0
+  if (!(a[key] instanceof Date) || !(b[key] instanceof Date)) return 0
 
-  if (dayjs(a[key] as Date).isSame(dayjs(b[key] as Date))) return 0;
-  if (desc) return dayjs(a[key] as Date).isBefore(dayjs(b[key] as Date)) ? 1 : -1;
-  else return dayjs(a[key] as Date).isBefore(dayjs(b[key] as Date)) ? -1 : 1;
-};
+  if (dayjs(a[key] as Date).isSame(dayjs(b[key] as Date))) return 0
+  if (desc)
+    return dayjs(a[key] as Date).isBefore(dayjs(b[key] as Date)) ? 1 : -1
+  else return dayjs(a[key] as Date).isBefore(dayjs(b[key] as Date)) ? -1 : 1
+}
 
-export const deepSearchAndParseDates = (obj: any, dateKeys: Array<string>): any => {
-  if (typeof obj !== "object" || obj === null) {
-    return obj;
+export const deepSearchAndParseDates = (
+  obj: any,
+  dateKeys: Array<string>,
+): any => {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj
   }
 
-  const keys = Object.keys(obj);
+  const keys = Object.keys(obj)
 
   if (keys.length === 0) {
-    return obj;
+    return obj
   }
 
   for (const key of keys) {
-    let value = obj[key];
+    let value = obj[key]
 
-    if (dateKeys.includes(key) && typeof value === "string") {
-      const parsedDate = new Date(value);
+    if (dateKeys.includes(key) && typeof value === 'string') {
+      const parsedDate = new Date(value)
       if (!Number.isNaN(parsedDate.getTime())) {
-        value = parsedDate;
+        value = parsedDate
       }
     }
 
-    obj[key] = deepSearchAndParseDates(value, dateKeys);
+    obj[key] = deepSearchAndParseDates(value, dateKeys)
   }
 
-  return obj;
-};
+  return obj
+}
