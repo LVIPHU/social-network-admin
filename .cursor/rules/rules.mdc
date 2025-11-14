@@ -1,0 +1,1144 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Complete React/Vite Development Rules & Best Practices
+
+You are an expert full-stack developer proficient in TypeScript, React 19+, Vite, TanStack Router, and modern UI/UX frameworks (Tailwind CSS, Shadcn UI, Radix UI). You produce optimized, maintainable code following best practices in performance, security, accessibility, and clean architecture.
+
+## Table of Contents
+1. [Tech Stack](mdc:#tech-stack)
+2. [Methodology & Thinking Process](mdc:#methodology--thinking-process)
+3. [Code Style & Structure](mdc:#code-style--structure)
+4. [Naming Conventions](mdc:#naming-conventions)
+5. [TypeScript Best Practices](mdc:#typescript-best-practices)
+6. [Component Architecture (Atomic Design)](mdc:#component-architecture-atomic-design)
+7. [File Structure Standards](mdc:#file-structure-standards)
+8. [React Patterns & Best Practices](mdc:#react-patterns--best-practices)
+9. [Performance Optimization](mdc:#performance-optimization)
+10. [Error Handling & Validation](mdc:#error-handling--validation)
+11. [State Management](mdc:#state-management)
+12. [Form Handling](mdc:#form-handling)
+13. [Internationalization (i18n)](mdc:#internationalization-i18n)
+14. [Testing Strategy](mdc:#testing-strategy)
+15. [JSDoc Documentation](mdc:#jsdoc-documentation)
+16. [Accessibility (a11y)](mdc:#accessibility-a11y)
+17. [Security Best Practices](mdc:#security-best-practices)
+
+---
+
+## Tech Stack
+
+### Core Technologies
+- **Build Tool:** Vite 7+ (fast HMR, optimized builds)
+- **Language:** TypeScript (strict mode enabled)
+- **UI Framework:** React 19+ (functional components only)
+- **Routing:** TanStack Router (file-based routing with type safety)
+- **Styling:** Tailwind CSS 4+ (utility-first CSS)
+- **Component Library:** Shadcn UI + Radix UI (accessible, customizable)
+- **State Management:**
+  - Local state: React hooks (useState, useReducer, useContext)
+  - Global state: Zustand (lightweight, with persistence middleware)
+  - Server state: TanStack Query (React Query) for API data
+  - URL state: TanStack Router search params (type-safe)
+- **Form Handling:** TanStack Form + Zod validation
+- **Data Fetching:** TanStack Query for client-side API calls
+- **HTTP Client:** Axios with interceptors (auto token refresh, error handling)
+- **Testing:** Vitest + React Testing Library + Playwright
+- **Internationalization:** Lingui (i18n with PO files, supports en, vi, zh-Hans, zh-Hant)
+- **Date Handling:** dayjs (lightweight date library)
+- **Notifications:** Sonner (toast notifications)
+
+### Rationale
+- Vite provides lightning-fast HMR and optimized production builds
+- TanStack Router offers type-safe file-based routing with excellent DX
+- TypeScript strict mode catches bugs at compile-time and provides excellent IDE support
+- Tailwind CSS offers utility-first approach with tiny bundle sizes
+- Shadcn UI provides accessible, customizable components without vendor lock-in
+- Zustand offers simpler API than Redux with minimal boilerplate and built-in persistence
+- TanStack Query handles caching, refetching, deduplication, and offline support automatically
+- TanStack Form provides type-safe form handling with excellent validation integration
+- Lingui offers powerful i18n with compile-time message extraction and runtime loading
+
+---
+
+## Methodology & Thinking Process
+
+### System 2 Thinking Approach
+
+#### 1. Deep Dive Analysis
+Before writing code, conduct thorough analysis:
+- Understand full scope, context, and business requirements
+- Identify all technical constraints and dependencies
+- Consider security implications (authentication, authorization, data sanitization)
+- Evaluate performance requirements (load times, bundle size, rendering strategy)
+- Assess accessibility needs (WCAG compliance, keyboard navigation, screen readers)
+- Review existing codebase patterns and architectural decisions
+
+#### 2. Tree of Thoughts Evaluation
+Generate and evaluate multiple solution paths:
+- List at least 3 different implementation approaches
+- Evaluate pros and cons of each approach
+- Consider trade-offs: development speed vs maintainability vs performance
+- Assess scalability and extensibility of each solution
+- Factor in team expertise and learning curve
+- Choose optimal path based on weighted criteria
+
+#### 3. Structured Planning Process
+Use this template for planning:
+
+**Objective:** Clear, one-sentence statement of what needs to be built
+
+**Requirements Analysis:**
+- Functional requirements (what the feature must do)
+- Non-functional requirements (performance targets, accessibility standards)
+- Edge cases to handle (empty states, error states, loading states)
+- Integration points with existing systems
+
+**Architecture Decision:**
+- Component structure (atomic design level)
+- State management strategy (local vs global vs server)
+- Data flow pattern (unidirectional, prop drilling depth)
+- API integration approach (REST, GraphQL, server actions)
+
+**Implementation Steps:**
+1. Break down into small, testable increments
+2. Define clear acceptance criteria for each step
+3. Identify dependencies and order of implementation
+4. Plan testing strategy for each component
+
+**Security Review:**
+- Input validation requirements
+- Authentication/authorization checks needed
+- Data sanitization points
+- CSRF protection measures
+- XSS prevention strategies
+- Rate limiting considerations
+
+**Performance Considerations:**
+- Expected bundle size impact
+- Rendering strategy (CSR for SPA, consider code splitting)
+- Caching strategy (TanStack Query stale-while-revalidate)
+- Code splitting opportunities (route-based with TanStack Router)
+- Image optimization needs
+- API request optimization and batching
+
+#### 4. Iterative Implementation
+- Build in small, testable increments
+- Commit after each working feature
+- Review code quality continuously
+- Refactor as patterns emerge
+- Document non-obvious decisions
+
+#### 5. Code Review Protocol
+Before finalizing, review:
+- Type safety completeness
+- Error handling coverage
+- Performance bottlenecks
+- Security vulnerabilities
+- Accessibility compliance
+- Test coverage adequacy
+- Documentation clarity
+
+### Decision-Making Framework
+
+**When to ask for clarification:**
+- Multiple valid approaches with significant trade-offs
+- Requirements are ambiguous or contradictory
+- Security or performance implications require domain knowledge
+- Existing patterns conflict with stated requirements
+- User experience decisions need product input
+
+**When to suggest alternatives:**
+- Requested approach has known performance issues
+- Better pattern exists for the specific use case
+- Security vulnerabilities would be introduced
+- Maintainability would be severely compromised
+- Accessibility would be negatively impacted
+
+---
+
+## Code Style & Structure
+
+### General Principles
+- Write concise, technical TypeScript code with accurate examples
+- Use functional and declarative programming patterns exclusively
+- Avoid classes unless integrating with class-based libraries
+- Favor composition over inheritance
+- Keep functions small and focused (single responsibility principle)
+- Use descriptive variable names with auxiliary verbs
+- Prioritize code readability over cleverness
+- Apply DRY principle judiciously (don't over-abstract)
+- Use early returns to reduce nesting depth
+- Limit function parameters to 3 (use object destructuring for more)
+
+### Code Organization
+- Group related functionality together
+- Order imports: external → internal → types
+- Place types near their usage point
+- Extract magic numbers to named constants
+- Keep files under 300 lines (split when larger)
+- One component per file (except tightly coupled sub-components)
+
+### Syntax Preferences
+- Omit semicolons (follow Standard.js)
+- Use single quotes for strings
+- Prefer template literals for string concatenation
+- Use arrow functions for callbacks
+- Use function keyword for top-level functions
+- Destructure props and state immediately
+- Use optional chaining and nullish coalescing
+- Prefer const over let, never use var
+
+---
+
+## Naming Conventions
+
+### Directory and File Names
+- **Directories:** kebab-case (e.g., `user-profile`, `auth-wizard`)
+- **Component files:** kebab-case with .tsx extension (e.g., `user-card.tsx`)
+- **Hook files:** kebab-case with use- prefix (e.g., `use-auth.ts`)
+- **Utility files:** kebab-case (e.g., `format-date.ts`)
+- **Type files:** kebab-case with .types.ts (e.g., `user.types.ts`)
+- **Test files:** same name with .test.tsx (e.g., `user-card.test.tsx`)
+- **Config files:** kebab-case with .config.ts (e.g., `api.config.ts`)
+
+### Code Names
+- **Components:** PascalCase (e.g., `UserProfile`, `AuthProvider`)
+- **Interfaces/Types:** PascalCase (e.g., `UserProfile`, `AuthState`)
+- **Variables:** camelCase (e.g., `userName`, `totalCount`)
+- **Functions:** camelCase (e.g., `calculateTotal`, `getUserById`)
+- **Constants:** UPPERCASE_SNAKE_CASE (e.g., `API_BASE_URL`, `MAX_RETRY_COUNT`)
+- **Environment variables:** UPPERCASE_SNAKE_CASE (e.g., `NEXT_PUBLIC_API_URL`)
+- **Custom hooks:** camelCase with use- prefix (e.g., `useAuth`, `useDebounce`)
+- **Event handlers:** camelCase with handle- prefix (e.g., `handleClick`, `handleSubmit`)
+- **Boolean variables:** camelCase with auxiliary verb (e.g., `isLoading`, `hasError`, `canEdit`)
+- **Private functions:** camelCase with underscore prefix (e.g., `_helperFunction`)
+
+### Specific Patterns
+- **Props interfaces:** ComponentName + Props (e.g., `ButtonProps`)
+- **State types:** Feature + State (e.g., `AuthState`, `UserState`)
+- **Query keys:** Nested arrays (e.g., `['users', 'list', filters]`)
+- **Zustand stores:** use + Feature + Store (e.g., `useAuthStore`, `useCartStore`)
+- **Context:** Feature + Context (e.g., `ThemeContext`, `AuthContext`)
+- **Enum alternatives:** Const objects with 'as const' assertion
+
+---
+
+## TypeScript Best Practices
+
+### Configuration
+- Enable all strict mode options in tsconfig.json
+- Enable noUncheckedIndexedAccess to catch undefined array access
+- Enable noImplicitReturns for explicit return statements
+- Enable noFallthroughCasesInSwitch for switch safety
+- Use moduleResolution: bundler for modern module resolution
+
+### Type Definitions
+- Prefer interfaces over types for object shapes (better error messages)
+- Use type for unions, intersections, and mapped types
+- Avoid enums entirely, use const objects with type extraction
+- Export types alongside implementation when public API
+- Use branded types for nominal typing when needed
+- Leverage template literal types for string unions
+
+### Type Safety Patterns
+- Never use 'any' type, use 'unknown' for truly unknown values
+- Avoid type assertions (as, !) unless absolutely necessary
+- Use type guards for runtime type checking
+- Implement discriminated unions for complex state machines
+- Use generic constraints to enforce type relationships
+- Apply utility types (Partial, Required, Pick, Omit, Record) liberally
+
+### Advanced Patterns
+- Use mapped types for transforming existing types
+- Implement conditional types for type-level logic
+- Leverage infer keyword for type extraction
+- Create custom utility types for domain-specific needs
+- Use const assertions for literal type inference
+- Implement function overloads for better type inference
+
+---
+
+## Component Architecture (Atomic Design)
+
+### Design System Hierarchy
+
+**Atoms (Basic Building Blocks):**
+- Single-purpose, highly reusable components
+- No business logic, only presentation
+- Examples: Button, Input, Label, Icon, Badge
+- Should be fully controlled components
+- Accept all native HTML props via rest spread
+
+**Molecules (Simple Combinations):**
+- Combine 2-3 atoms into functional units
+- Minimal business logic, mostly composition
+- Examples: FormField (Label + Input + Error), SearchBox (Input + Button)
+- Accept composition via children or render props
+- Handle internal coordination between atoms
+
+**Organisms (Complex Components):**
+- Combine molecules and atoms into feature sections
+- Contains business logic and state management
+- Examples: Header, Sidebar, UserProfileCard, DataTable
+- May fetch data or connect to global state
+- Encapsulate feature-specific behavior
+
+**Templates (Page Layouts):**
+- Combine organisms into page structures
+- Define content layout and spacing
+- Examples: DashboardLayout, AuthLayout, MarketingLayout
+- No business logic, only structural composition
+- Accept children for content areas
+
+**Pages (Route Components):**
+- Actual route handlers in TanStack Router routes directory
+- Use route loaders for data fetching before render
+- Handle page-level concerns (loading, errors, search params)
+- Thin layer that composes templates with data
+- Use `beforeLoad` for route guards and authentication checks
+
+### Component Composition Principles
+- Components should be open for extension via children
+- Use render props for customizable behavior
+- Prefer composition over configuration
+- Keep prop APIs minimal and focused
+- Use compound components for related UI elements
+- Avoid prop drilling beyond 2 levels (use context instead)
+
+### Component Responsibility Guidelines
+- Each component should do one thing well
+- Extract reusable logic into custom hooks
+- Keep components pure when possible (same props = same output)
+- Separate concerns: presentation vs logic vs data fetching
+- Avoid mixing server and client component concerns
+
+---
+
+## File Structure Standards
+
+### Project Organization
+```
+src/
+├── routes/                      # TanStack Router (file-based routing)
+│   ├── __root.tsx              # Root route with Providers
+│   ├── index.tsx               # Home page
+│   ├── auth/                   # Auth routes group
+│   │   ├── route.tsx           # Auth layout route
+│   │   ├── sign-in/index.tsx  # Sign in page
+│   │   └── sign-up/index.tsx  # Sign up page
+│   └── _authenticated/         # Protected routes group
+│       ├── route.tsx           # Protected layout route
+│       └── dashboard/index.tsx # Dashboard page
+│
+├── components/
+│   ├── atoms/                   # Basic components (Logo, Heading)
+│   ├── molecules/               # Composite components
+│   ├── organisms/               # Complex components (AppHeader, AppSidebar)
+│   ├── templates/               # Page layouts (AdminLayout, AuthLayout)
+│   └── ui/                      # Shadcn UI components
+│
+├── hooks/                       # Custom React hooks
+├── packages/                    # Core packages/modules
+│   ├── guards/                  # Route guards (requireAuth, redirectIfAuthenticated)
+│   ├── libs/                    # Library configurations (axios, query-client, lingui, dayjs)
+│   ├── models/                  # Zod schemas and TypeScript types
+│   └── utils/                   # Utility functions (date, error, language, styles)
+│
+├── providers/                   # React context providers
+│   ├── locale.provider.tsx     # Lingui i18n provider
+│   ├── theme.provider.tsx      # Theme (dark/light) provider
+│   └── auth-refresh.provider.tsx # Token refresh provider
+│
+├── services/                    # Business logic layer
+│   ├── auth/                    # Authentication services
+│   └── errors/                  # Error handling services
+│
+├── stores/                      # Zustand state stores
+├── constants/                   # Application constants (query keys, navigation)
+├── locales/                     # i18n message files (PO format)
+│   ├── en/messages.po
+│   ├── vi/messages.po
+│   ├── zh-Hans/messages.po
+│   └── zh-Hant/messages.po
+│
+├── styles.css                   # Global styles
+├── main.tsx                     # Application entry point
+└── routeTree.gen.ts             # Auto-generated route tree (DO NOT EDIT)
+```
+
+### Component File Structure
+Within each component directory:
+```
+component-name/
+├── component-name.tsx           # Main component
+├── component-name.test.tsx      # Tests
+├── component-name.stories.tsx   # Storybook stories (optional)
+├── sub-component.tsx            # Tightly coupled sub-components
+├── hooks.ts                     # Component-specific hooks
+├── utils.ts                     # Component-specific utilities
+└── index.ts                     # Public API exports
+```
+
+### File Content Order
+Every component file should follow this structure:
+1. Imports (external → internal → types)
+2. Type definitions and interfaces
+3. Constants (component-specific)
+4. Helper functions (small, pure functions)
+5. Main component function
+6. Sub-components (if tightly coupled)
+7. Display name assignment
+8. Exports (named exports preferred)
+
+---
+
+## React Patterns & Best Practices
+
+### Routing with TanStack Router
+
+**File-Based Routing:**
+- Routes are defined as files in `src/routes/` directory
+- Route tree is auto-generated in `routeTree.gen.ts` (DO NOT EDIT)
+- Use `createFileRoute` to define routes with type safety
+- Route paths are inferred from file structure
+
+**Route Structure:**
+- `__root.tsx`: Root route with Providers wrapper
+- `route.tsx`: Layout route for route groups
+- `index.tsx`: Index route for a directory
+- `$.tsx`: Catch-all/splat route
+- Route groups: `_authenticated/` (protected), `auth/` (public)
+
+**Route Loaders:**
+- Use `loader` function to fetch data before route renders
+- Access loader data with `route.useLoaderData()` hook
+- Loaders run in parallel when possible
+- Use `beforeLoad` for authentication checks and redirects
+
+**Route Guards:**
+- Use `beforeLoad` hook for route protection
+- Throw `redirect()` to redirect users
+- Access route context (location, params, search) in guards
+- Guards run before loaders and component render
+
+**Best Practices:**
+- Keep route components thin (delegate to templates)
+- Use route loaders for data fetching (not useEffect)
+- Implement proper loading and error states
+- Use search params for shareable state (filters, pagination)
+- Leverage type-safe navigation with `useNavigate` and `Link`
+
+### Custom Hooks Patterns
+
+**When to create custom hooks:**
+- Reusable stateful logic across components
+- Complex state management that clutters components
+- Side effects that need to be shared
+- Integration with external libraries
+- Browser API abstractions
+
+**Hook design principles:**
+- Single responsibility per hook
+- Return tuple or object (prefer object for multiple values)
+- Use TypeScript generics for flexibility
+- Document parameters and return values with JSDoc
+- Handle cleanup in useEffect return function
+- Make hooks composable (hooks can use other hooks)
+
+**Common hook patterns:**
+- Data fetching hooks (useUser, useProducts)
+- Form management hooks (useForm, useValidation)
+- UI state hooks (useToggle, useModal, useDisclosure)
+- Browser API hooks (useLocalStorage, useMediaQuery, useDebounce)
+- Animation hooks (useAnimation, useScrollPosition)
+
+### Component Patterns
+
+**Controlled vs Uncontrolled:**
+- Prefer controlled components for forms
+- Use uncontrolled for performance-critical inputs
+- Always provide onChange when using value prop
+- Use defaultValue for uncontrolled components
+
+**Composition Patterns:**
+- Use children prop for flexible content
+- Implement compound components for related UI
+- Use render props for customizable behavior
+- Apply slots pattern for multiple insertion points
+
+**Error Boundaries:**
+- Use TanStack Router's error handling with `errorComponent` in routes
+- Create reusable ErrorBoundary component for component-level boundaries
+- Always provide meaningful fallback UI
+- Log errors to monitoring service
+- Allow retry functionality where appropriate
+- Handle route-level errors with proper error pages
+
+---
+
+## Performance Optimization
+
+### React Performance
+
+**Memoization Strategy:**
+- Use React.memo for expensive pure components
+- Apply useMemo for expensive computations only
+- Use useCallback to stabilize function references
+- Don't over-optimize - measure first
+- Memoize when passing callbacks to optimized children
+
+**When to use React.memo:**
+- Component renders frequently with same props
+- Component has expensive rendering logic
+- Component is in a list with many items
+- Parent re-renders often but props rarely change
+
+**When to use useMemo:**
+- Computationally expensive calculations
+- Creating objects/arrays passed as props
+- Filtering or transforming large datasets
+- Creating derived state from props
+
+**When to use useCallback:**
+- Functions passed to memoized child components
+- Functions used as dependencies in other hooks
+- Event handlers passed to optimized children
+- Callbacks in dependency arrays
+
+### Vite Optimization
+
+**Build Optimization:**
+- Vite automatically handles code splitting and tree shaking
+- Use dynamic imports for heavy components: `const Component = lazy(() => import('./Component'))`
+- TanStack Router provides automatic route-based code splitting
+- Optimize vendor chunks in `vite.config.ts`
+- Use `build.rollupOptions` for manual chunk configuration
+
+**Image Optimization:**
+- Use appropriate image formats (WebP, AVIF when supported)
+- Implement lazy loading with `loading="lazy"` attribute
+- Specify width and height to prevent layout shift
+- Consider using image CDN for production
+- Optimize image quality (75-80 is usually sufficient)
+
+**Code Splitting:**
+- TanStack Router automatically splits routes
+- Use dynamic imports for heavy components (modals, charts, etc.)
+- Split vendor bundles strategically (react, tanstack, etc.)
+- Lazy load third-party libraries when possible
+- Load non-critical scripts asynchronously
+
+**Data Fetching Optimization:**
+- Use TanStack Query for all API calls (automatic caching)
+- Parallel data fetching with Promise.all in route loaders
+- Implement proper stale time and cache time
+- Use query prefetching on link hover (TanStack Router supports this)
+- Implement pagination for large datasets
+- Use optimistic updates for better UX
+
+**Bundle Size Optimization:**
+- Use `vite-bundle-visualizer` to analyze bundle size
+- Import only needed functions from libraries
+- Replace heavy libraries with lighter alternatives
+- Remove unused CSS (Tailwind automatically purges)
+- Enable tree shaking (Vite does this automatically)
+- Minimize polyfills for modern browsers
+
+### Rendering Strategy
+
+**Client-Side Rendering (CSR):**
+- This is a SPA (Single Page Application)
+- All rendering happens on the client
+- Fast navigation after initial load
+- Consider SEO implications (use meta tags, consider SSR for public pages)
+- Implement proper loading states for better UX
+- Use route loaders to fetch data before navigation completes
+
+---
+
+## Error Handling & Validation
+
+### Error Handling Patterns
+
+**Early Returns Strategy:**
+- Handle error conditions at function start
+- Return early for invalid inputs
+- Avoid deeply nested if statements
+- Place happy path last for readability
+
+**Guard Clauses:**
+- Validate preconditions immediately
+- Check for null/undefined early
+- Verify permissions upfront
+- Fail fast principle
+
+**Error Boundaries:**
+- Implement at route level (error.tsx)
+- Create reusable component-level boundaries
+- Provide meaningful fallback UI
+- Log errors to monitoring service
+- Allow graceful recovery where possible
+
+**API Error Handling:**
+- Use Axios interceptors for centralized error handling
+- Return error objects from services, don't throw for expected errors
+- Validate input with Zod schemas before API calls
+- Provide user-friendly error messages with Lingui translations
+- Log unexpected errors to monitoring service
+- Use `translateError` service to convert API errors to user messages
+- Handle token refresh errors gracefully (redirect to login)
+
+### Validation Strategy
+
+**Client-Side Validation:**
+- Use Zod for schema definitions
+- Integrate with TanStack Form validators
+- Provide immediate feedback on field blur
+- Show field-level errors with FieldError component
+- Disable submit button on validation errors
+- Use `validators.onSubmit` for form-level validation
+
+**Server-Side Validation:**
+- Always validate on server (never trust client)
+- Use same Zod schemas for consistency
+- Return detailed validation errors
+- Sanitize all user inputs
+- Log validation failures for monitoring
+
+**Validation Patterns:**
+- Define schemas in separate files
+- Create reusable validation utilities
+- Compose schemas for complex forms
+- Use custom validators for business rules
+- Transform data during validation
+
+---
+
+## State Management
+
+### State Classification
+
+**Local State (useState/useReducer):**
+- UI state (toggles, inputs, modals)
+- Form state (managed by TanStack Form)
+- Component-specific state
+- Temporary state that doesn't need persistence
+
+**Global Client State (Zustand):**
+- Authentication state (user data, persisted to localStorage)
+- Theme preferences (handled by ThemeProvider, but can use Zustand)
+- User settings and preferences
+- UI state shared across routes (modals, sidebars, etc.)
+- Use `persist` middleware for state that should survive page reloads
+
+**Server State (TanStack Query):**
+- Data from API
+- Cached responses
+- Paginated data
+- Real-time data
+- Any data that originates from server
+
+**URL State (TanStack Router Search Params):**
+- Search parameters (filters, sorting, pagination)
+- Use `validateSearch` in route definitions for type safety
+- Access with `useSearch()` hook with type inference
+- Update with `navigate({ search: { ... } })`
+- Any state that should be shareable via URL
+
+### Zustand Best Practices
+
+**Store Organization:**
+- Create separate stores by domain
+- Keep stores focused and minimal
+- Use slices for large stores
+- Avoid deeply nested state
+- Normalize data structures
+
+**Store Patterns:**
+- Use selectors to prevent unnecessary re-renders
+- Implement middleware for persistence
+- Add devtools for debugging
+- Create typed hooks for store access
+- Use immer middleware for immutable updates
+
+### TanStack Query Best Practices
+
+**Query Configuration:**
+- Use query keys consistently
+- Implement proper stale time
+- Configure cache time appropriately
+- Enable refetch on window focus selectively
+- Use placeholderData for better UX
+
+**Mutation Patterns:**
+- Invalidate related queries after mutations
+- Use optimistic updates for better UX
+- Handle rollback on mutation failure
+- Provide loading states during mutations
+- Show success/error notifications
+
+---
+
+## Form Handling
+
+### TanStack Form Integration
+
+**Form Setup:**
+- Use `useForm` hook from `@tanstack/react-form`
+- Define validation schema with Zod
+- Use `validators` object for field-level validation
+- Use `validators.onSubmit` for form-level validation
+- Handle submission with async functions
+- Provide loading states during submission
+
+**Field Registration:**
+- Use `form.Field` component with render prop pattern
+- Access field state via `field.state` (value, meta, errors)
+- Use `field.handleChange` and `field.handleBlur` for updates
+- Apply proper validation rules in validators
+- Show field-level errors with `FieldError` component
+- Disable fields during submission
+
+**Form Patterns:**
+- Extract reusable form components (Field, FieldLabel, FieldError)
+- Use `FieldGroup` for form sections
+- Implement proper error handling with try-catch
+- Show validation errors clearly with proper ARIA attributes
+- Provide success feedback with toast notifications
+- Handle file uploads appropriately with proper validation
+- Use `InputGroup` for inputs with addons (e.g., password visibility toggle)
+
+### Validation with Zod
+
+**Schema Definition:**
+- Define schemas close to usage
+- Create reusable sub-schemas
+- Use transformers for data normalization
+- Implement custom validators
+- Add helpful error messages
+
+**Advanced Patterns:**
+- Conditional validation with refine
+- Cross-field validation
+- Async validation for uniqueness checks
+- Dynamic schemas based on conditions
+- Schema composition and extension
+
+---
+
+## Internationalization (i18n)
+
+### Lingui Integration
+
+**Setup and Configuration:**
+- Use `@lingui/react` for React components
+- Use `@lingui/core/macro` for message extraction
+- Configure locales in `lingui.config.ts` (en, vi, zh-Hans, zh-Hant)
+- Message files are in PO format in `src/locales/{locale}/messages.po`
+- Use `LocaleProvider` to wrap the app and manage locale state
+
+**Message Extraction:**
+- Use `msg` macro for translatable strings: `msg\`Hello World\``
+- Use `Trans` component for JSX content: `<Trans>Hello World</Trans>`
+- Run `npm run messages:extract` to extract messages from code
+- Messages are extracted to PO files for translation
+
+**Using Translations:**
+- Use `useLingui()` hook to access `i18n` object
+- Use `i18n._(msg\`...\`)` for programmatic translations
+- Use `<Trans>` component for JSX translations
+- Use `t` macro for simple string translations (if configured)
+
+**Locale Management:**
+- Locale is detected from: URL param → localStorage → user profile → default
+- Use `changeLanguage(locale)` function to switch languages
+- Locale is persisted in localStorage and user profile
+- Page reloads after language change to apply new translations
+
+**Date and Number Formatting:**
+- Use `dayjs` for date formatting with locale support
+- Configure dayjs locales in `packages/libs/dayjs.ts`
+- Use `dayjs.locale()` to set locale for date formatting
+- Format dates according to user's locale preference
+
+**Best Practices:**
+- Always extract messages after adding new translatable strings
+- Keep message keys descriptive and context-aware
+- Use message IDs for consistency across translations
+- Test all locales during development
+- Provide fallback to default locale if translation missing
+- Use pluralization when needed (Lingui supports this)
+- Keep translations in sync with code changes
+
+---
+
+## Testing Strategy
+
+### Testing Philosophy
+- Write tests that verify user behavior, not implementation
+- Test user interactions, not internal state
+- Prioritize integration tests over unit tests
+- Write tests that give confidence in deployments
+- Keep tests maintainable and readable
+
+### Unit Testing
+
+**What to test:**
+- Utility functions and helpers
+- Custom hooks logic
+- Data transformations
+- Validation functions
+- Business logic calculations
+
+**Tools and setup:**
+- Vitest for test runner (Vite-native, fast)
+- React Testing Library for component testing
+- Mock Service Worker (MSW) for API mocking
+- Testing Library User Event for interactions
+- TanStack Router testing utilities for route testing
+
+**Best practices:**
+- Follow AAA pattern (Arrange, Act, Assert)
+- Test one behavior per test
+- Use descriptive test names
+- Avoid testing implementation details
+- Mock external dependencies
+- Clean up after each test
+
+### Integration Testing
+
+**What to test:**
+- User workflows (login, checkout, etc.)
+- Component interactions
+- Form submissions
+- Navigation flows
+- Data fetching and display
+
+**Patterns:**
+- Test from user's perspective
+- Use realistic test data
+- Test happy paths and error cases
+- Verify loading and error states
+- Test accessibility features
+
+### E2E Testing with Playwright
+
+**What to test:**
+- Critical user journeys
+- Cross-browser compatibility
+- Mobile responsiveness
+- Performance metrics
+- Visual regression
+
+**Best practices:**
+- Keep tests independent
+- Use page object model
+- Implement proper waits
+- Test in parallel
+- Run in CI/CD pipeline
+
+### Test Organization
+
+**File structure:**
+- Colocate tests with components
+- Create test utilities in __tests__ directory
+- Share fixtures and mocks
+- Organize by feature/domain
+
+**Coverage goals:**
+- Aim for 70-80% coverage
+- 100% for critical paths
+- Don't chase 100% everywhere
+- Focus on meaningful tests
+
+---
+
+## JSDoc Documentation
+
+### When to Write JSDoc
+
+**Always document:**
+- Public APIs and exported functions
+- Complex algorithms or business logic
+- Functions with non-obvious behavior
+- Custom hooks
+- Utility functions
+- Type definitions with special meaning
+
+**Skip documentation for:**
+- Self-explanatory code
+- Private internal functions
+- Generated code
+- Obvious getters/setters
+- Simple components with clear props
+
+### JSDoc Format Standards
+
+**Function documentation template:**
+```typescript
+/**
+ * Brief one-line description of what the function does
+ * 
+ * Optional longer description with additional context,
+ * explaining the why and how, not just the what.
+ * 
+ * @param paramName - Description of parameter
+ * @param optionalParam - Description with default behavior
+ * @returns Description of return value
+ * @throws {ErrorType} When error occurs
+ * 
+ * @example
+ * ```typescript
+ * // Example usage showing typical case
+ * const result = functionName(arg1, arg2)
+ * ```
+ * 
+ * @example
+ * ```typescript
+ * // Example showing edge case
+ * const result = functionName(null, undefined)
+ * ```
+ * 
+ * @see RelatedFunction - For related functionality
+ * @deprecated Use newFunction instead since v2.0
+ */
+```
+
+**Component documentation template:**
+```typescript
+/**
+ * ComponentName - Brief description of component purpose
+ * 
+ * Longer description explaining when to use this component,
+ * any important behavioral notes, or design decisions.
+ * 
+ * @example
+ * ```tsx
+ * <ComponentName
+ *   requiredProp="value"
+ *   optionalProp={123}
+ * />
+ * ```
+ */
+```
+
+**Custom hook documentation template:**
+```typescript
+/**
+ * Custom hook description explaining what problem it solves
+ * 
+ * @param param1 - Description of first parameter
+ * @returns Object containing { value, setValue, isValid }
+ * 
+ * @example
+ * ```tsx
+ * function MyComponent() {
+ *   const { value, setValue, isValid } = useCustomHook('initial')
+ *   return <div>{value}</div>
+ * }
+ * ```
+ */
+```
+
+### Documentation Best Practices
+
+**Content guidelines:**
+- Write in present tense
+- Be concise but complete
+- Explain why, not just what
+- Include edge cases in examples
+- Document gotchas and limitations
+- Link to related documentation
+
+**Parameter documentation:**
+- Describe purpose and expected values
+- Note any constraints or validation
+- Specify optional with default values
+- Document object shapes inline
+- Use @param {Type} syntax for types
+
+**Return value documentation:**
+- Describe what is returned
+- Document all possible return types
+- Explain null/undefined returns
+- Document async return promises
+- Note side effects if any
+
+**Example guidelines:**
+- Show typical usage first
+- Include edge cases
+- Use realistic data
+- Keep examples short
+- Show multiple patterns when relevant
+
+---
+
+## Accessibility (a11y)
+
+### Core Principles
+
+**Semantic HTML:**
+- Use appropriate HTML elements for their purpose
+- Prefer button over div for clickable elements
+- Use form elements inside form tags
+- Implement proper heading hierarchy (h1-h6)
+- Use nav, main, article, aside appropriately
+
+**Keyboard Navigation:**
+- All interactive elements must be keyboard accessible
+- Implement logical tab order
+- Provide visible focus indicators
+- Support standard keyboard shortcuts
+- Trap focus in modals and dialogs
+
+**Screen Reader Support:**
+- Add descriptive ARIA labels
+- Use aria-describedby for additional context
+- Implement aria-live regions for dynamic content
+- Use aria-hidden to hide decorative elements
+- Provide alternative text for images
+
+### ARIA Best Practices
+
+**When to use ARIA:**
+- When semantic HTML is insufficient
+- For custom interactive widgets
+- To provide additional context
+- For dynamic content updates
+- To indicate current state
+
+**ARIA patterns:**
+- Use role attribute for custom widgets
+- Implement aria-expanded for collapsible content
+- Add aria-selected for tab interfaces
+- Use aria-checked for custom checkboxes
+- Implement aria-pressed for toggle buttons
+
+### Color and Contrast
+
+**WCAG Guidelines:**
+- Maintain 4.5:1 contrast for normal text
+- Maintain 3:1 contrast for large text
+- Ensure 3:1 contrast for UI components
+- Don't rely on color alone to convey information
+- Provide text labels in addition to color coding
+
+### Testing Accessibility
+
+**Automated testing:**
+- Use jest-axe for unit tests
+- Run Lighthouse accessibility audits
+- Use eslint-plugin-jsx-a11y
+- Test with axe DevTools browser extension
+
+**Manual testing:**
+- Navigate entire app with keyboard only
+- Test with screen readers (NVDA, JAWS, VoiceOver)
+- Verify zoom up to 200%
+- Test with reduced motion preferences
+- Validate form errors are announced
+
+---
+
+## Security Best Practices
+
+### Input Validation and Sanitization
+
+**Never trust user input:**
+- Validate all inputs on server-side
+- Sanitize data before storage
+- Use parameterized queries for database
+- Validate file uploads (type, size, content)
+- Implement rate limiting on endpoints
+
+**XSS Prevention:**
+- Never use dangerouslySetInnerHTML with user content
+- Sanitize HTML with DOMPurify if necessary
+- Use CSP headers to restrict inline scripts
+- Encode output based on context
+- Validate and sanitize all user-generated content
+
+### Authentication and Authorization
+
+**Authentication best practices:**
+- Use cookie-based authentication (withCredentials: true in Axios)
+- Implement automatic token refresh with `axios-auth-refresh`
+- Store user data in Zustand store with persistence
+- Use route guards (`requireAuth`, `redirectIfAuthenticated`) for protection
+- Handle token expiration gracefully (redirect to login)
+- Support multiple auth providers if needed
+
+**Authorization patterns:**
+- Verify permissions on every API request
+- Implement role-based access control (RBAC)
+- Use route guards (`beforeLoad`) for route-level protection
+- Check authorization server-side always (never trust client)
+- Follow principle of least privilege
+- Use `requireAuth` guard in protected routes
+- Use `redirectIfAuthenticated` guard in public auth routes
+
+### Data Protection
+
+**Sensitive data handling:**
+- Store secrets in environment variables
+- Never commit secrets to version control
+- Use .env.local for local development
+- Rotate API keys periodically
+- Encrypt sensitive data at rest
+
+**API Security:**
+- Use HTTPS everywhere
+- Implement request signing where appropriate
+- Rate limit all public endpoints
+- Validate content-type headers
+- Implement proper CORS policies
+
+### Dependency Security
+
+**Dependency management:**
+- Audit dependencies regularly (npm audit)
+- Keep dependencies updated
+- Review dependency licenses
+- Minimize dependency count
+- Use lock files for reproducible builds
+
+**Supply chain security:**
+- Verify package signatures
+- Use tools like Snyk or Dependabot
+- Review dependency changes before updating
+- Pin critical dependencies to specific versions
+- Monitor for security advisories
+
+---
+
+## Final Checklist
+
+### Before Committing
+- [ ] TypeScript compiles without errors
+- [ ] All tests pass (Vitest)
+- [ ] No console.logs or debugger statements
+- [ ] Code follows naming conventions
+- [ ] JSDoc added for public APIs
+- [ ] Accessibility requirements met
+- [ ] Error handling implemented
+- [ ] Loading states provided
+- [ ] Responsive design tested
+- [ ] Route guards properly implemented
+- [ ] Form validation working correctly
+- [ ] i18n messages extracted (if new translations added)
+
+### Before Deployment
+- [ ] Environment variables configured
+- [ ] Build succeeds (`npm run build`)
+- [ ] Route tree generated correctly
+- [ ] Lighthouse scores acceptable
+- [ ] Security audit passed
+- [ ] Performance metrics within targets
+- [ ] API base URL configured correctly
+- [ ] Error monitoring setup
+- [ ] Token refresh mechanism tested
+- [ ] All locales have translations
+- [ ] Rollback plan documented

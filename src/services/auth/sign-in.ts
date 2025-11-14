@@ -1,24 +1,26 @@
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate, useSearch } from '@tanstack/react-router'
-import type { AxiosResponse } from 'axios'
-import type { AuthResponseDto, SignInDto } from '@/packages/models'
-import { axios } from '@/packages/libs/axios.ts'
+import type { SignInDto } from '@/packages/models'
 import { queryClient } from '@/packages/libs/query-client.ts'
 import { useAuthStore } from '@/stores/auth'
 
 export const signIn = async (data: SignInDto) => {
-  const response = await axios.post<
-    AuthResponseDto,
-    AxiosResponse<AuthResponseDto>,
-    SignInDto
-  >('/auth/sign-in', data)
-  console.log(response)
+  // const response = await axios.post<
+  //   AuthResponseDto,
+  //   AxiosResponse<AuthResponseDto>,
+  //   SignInDto
+  // >('/auth/sign-in', data)
+  // console.log(response)
+  console.log('data', data)
+
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
   return {
     status: true,
     user: {
       name: 'Lương Vĩ Phú',
       picture: '',
-      username: 'Phu',
+      username: 'phu',
       email: 'lviphu@gmail.com',
       locale: 'en',
     },
