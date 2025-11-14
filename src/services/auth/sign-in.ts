@@ -45,7 +45,7 @@ export const useSignIn = () => {
 
       // Redirect to the original page or dashboard
       void navigate({
-        to: (search as { redirect?: string })?.redirect || '/dashboard',
+        to: (search as { redirect?: string }).redirect || '/dashboard',
       })
     },
   })

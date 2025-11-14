@@ -1,16 +1,10 @@
 import * as React from 'react'
-import {
-  BookOpen,
-  Bot,
-  LifeBuoy,
-  Send,
-  Settings2,
-  SquareTerminal,
-} from 'lucide-react'
-
+import { Bolt } from 'lucide-react'
+import { msg } from '@lingui/core/macro'
 import { NavMain } from './nav-main'
-import { NavSecondary } from './nav-secondary'
+import NavSecondary from './nav-secondary'
 import NavUser from './nav-user'
+import type { Navigation } from '@/types/navigation.types'
 import {
   Sidebar,
   SidebarContent,
@@ -21,110 +15,23 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { Logo } from '@/components/atoms/logo.tsx'
+import { NAVIGATION_ITEMS } from '@/constants/navigation.constants.ts'
+import { useAuthStore } from '@/stores/auth'
 
 const data = {
-  navMain: [
-    {
-      title: 'Playground',
-      url: '#',
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: 'History',
-          url: '#',
-        },
-        {
-          title: 'Starred',
-          url: '#',
-        },
-        {
-          title: 'Settings',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Models',
-      url: '#',
-      icon: Bot,
-      items: [
-        {
-          title: 'Genesis',
-          url: '#',
-        },
-        {
-          title: 'Explorer',
-          url: '#',
-        },
-        {
-          title: 'Quantum',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Documentation',
-      url: '#',
-      icon: BookOpen,
-      items: [
-        {
-          title: 'Introduction',
-          url: '#',
-        },
-        {
-          title: 'Get Started',
-          url: '#',
-        },
-        {
-          title: 'Tutorials',
-          url: '#',
-        },
-        {
-          title: 'Changelog',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Settings',
-      url: '#',
-      icon: Settings2,
-      items: [
-        {
-          title: 'General',
-          url: '#',
-        },
-        {
-          title: 'Team',
-          url: '#',
-        },
-        {
-          title: 'Billing',
-          url: '#',
-        },
-        {
-          title: 'Limits',
-          url: '#',
-        },
-      ],
-    },
-  ],
+  navMain: NAVIGATION_ITEMS,
   navSecondary: [
     {
-      title: 'Support',
-      url: '#',
-      icon: LifeBuoy,
+      id: 'config',
+      title: msg`Config`,
+      href: '/config',
+      icon: Bolt,
     },
-    {
-      title: 'Feedback',
-      url: '#',
-      icon: Send,
-    },
-  ],
+  ] as Navigation,
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { user } = useAuthStore()
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
@@ -146,9 +53,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser />
-      </SidebarFooter>
+      <SidebarFooter>{user && <NavUser user={user} />}</SidebarFooter>
     </Sidebar>
   )
 }

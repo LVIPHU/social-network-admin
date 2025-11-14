@@ -17,19 +17,47 @@ msgstr ""
 msgid "A user with this email address and/or username already exists."
 msgstr "A user with this email address and/or username already exists."
 
-#: src/components/templates/sign-in.form.tsx:121
+#: src/constants/navigation.constants.ts:53
+msgid "Admin Management"
+msgstr "Admin Management"
+
+#: src/components/organisms/app-sidebar/index.tsx:26
+msgid "Config"
+msgstr "Config"
+
+#: src/constants/navigation.constants.ts:35
+msgid "Content Moderation"
+msgstr "Content Moderation"
+
+#: src/constants/navigation.constants.ts:17
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: src/components/templates/sign-in.form.tsx:173
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: src/constants/navigation.constants.ts:41
+msgid "Donation Management"
+msgstr "Donation Management"
+
+#: src/components/templates/sign-in.form.tsx:133
 msgid "Enter password"
 msgstr "Enter password"
 
-#: src/components/templates/sign-in.form.tsx:74
+#: src/components/templates/sign-in.form.tsx:78
 msgid "Enter your username below to sign in to your account"
 msgstr "Enter your username below to sign in to your account"
 
-#: src/components/templates/sign-in.form.tsx:114
+#: src/constants/navigation.constants.ts:29
+msgid "Event Management"
+msgstr "Event Management"
+
+#: src/components/templates/sign-in.form.tsx:122
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
-#: src/components/templates/sign-in.form.tsx:138
+#: src/components/templates/sign-in.form.tsx:152
 msgid "Hide password"
 msgstr "Hide password"
 
@@ -49,33 +77,41 @@ msgstr "It looks like the verification token you provided is invalid. Please try
 msgid "It looks like your email address has already been verified."
 msgstr "It looks like your email address has already been verified."
 
-#: src/components/templates/sign-in.form.tsx:91
+#: src/components/templates/sign-in.form.tsx:99
 msgid "m@example.com"
 msgstr "m@example.com"
+
+#: src/constants/navigation.constants.ts:47
+msgid "NFT Management"
+msgstr "NFT Management"
 
 #: src/packages/libs/axios.ts:30
 msgid "Oops, the server returned an error."
 msgstr "Oops, the server returned an error."
 
-#: src/components/templates/sign-in.form.tsx:108
+#: src/components/templates/sign-in.form.tsx:116
 msgid "Password"
 msgstr "Password"
 
-#: src/components/templates/sign-in.form.tsx:138
+#: src/components/templates/sign-in.form.tsx:154
 msgid "Show password"
 msgstr "Show password"
 
-#: src/components/templates/sign-in.form.tsx:150
+#: src/components/templates/sign-in.form.tsx:168
 msgid "Sign in"
 msgstr "Sign in"
 
-#: src/components/templates/sign-in.form.tsx:71
+#: src/components/templates/sign-in.form.tsx:75
 msgid "Sign in to your account"
 msgstr "Sign in to your account"
 
-#: src/components/templates/sign-in.form.tsx:157
+#: src/components/templates/sign-in.form.tsx:175
 msgid "Sign up"
 msgstr "Sign up"
+
+#: src/components/templates/sign-in.form.tsx:168
+msgid "Signing in..."
+msgstr "Signing in..."
 
 #: src/services/errors/translate-error.ts:28
 msgid "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
@@ -89,6 +125,10 @@ msgstr "This email address is associated with an OAuth account. Please sign in w
 msgid "User does not have an associated 'secrets' record. Please report this issue on GitHub."
 msgstr "User does not have an associated 'secrets' record. Please report this issue on GitHub."
 
-#: src/components/templates/sign-in.form.tsx:85
+#: src/constants/navigation.constants.ts:23
+msgid "User Management"
+msgstr "User Management"
+
+#: src/components/templates/sign-in.form.tsx:89
 msgid "Username"
 msgstr "Username"

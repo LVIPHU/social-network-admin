@@ -17,19 +17,47 @@ msgstr ""
 msgid "A user with this email address and/or username already exists."
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:121
+#: src/constants/navigation.constants.ts:53
+msgid "Admin Management"
+msgstr ""
+
+#: src/components/organisms/app-sidebar/index.tsx:26
+msgid "Config"
+msgstr ""
+
+#: src/constants/navigation.constants.ts:35
+msgid "Content Moderation"
+msgstr ""
+
+#: src/constants/navigation.constants.ts:17
+msgid "Dashboard"
+msgstr ""
+
+#: src/components/templates/sign-in.form.tsx:173
+msgid "Don't have an account?"
+msgstr ""
+
+#: src/constants/navigation.constants.ts:41
+msgid "Donation Management"
+msgstr ""
+
+#: src/components/templates/sign-in.form.tsx:133
 msgid "Enter password"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:74
+#: src/components/templates/sign-in.form.tsx:78
 msgid "Enter your username below to sign in to your account"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:114
+#: src/constants/navigation.constants.ts:29
+msgid "Event Management"
+msgstr ""
+
+#: src/components/templates/sign-in.form.tsx:122
 msgid "Forgot your password?"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:138
+#: src/components/templates/sign-in.form.tsx:152
 msgid "Hide password"
 msgstr ""
 
@@ -49,32 +77,40 @@ msgstr ""
 msgid "It looks like your email address has already been verified."
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:91
+#: src/components/templates/sign-in.form.tsx:99
 msgid "m@example.com"
+msgstr ""
+
+#: src/constants/navigation.constants.ts:47
+msgid "NFT Management"
 msgstr ""
 
 #: src/packages/libs/axios.ts:30
 msgid "Oops, the server returned an error."
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:108
+#: src/components/templates/sign-in.form.tsx:116
 msgid "Password"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:138
+#: src/components/templates/sign-in.form.tsx:154
 msgid "Show password"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:150
+#: src/components/templates/sign-in.form.tsx:168
 msgid "Sign in"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:71
+#: src/components/templates/sign-in.form.tsx:75
 msgid "Sign in to your account"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:157
+#: src/components/templates/sign-in.form.tsx:175
 msgid "Sign up"
+msgstr ""
+
+#: src/components/templates/sign-in.form.tsx:168
+msgid "Signing in..."
 msgstr ""
 
 #: src/services/errors/translate-error.ts:28
@@ -89,6 +125,10 @@ msgstr ""
 msgid "User does not have an associated 'secrets' record. Please report this issue on GitHub."
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:85
+#: src/constants/navigation.constants.ts:23
+msgid "User Management"
+msgstr ""
+
+#: src/components/templates/sign-in.form.tsx:89
 msgid "Username"
 msgstr ""
