@@ -17,6 +17,10 @@ msgstr ""
 msgid "A user with this email address and/or username already exists."
 msgstr ""
 
+#: src/components/organisms/app-sidebar/nav-user.tsx:77
+msgid "Account"
+msgstr ""
+
 #: src/constants/navigation.constants.ts:53
 msgid "Admin Management"
 msgstr ""
@@ -33,7 +37,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:173
+#: src/components/templates/sign-in.form.tsx:171
 msgid "Don't have an account?"
 msgstr ""
 
@@ -41,11 +45,11 @@ msgstr ""
 msgid "Donation Management"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:133
+#: src/components/templates/sign-in.form.tsx:131
 msgid "Enter password"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:78
+#: src/components/templates/sign-in.form.tsx:76
 msgid "Enter your username below to sign in to your account"
 msgstr ""
 
@@ -53,11 +57,11 @@ msgstr ""
 msgid "Event Management"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:122
+#: src/components/templates/sign-in.form.tsx:120
 msgid "Forgot your password?"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:152
+#: src/components/templates/sign-in.form.tsx:150
 msgid "Hide password"
 msgstr ""
 
@@ -77,7 +81,7 @@ msgstr ""
 msgid "It looks like your email address has already been verified."
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:99
+#: src/components/templates/sign-in.form.tsx:97
 msgid "m@example.com"
 msgstr ""
 
@@ -85,31 +89,39 @@ msgstr ""
 msgid "NFT Management"
 msgstr ""
 
+#: src/components/organisms/app-sidebar/nav-user.tsx:81
+msgid "Notifications"
+msgstr ""
+
 #: src/packages/libs/axios.ts:30
 msgid "Oops, the server returned an error."
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:116
+#: src/components/templates/sign-in.form.tsx:114
 msgid "Password"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:154
+#: src/components/templates/sign-in.form.tsx:152
 msgid "Show password"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:168
+#: src/components/templates/sign-in.form.tsx:166
 msgid "Sign in"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:75
+#: src/components/templates/sign-in.form.tsx:73
 msgid "Sign in to your account"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:175
+#: src/components/organisms/app-sidebar/nav-user.tsx:87
+msgid "Sign out"
+msgstr ""
+
+#: src/components/templates/sign-in.form.tsx:173
 msgid "Sign up"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:168
+#: src/components/templates/sign-in.form.tsx:166
 msgid "Signing in..."
 msgstr ""
 
@@ -129,6 +141,6 @@ msgstr ""
 msgid "User Management"
 msgstr ""
 
-#: src/components/templates/sign-in.form.tsx:89
+#: src/components/templates/sign-in.form.tsx:87
 msgid "Username"
 msgstr ""

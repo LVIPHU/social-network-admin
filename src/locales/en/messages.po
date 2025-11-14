@@ -17,6 +17,10 @@ msgstr ""
 msgid "A user with this email address and/or username already exists."
 msgstr "A user with this email address and/or username already exists."
 
+#: src/components/organisms/app-sidebar/nav-user.tsx:77
+msgid "Account"
+msgstr "Account"
+
 #: src/constants/navigation.constants.ts:53
 msgid "Admin Management"
 msgstr "Admin Management"
@@ -33,7 +37,7 @@ msgstr "Content Moderation"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/components/templates/sign-in.form.tsx:173
+#: src/components/templates/sign-in.form.tsx:171
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
 
@@ -41,11 +45,11 @@ msgstr "Don't have an account?"
 msgid "Donation Management"
 msgstr "Donation Management"
 
-#: src/components/templates/sign-in.form.tsx:133
+#: src/components/templates/sign-in.form.tsx:131
 msgid "Enter password"
 msgstr "Enter password"
 
-#: src/components/templates/sign-in.form.tsx:78
+#: src/components/templates/sign-in.form.tsx:76
 msgid "Enter your username below to sign in to your account"
 msgstr "Enter your username below to sign in to your account"
 
@@ -53,11 +57,11 @@ msgstr "Enter your username below to sign in to your account"
 msgid "Event Management"
 msgstr "Event Management"
 
-#: src/components/templates/sign-in.form.tsx:122
+#: src/components/templates/sign-in.form.tsx:120
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
-#: src/components/templates/sign-in.form.tsx:152
+#: src/components/templates/sign-in.form.tsx:150
 msgid "Hide password"
 msgstr "Hide password"
 
@@ -77,7 +81,7 @@ msgstr "It looks like the verification token you provided is invalid. Please try
 msgid "It looks like your email address has already been verified."
 msgstr "It looks like your email address has already been verified."
 
-#: src/components/templates/sign-in.form.tsx:99
+#: src/components/templates/sign-in.form.tsx:97
 msgid "m@example.com"
 msgstr "m@example.com"
 
@@ -85,31 +89,39 @@ msgstr "m@example.com"
 msgid "NFT Management"
 msgstr "NFT Management"
 
+#: src/components/organisms/app-sidebar/nav-user.tsx:81
+msgid "Notifications"
+msgstr "Notifications"
+
 #: src/packages/libs/axios.ts:30
 msgid "Oops, the server returned an error."
 msgstr "Oops, the server returned an error."
 
-#: src/components/templates/sign-in.form.tsx:116
+#: src/components/templates/sign-in.form.tsx:114
 msgid "Password"
 msgstr "Password"
 
-#: src/components/templates/sign-in.form.tsx:154
+#: src/components/templates/sign-in.form.tsx:152
 msgid "Show password"
 msgstr "Show password"
 
-#: src/components/templates/sign-in.form.tsx:168
+#: src/components/templates/sign-in.form.tsx:166
 msgid "Sign in"
 msgstr "Sign in"
 
-#: src/components/templates/sign-in.form.tsx:75
+#: src/components/templates/sign-in.form.tsx:73
 msgid "Sign in to your account"
 msgstr "Sign in to your account"
 
-#: src/components/templates/sign-in.form.tsx:175
+#: src/components/organisms/app-sidebar/nav-user.tsx:87
+msgid "Sign out"
+msgstr "Sign out"
+
+#: src/components/templates/sign-in.form.tsx:173
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/templates/sign-in.form.tsx:168
+#: src/components/templates/sign-in.form.tsx:166
 msgid "Signing in..."
 msgstr "Signing in..."
 
@@ -129,6 +141,6 @@ msgstr "User does not have an associated 'secrets' record. Please report this is
 msgid "User Management"
 msgstr "User Management"
 
-#: src/components/templates/sign-in.form.tsx:89
+#: src/components/templates/sign-in.form.tsx:87
 msgid "Username"
 msgstr "Username"

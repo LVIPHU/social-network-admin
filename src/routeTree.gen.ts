@@ -16,7 +16,14 @@ import { Route as AuthSplatRouteImport } from './routes/auth/$'
 import { Route as AuthenticatedSplatRouteImport } from './routes/_authenticated/$'
 import { Route as AuthSignUpIndexRouteImport } from './routes/auth/sign-up/index'
 import { Route as AuthSignInIndexRouteImport } from './routes/auth/sign-in/index'
+import { Route as AuthenticatedUsersIndexRouteImport } from './routes/_authenticated/users/index'
+import { Route as AuthenticatedNftIndexRouteImport } from './routes/_authenticated/nft/index'
+import { Route as AuthenticatedEventsIndexRouteImport } from './routes/_authenticated/events/index'
+import { Route as AuthenticatedDonationsIndexRouteImport } from './routes/_authenticated/donations/index'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard/index'
+import { Route as AuthenticatedContentIndexRouteImport } from './routes/_authenticated/content/index'
+import { Route as AuthenticatedConfigIndexRouteImport } from './routes/_authenticated/config/index'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
 
 const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/auth',
@@ -52,19 +59,65 @@ const AuthSignInIndexRoute = AuthSignInIndexRouteImport.update({
   path: '/sign-in/',
   getParentRoute: () => AuthRouteRoute,
 } as any)
+const AuthenticatedUsersIndexRoute = AuthenticatedUsersIndexRouteImport.update({
+  id: '/users/',
+  path: '/users/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNftIndexRoute = AuthenticatedNftIndexRouteImport.update({
+  id: '/nft/',
+  path: '/nft/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedEventsIndexRoute =
+  AuthenticatedEventsIndexRouteImport.update({
+    id: '/events/',
+    path: '/events/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDonationsIndexRoute =
+  AuthenticatedDonationsIndexRouteImport.update({
+    id: '/donations/',
+    path: '/donations/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedDashboardIndexRoute =
   AuthenticatedDashboardIndexRouteImport.update({
     id: '/dashboard/',
     path: '/dashboard/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedContentIndexRoute =
+  AuthenticatedContentIndexRouteImport.update({
+    id: '/content/',
+    path: '/content/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedConfigIndexRoute =
+  AuthenticatedConfigIndexRouteImport.update({
+    id: '/config/',
+    path: '/config/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRouteRouteWithChildren
   '/$': typeof AuthenticatedSplatRoute
   '/auth/$': typeof AuthSplatRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/config': typeof AuthenticatedConfigIndexRoute
+  '/content': typeof AuthenticatedContentIndexRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
+  '/donations': typeof AuthenticatedDonationsIndexRoute
+  '/events': typeof AuthenticatedEventsIndexRoute
+  '/nft': typeof AuthenticatedNftIndexRoute
+  '/users': typeof AuthenticatedUsersIndexRoute
   '/auth/sign-in': typeof AuthSignInIndexRoute
   '/auth/sign-up': typeof AuthSignUpIndexRoute
 }
@@ -73,7 +126,14 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRouteRouteWithChildren
   '/$': typeof AuthenticatedSplatRoute
   '/auth/$': typeof AuthSplatRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/config': typeof AuthenticatedConfigIndexRoute
+  '/content': typeof AuthenticatedContentIndexRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
+  '/donations': typeof AuthenticatedDonationsIndexRoute
+  '/events': typeof AuthenticatedEventsIndexRoute
+  '/nft': typeof AuthenticatedNftIndexRoute
+  '/users': typeof AuthenticatedUsersIndexRoute
   '/auth/sign-in': typeof AuthSignInIndexRoute
   '/auth/sign-up': typeof AuthSignUpIndexRoute
 }
@@ -84,7 +144,14 @@ export interface FileRoutesById {
   '/auth': typeof AuthRouteRouteWithChildren
   '/_authenticated/$': typeof AuthenticatedSplatRoute
   '/auth/$': typeof AuthSplatRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/config/': typeof AuthenticatedConfigIndexRoute
+  '/_authenticated/content/': typeof AuthenticatedContentIndexRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
+  '/_authenticated/donations/': typeof AuthenticatedDonationsIndexRoute
+  '/_authenticated/events/': typeof AuthenticatedEventsIndexRoute
+  '/_authenticated/nft/': typeof AuthenticatedNftIndexRoute
+  '/_authenticated/users/': typeof AuthenticatedUsersIndexRoute
   '/auth/sign-in/': typeof AuthSignInIndexRoute
   '/auth/sign-up/': typeof AuthSignUpIndexRoute
 }
@@ -95,7 +162,14 @@ export interface FileRouteTypes {
     | '/auth'
     | '/$'
     | '/auth/$'
+    | '/admin'
+    | '/config'
+    | '/content'
     | '/dashboard'
+    | '/donations'
+    | '/events'
+    | '/nft'
+    | '/users'
     | '/auth/sign-in'
     | '/auth/sign-up'
   fileRoutesByTo: FileRoutesByTo
@@ -104,7 +178,14 @@ export interface FileRouteTypes {
     | '/auth'
     | '/$'
     | '/auth/$'
+    | '/admin'
+    | '/config'
+    | '/content'
     | '/dashboard'
+    | '/donations'
+    | '/events'
+    | '/nft'
+    | '/users'
     | '/auth/sign-in'
     | '/auth/sign-up'
   id:
@@ -114,7 +195,14 @@ export interface FileRouteTypes {
     | '/auth'
     | '/_authenticated/$'
     | '/auth/$'
+    | '/_authenticated/admin/'
+    | '/_authenticated/config/'
+    | '/_authenticated/content/'
     | '/_authenticated/dashboard/'
+    | '/_authenticated/donations/'
+    | '/_authenticated/events/'
+    | '/_authenticated/nft/'
+    | '/_authenticated/users/'
     | '/auth/sign-in/'
     | '/auth/sign-up/'
   fileRoutesById: FileRoutesById
@@ -176,6 +264,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthSignInIndexRouteImport
       parentRoute: typeof AuthRouteRoute
     }
+    '/_authenticated/users/': {
+      id: '/_authenticated/users/'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof AuthenticatedUsersIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/nft/': {
+      id: '/_authenticated/nft/'
+      path: '/nft'
+      fullPath: '/nft'
+      preLoaderRoute: typeof AuthenticatedNftIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/events/': {
+      id: '/_authenticated/events/'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof AuthenticatedEventsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/donations/': {
+      id: '/_authenticated/donations/'
+      path: '/donations'
+      fullPath: '/donations'
+      preLoaderRoute: typeof AuthenticatedDonationsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard/': {
       id: '/_authenticated/dashboard/'
       path: '/dashboard'
@@ -183,17 +299,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/content/': {
+      id: '/_authenticated/content/'
+      path: '/content'
+      fullPath: '/content'
+      preLoaderRoute: typeof AuthenticatedContentIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/config/': {
+      id: '/_authenticated/config/'
+      path: '/config'
+      fullPath: '/config'
+      preLoaderRoute: typeof AuthenticatedConfigIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedSplatRoute: typeof AuthenticatedSplatRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+  AuthenticatedConfigIndexRoute: typeof AuthenticatedConfigIndexRoute
+  AuthenticatedContentIndexRoute: typeof AuthenticatedContentIndexRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
+  AuthenticatedDonationsIndexRoute: typeof AuthenticatedDonationsIndexRoute
+  AuthenticatedEventsIndexRoute: typeof AuthenticatedEventsIndexRoute
+  AuthenticatedNftIndexRoute: typeof AuthenticatedNftIndexRoute
+  AuthenticatedUsersIndexRoute: typeof AuthenticatedUsersIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSplatRoute: AuthenticatedSplatRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+  AuthenticatedConfigIndexRoute: AuthenticatedConfigIndexRoute,
+  AuthenticatedContentIndexRoute: AuthenticatedContentIndexRoute,
   AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
+  AuthenticatedDonationsIndexRoute: AuthenticatedDonationsIndexRoute,
+  AuthenticatedEventsIndexRoute: AuthenticatedEventsIndexRoute,
+  AuthenticatedNftIndexRoute: AuthenticatedNftIndexRoute,
+  AuthenticatedUsersIndexRoute: AuthenticatedUsersIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

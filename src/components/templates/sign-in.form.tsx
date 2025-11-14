@@ -1,9 +1,8 @@
 import { Trans } from '@lingui/react/macro'
 import { useForm } from '@tanstack/react-form'
-import { useLingui } from '@lingui/react'
+import { t } from '@lingui/core/macro'
 import { useState } from 'react'
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
-import { msg } from '@lingui/core/macro'
 import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import {
@@ -33,7 +32,6 @@ export default function SignInForm({
   className,
   ...props
 }: React.ComponentProps<'form'>) {
-  const { i18n } = useLingui()
   const [showPassword, setShowPassword] = useState(false)
   const { signIn, loading } = useSignIn()
 
@@ -96,7 +94,7 @@ export default function SignInForm({
                   onChange={(e) => field.handleChange(e.target.value)}
                   type="text"
                   aria-invalid={isInvalid}
-                  placeholder={i18n._(msg`m@example.com`)}
+                  placeholder={t`m@example.com`}
                   autoComplete="off"
                 />
                 {isInvalid && <FieldError errors={field.state.meta.errors} />}
@@ -130,7 +128,7 @@ export default function SignInForm({
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(e.target.value)}
                     type={showPassword ? 'text' : 'password'}
-                    placeholder={i18n._(msg`Enter password`)}
+                    placeholder={t`Enter password`}
                     aria-invalid={isInvalid}
                     autoComplete="off"
                   />

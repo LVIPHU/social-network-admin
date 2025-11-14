@@ -1,4 +1,5 @@
 import { BadgeCheck, Bell, ChevronsUpDown, LogOut } from 'lucide-react'
+import { Trans } from '@lingui/react/macro'
 import type { UserDto } from '@/packages/models'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -16,6 +17,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
+import { useSignOut } from '@/services/auth/sign-out.ts'
 
 interface NavUserProps {
   user: UserDto
@@ -23,6 +25,9 @@ interface NavUserProps {
 
 export default function NavUser({ user }: NavUserProps) {
   const { isMobile } = useSidebar()
+  const { signOut } = useSignOut()
+
+  const onSignOut = () => signOut()
 
   return (
     <SidebarMenu>
@@ -69,17 +74,17 @@ export default function NavUser({ user }: NavUserProps) {
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <BadgeCheck />
-                Account
+                <Trans>Account</Trans>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Bell />
-                Notifications
+                <Trans>Notifications</Trans>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={onSignOut}>
               <LogOut />
-              Log out
+              <Trans>Sign out</Trans>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

@@ -9,14 +9,12 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 
-interface NavSecondaryProps extends React.ComponentPropsWithoutRef<typeof SidebarGroup>{
+interface NavSecondaryProps
+  extends React.ComponentPropsWithoutRef<typeof SidebarGroup> {
   items: Navigation
 }
 
-export default function NavSecondary({
-  items,
-  ...props
-} : NavSecondaryProps) {
+export default function NavSecondary({ items, ...props }: NavSecondaryProps) {
   const { i18n } = useLingui()
   return (
     <SidebarGroup {...props}>

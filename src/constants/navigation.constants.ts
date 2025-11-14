@@ -5,8 +5,8 @@ import {
   ImageIcon,
   LayoutDashboardIcon,
   MessageSquareIcon,
-  UsersRoundIcon,
   UserStarIcon,
+  UsersRoundIcon,
 } from 'lucide-react'
 import type { Navigation } from '@/types/navigation.types.ts'
 
