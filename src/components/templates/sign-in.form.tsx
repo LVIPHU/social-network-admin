@@ -13,19 +13,19 @@ import {
   FieldLabel,
 } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { cn } from '@/packages/utils/styles.ts'
+import { cn } from '@/packages/utils/styles'
 import { signInSchema } from '@/packages/models'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from '@/components/ui/input-group.tsx'
+} from '@/components/ui/input-group'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip.tsx'
+} from '@/components/ui/tooltip'
 import { useSignIn } from '@/services/auth/sign-in'
 
 export default function SignInForm({

@@ -19,7 +19,7 @@ export interface NavItem {
 }
 
 export interface NavSection extends Omit<NavItem, 'description'> {
-  readonly isActive?: boolean
+  readonly isCollapsed?: boolean
   readonly items?: ReadonlyArray<NavItem>
 }
 

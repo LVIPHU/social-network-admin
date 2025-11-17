@@ -8,7 +8,7 @@ import type { ErrorMessage } from '@/packages/utils/error'
 import { USER_KEY } from '@/constants/query-keys.constants'
 import { translateError } from '@/services/errors/translate-error'
 import { refreshToken } from '@/services/auth'
-import { deepSearchAndParseDates } from '@/packages/utils/date.ts'
+import { deepSearchAndParseDates } from '@/packages/utils/date'
 import { router } from '@/main'
 
 export const axios = _axios.create({ baseURL: '/api', withCredentials: true })

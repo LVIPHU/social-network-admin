@@ -1,10 +1,6 @@
 import * as React from 'react'
-import { Bolt } from 'lucide-react'
-import { msg } from '@lingui/core/macro'
-import { NavMain } from './nav-main'
-import NavSecondary from './nav-secondary'
+import NavMain from './nav-main'
 import NavUser from './nav-user'
-import type { Navigation } from '@/types/navigation.types'
 import {
   Sidebar,
   SidebarContent,
@@ -14,32 +10,23 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
-import { Logo } from '@/components/atoms/logo.tsx'
-import { NAVIGATION_ITEMS } from '@/constants/navigation.constants.ts'
+import { Logo } from '@/components/atoms/logo'
+import {
+  NAVIGATION_ITEMS,
+  USER_NAVIGATION_ITEMS,
+} from '@/constants/navigation.constants'
 import { useAuthStore } from '@/stores/auth'
-
-const data = {
-  navMain: NAVIGATION_ITEMS,
-  navSecondary: [
-    {
-      id: 'config',
-      title: msg`Config`,
-      href: '/config',
-      icon: Bolt,
-    },
-  ] as Navigation,
-}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user } = useAuthStore()
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar collapsible='icon' variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="">
-                <Logo size={32} />
+                <Logo />
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">TBC Admin</span>
                   <span className="truncate text-xs">Social Network</span>
@@ -50,10 +37,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain items={NAVIGATION_ITEMS} />
       </SidebarContent>
-      <SidebarFooter>{user && <NavUser user={user} />}</SidebarFooter>
+      <SidebarFooter>
+        {user && <NavUser user={user} items={USER_NAVIGATION_ITEMS} />}
+      </SidebarFooter>
     </Sidebar>
   )
 }

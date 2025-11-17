@@ -17,12 +17,12 @@ import { Route as AuthenticatedSplatRouteImport } from './routes/_authenticated/
 import { Route as AuthSignUpIndexRouteImport } from './routes/auth/sign-up/index'
 import { Route as AuthSignInIndexRouteImport } from './routes/auth/sign-in/index'
 import { Route as AuthenticatedUsersIndexRouteImport } from './routes/_authenticated/users/index'
+import { Route as AuthenticatedSettingsIndexRouteImport } from './routes/_authenticated/settings/index'
 import { Route as AuthenticatedNftIndexRouteImport } from './routes/_authenticated/nft/index'
 import { Route as AuthenticatedEventsIndexRouteImport } from './routes/_authenticated/events/index'
 import { Route as AuthenticatedDonationsIndexRouteImport } from './routes/_authenticated/donations/index'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard/index'
 import { Route as AuthenticatedContentIndexRouteImport } from './routes/_authenticated/content/index'
-import { Route as AuthenticatedConfigIndexRouteImport } from './routes/_authenticated/config/index'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
 
 const AuthRouteRoute = AuthRouteRouteImport.update({
@@ -64,6 +64,12 @@ const AuthenticatedUsersIndexRoute = AuthenticatedUsersIndexRouteImport.update({
   path: '/users/',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedSettingsIndexRoute =
+  AuthenticatedSettingsIndexRouteImport.update({
+    id: '/settings/',
+    path: '/settings/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedNftIndexRoute = AuthenticatedNftIndexRouteImport.update({
   id: '/nft/',
   path: '/nft/',
@@ -93,12 +99,6 @@ const AuthenticatedContentIndexRoute =
     path: '/content/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedConfigIndexRoute =
-  AuthenticatedConfigIndexRouteImport.update({
-    id: '/config/',
-    path: '/config/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
 const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
@@ -111,12 +111,12 @@ export interface FileRoutesByFullPath {
   '/$': typeof AuthenticatedSplatRoute
   '/auth/$': typeof AuthSplatRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
-  '/config': typeof AuthenticatedConfigIndexRoute
   '/content': typeof AuthenticatedContentIndexRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
   '/donations': typeof AuthenticatedDonationsIndexRoute
   '/events': typeof AuthenticatedEventsIndexRoute
   '/nft': typeof AuthenticatedNftIndexRoute
+  '/settings': typeof AuthenticatedSettingsIndexRoute
   '/users': typeof AuthenticatedUsersIndexRoute
   '/auth/sign-in': typeof AuthSignInIndexRoute
   '/auth/sign-up': typeof AuthSignUpIndexRoute
@@ -127,12 +127,12 @@ export interface FileRoutesByTo {
   '/$': typeof AuthenticatedSplatRoute
   '/auth/$': typeof AuthSplatRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
-  '/config': typeof AuthenticatedConfigIndexRoute
   '/content': typeof AuthenticatedContentIndexRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
   '/donations': typeof AuthenticatedDonationsIndexRoute
   '/events': typeof AuthenticatedEventsIndexRoute
   '/nft': typeof AuthenticatedNftIndexRoute
+  '/settings': typeof AuthenticatedSettingsIndexRoute
   '/users': typeof AuthenticatedUsersIndexRoute
   '/auth/sign-in': typeof AuthSignInIndexRoute
   '/auth/sign-up': typeof AuthSignUpIndexRoute
@@ -145,12 +145,12 @@ export interface FileRoutesById {
   '/_authenticated/$': typeof AuthenticatedSplatRoute
   '/auth/$': typeof AuthSplatRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
-  '/_authenticated/config/': typeof AuthenticatedConfigIndexRoute
   '/_authenticated/content/': typeof AuthenticatedContentIndexRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
   '/_authenticated/donations/': typeof AuthenticatedDonationsIndexRoute
   '/_authenticated/events/': typeof AuthenticatedEventsIndexRoute
   '/_authenticated/nft/': typeof AuthenticatedNftIndexRoute
+  '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexRoute
   '/auth/sign-in/': typeof AuthSignInIndexRoute
   '/auth/sign-up/': typeof AuthSignUpIndexRoute
@@ -163,12 +163,12 @@ export interface FileRouteTypes {
     | '/$'
     | '/auth/$'
     | '/admin'
-    | '/config'
     | '/content'
     | '/dashboard'
     | '/donations'
     | '/events'
     | '/nft'
+    | '/settings'
     | '/users'
     | '/auth/sign-in'
     | '/auth/sign-up'
@@ -179,12 +179,12 @@ export interface FileRouteTypes {
     | '/$'
     | '/auth/$'
     | '/admin'
-    | '/config'
     | '/content'
     | '/dashboard'
     | '/donations'
     | '/events'
     | '/nft'
+    | '/settings'
     | '/users'
     | '/auth/sign-in'
     | '/auth/sign-up'
@@ -196,12 +196,12 @@ export interface FileRouteTypes {
     | '/_authenticated/$'
     | '/auth/$'
     | '/_authenticated/admin/'
-    | '/_authenticated/config/'
     | '/_authenticated/content/'
     | '/_authenticated/dashboard/'
     | '/_authenticated/donations/'
     | '/_authenticated/events/'
     | '/_authenticated/nft/'
+    | '/_authenticated/settings/'
     | '/_authenticated/users/'
     | '/auth/sign-in/'
     | '/auth/sign-up/'
@@ -271,6 +271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedUsersIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/settings/': {
+      id: '/_authenticated/settings/'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/nft/': {
       id: '/_authenticated/nft/'
       path: '/nft'
@@ -306,13 +313,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedContentIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/config/': {
-      id: '/_authenticated/config/'
-      path: '/config'
-      fullPath: '/config'
-      preLoaderRoute: typeof AuthenticatedConfigIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_authenticated/admin/': {
       id: '/_authenticated/admin/'
       path: '/admin'
@@ -326,24 +326,24 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedSplatRoute: typeof AuthenticatedSplatRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
-  AuthenticatedConfigIndexRoute: typeof AuthenticatedConfigIndexRoute
   AuthenticatedContentIndexRoute: typeof AuthenticatedContentIndexRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
   AuthenticatedDonationsIndexRoute: typeof AuthenticatedDonationsIndexRoute
   AuthenticatedEventsIndexRoute: typeof AuthenticatedEventsIndexRoute
   AuthenticatedNftIndexRoute: typeof AuthenticatedNftIndexRoute
+  AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
   AuthenticatedUsersIndexRoute: typeof AuthenticatedUsersIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSplatRoute: AuthenticatedSplatRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
-  AuthenticatedConfigIndexRoute: AuthenticatedConfigIndexRoute,
   AuthenticatedContentIndexRoute: AuthenticatedContentIndexRoute,
   AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
   AuthenticatedDonationsIndexRoute: AuthenticatedDonationsIndexRoute,
   AuthenticatedEventsIndexRoute: AuthenticatedEventsIndexRoute,
   AuthenticatedNftIndexRoute: AuthenticatedNftIndexRoute,
+  AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
   AuthenticatedUsersIndexRoute: AuthenticatedUsersIndexRoute,
 }
 

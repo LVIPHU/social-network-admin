@@ -1,18 +1,24 @@
 import { Outlet } from '@tanstack/react-router'
 import { Logo } from '@/components/atoms/logo.tsx'
+import { LocaleSwitch } from '@/components/atoms/locale-switch.tsx'
+import { ThemeSwitch } from '@/components/atoms/theme-switch.tsx'
 
 export function AuthLayout() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
-        <div className="flex justify-center gap-2 md:justify-start">
+        <div className="flex justify-between items-center">
           <a href="#" className="flex items-center gap-2 font-medium">
-            <Logo size={48} />
+            <Logo />
             TBC Admin
           </a>
+          <div className="space-x-2 text-right lg:p-12 lg:text-center">
+            <LocaleSwitch />
+            <ThemeSwitch />
+          </div>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full max-w-xs">
+          <div className="w-full max-w-sm">
             <Outlet />
           </div>
         </div>

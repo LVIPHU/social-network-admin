@@ -1,4 +1,4 @@
-import { cn } from '@/packages/utils/styles.ts'
+import { cn } from '@/packages/utils/styles'
 
 type Props = {
   size?: number

@@ -1,4 +1,9 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useLayoutEffect, useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+import { useMediaQuery } from '@/hooks/use-media-query'
+import { useLocalStorage } from '@/hooks/use-local-storage'
+
+const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)'
 
 type Theme = 'dark' | 'light' | 'system'
 
@@ -10,7 +15,9 @@ type ThemeProviderProps = {
 
 type ThemeProviderState = {
   theme: Theme
-  setTheme: (theme: Theme) => void
+  isDarkMode: boolean
+  toggleTheme: () => void
+  setTheme: Dispatch<SetStateAction<Theme>>
 }
 
 const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
@@ -20,37 +27,60 @@ const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
 export function ThemeProvider({
   children,
   defaultTheme = 'system',
-  storageKey = 'vite-ui-theme',
+  storageKey = 'theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-  )
+  const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY)
+  const [isDarkMode, setDarkMode] = useState<boolean>(isDarkOS)
+  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, defaultTheme)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = window.document.documentElement
-
+    root.classList.add("disable-transitions");
     root.classList.remove('light', 'dark')
 
     if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-        .matches
-        ? 'dark'
-        : 'light'
+      root.classList.add(isDarkOS ? 'dark' : 'light')
+    } else {
+      root.classList.add(theme)
+    }
+    requestAnimationFrame(() => {
+      root.classList.remove("disable-transitions");
+    });
+  }, [theme, isDarkOS])
 
-      root.classList.add(systemTheme)
-      return
+  useEffect(() => {
+    switch (theme) {
+      case 'light': {
+        setDarkMode(false)
+        break
+      }
+      case 'system': {
+        setDarkMode(isDarkOS)
+        break
+      }
+      case 'dark': {
+        setDarkMode(true)
+        break
+      }
+    }
+  }, [theme, isDarkOS])
+
+  function toggleTheme() {
+    const toggleDict: Record<Theme, Theme> = {
+      light: 'system',
+      system: 'dark',
+      dark: 'light',
     }
 
-    root.classList.add(theme)
-  }, [theme])
+    setTheme((prevMode) => toggleDict[prevMode])
+  }
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
-    },
+    setTheme,
+    isDarkMode,
+    toggleTheme,
   }
 
   return (

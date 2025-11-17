@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { cn } from '@/packages/utils/styles.ts'
+import { motion } from 'framer-motion'
+import { cn } from '@/packages/utils/styles'
 import { forwardRefWithAs } from '@/packages/utils/misc/forward-ref-with-as'
 
 export interface HeadingProps {
@@ -14,9 +15,11 @@ const Heading = forwardRefWithAs<HeadingProps, 'div'>(function Heading(
   ref,
 ) {
   return (
-    <Comp id={id} {...props} ref={ref} className={cn('', className)}>
-      {children}
-    </Comp>
+    <motion.div animate={{ opacity: 1, x: 0 }} initial={{ opacity: 0, x: 50 }}>
+      <Comp id={id} {...props} ref={ref} className={cn('', className)}>
+        {children}
+      </Comp>
+    </motion.div>
   )
 })
 

@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate, useSearch } from '@tanstack/react-router'
 import type { SignInDto } from '@/packages/models'
-import { queryClient } from '@/packages/libs/query-client.ts'
+import { queryClient } from '@/packages/libs/query-client'
 import { useAuthStore } from '@/stores/auth'
 
 export const signIn = async (data: SignInDto) => {
@@ -29,9 +29,8 @@ export const signIn = async (data: SignInDto) => {
 
 export const useSignIn = () => {
   const navigate = useNavigate()
-  const setUser = useAuthStore((state) => state.setUser)
-  // Get redirect parameter from sign-in route
   const search = useSearch({ from: '/auth/sign-in/' })
+  const setUser = useAuthStore((state) => state.setUser)
 
   const {
     error,

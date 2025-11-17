@@ -1,5 +1,8 @@
 import { msg } from '@lingui/core/macro'
 import {
+  BadgeCheckIcon,
+  BellIcon,
+  BoltIcon,
   CalendarIcon,
   CircleDollarSignIcon,
   ImageIcon,
@@ -8,7 +11,7 @@ import {
   UserStarIcon,
   UsersRoundIcon,
 } from 'lucide-react'
-import type { Navigation } from '@/types/navigation.types.ts'
+import type { NavItem, Navigation } from '@/types/navigation.types'
 
 export const NAVIGATION_ITEMS: Navigation = [
   {
@@ -24,33 +27,54 @@ export const NAVIGATION_ITEMS: Navigation = [
     icon: UsersRoundIcon,
   },
   {
-    id: 'Event Management',
+    id: 'event-management',
     href: '/events',
     title: msg`Event Management`,
     icon: CalendarIcon,
   },
   {
-    id: 'Content Moderation',
+    id: 'content-moderation',
     href: '/content',
     title: msg`Content Moderation`,
     icon: MessageSquareIcon,
   },
   {
-    id: 'Donation Management',
+    id: 'donation-management',
     href: '/donations',
     title: msg`Donation Management`,
     icon: CircleDollarSignIcon,
   },
   {
-    id: 'NFT Management',
+    id: 'nft-management',
     href: '/nft',
     title: msg`NFT Management`,
     icon: ImageIcon,
   },
   {
-    id: 'Admin Management',
+    id: 'admin-management',
     href: '/admin',
     title: msg`Admin Management`,
     icon: UserStarIcon,
+  },
+]
+
+export const USER_NAVIGATION_ITEMS: Array<NavItem> = [
+  {
+    id: 'settings',
+    href: '/settings',
+    title: msg`Settings`,
+    icon: BoltIcon,
+  },
+  {
+    id: 'account',
+    href: '/account',
+    title: msg`Account`,
+    icon: BadgeCheckIcon,
+  },
+  {
+    id: 'notifications',
+    href: '/notifications',
+    title: msg`Notifications`,
+    icon: BellIcon,
   },
 ]

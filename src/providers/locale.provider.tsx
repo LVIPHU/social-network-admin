@@ -6,7 +6,7 @@ import { I18nProvider } from '@lingui/react'
 import { useEffect } from 'react'
 
 import { useAuthStore } from '@/stores/auth'
-import { languages } from '@/packages/utils/language.ts'
+import { languages } from '@/constants/language.constants'
 import { defaultLocale, dynamicActivate } from '@/packages/libs/lingui'
 
 type Props = {

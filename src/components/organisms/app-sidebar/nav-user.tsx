@@ -1,6 +1,9 @@
-import { BadgeCheck, Bell, ChevronsUpDown, LogOut } from 'lucide-react'
+import { ChevronsUpDownIcon, LogOutIcon } from 'lucide-react'
 import { Trans } from '@lingui/react/macro'
+import { Link } from '@tanstack/react-router'
+import { useLingui } from '@lingui/react'
 import type { UserDto } from '@/packages/models'
+import type { NavItem } from '@/types/navigation.types.ts'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -17,13 +20,15 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
-import { useSignOut } from '@/services/auth/sign-out.ts'
+import { useSignOut } from '@/services/auth/sign-out'
 
 interface NavUserProps {
   user: UserDto
+  items: Array<NavItem>
 }
 
-export default function NavUser({ user }: NavUserProps) {
+export default function NavUser({ user, items }: NavUserProps) {
+  const { i18n } = useLingui()
   const { isMobile } = useSidebar()
   const { signOut } = useSignOut()
 
@@ -40,13 +45,12 @@ export default function NavUser({ user }: NavUserProps) {
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.picture || undefined} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">TBC</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
-                <span className="truncate text-xs">{user.email}</span>
               </div>
-              <ChevronsUpDown className="ml-auto size-4" />
+              <ChevronsUpDownIcon className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -62,7 +66,7 @@ export default function NavUser({ user }: NavUserProps) {
                     src={user.picture || undefined}
                     alt={user.name}
                   />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">TBC</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>
@@ -72,18 +76,18 @@ export default function NavUser({ user }: NavUserProps) {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck />
-                <Trans>Account</Trans>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                <Trans>Notifications</Trans>
-              </DropdownMenuItem>
+              {items.map((item) => (
+                <Link key={item.id} to={item.href} aria-label={item.id}>
+                  <DropdownMenuItem>
+                    {item.icon ? <item.icon /> : null}
+                    <p>{i18n._(item.title)}</p>
+                  </DropdownMenuItem>
+                </Link>
+              ))}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={onSignOut}>
-              <LogOut />
+              <LogOutIcon />
               <Trans>Sign out</Trans>
             </DropdownMenuItem>
           </DropdownMenuContent>
