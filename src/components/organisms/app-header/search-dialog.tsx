@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SearchIcon } from 'lucide-react'
 import { useLingui } from '@lingui/react'
-import type { NavSection } from '@/types/navigation.types.ts'
+import type { NavSection } from '@/types/navigation.type.ts'
 import { Button } from '@/components/ui/button'
 import {
   CommandDialog,

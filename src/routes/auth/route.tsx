@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { AuthLayout } from '@/components/templates/auth.layout'
+import { AuthLayout } from '@/components/templates/layouts/auth.layout.tsx'
 import { redirectIfAuthenticated } from '@/packages/guards'
 
 export const Route = createFileRoute('/auth')({

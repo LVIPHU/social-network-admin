@@ -11,7 +11,7 @@ import {
   UserStarIcon,
   UsersRoundIcon,
 } from 'lucide-react'
-import type { NavItem, Navigation } from '@/types/navigation.types'
+import type { NavItem, Navigation } from '@/types/navigation.type'
 
 export const NAVIGATION_ITEMS: Navigation = [
   {

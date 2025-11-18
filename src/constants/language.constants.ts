@@ -6,6 +6,7 @@ export type Language = {
   locale: string
   editorCode: string
   progress?: number
+  currency?: string
 }
 
 export const languages: Array<Language> = [
@@ -15,6 +16,7 @@ export const languages: Array<Language> = [
     subname: 'English',
     editorCode: 'en',
     locale: 'en-US',
+    currency: 'USD',
   },
   {
     id: 'vi',
@@ -22,6 +24,7 @@ export const languages: Array<Language> = [
     subname: 'Tiếng Việt',
     editorCode: 'vi',
     locale: 'vi-VN',
+    currency: 'VND',
   },
   {
     id: 'zh-Hans',
@@ -29,6 +32,7 @@ export const languages: Array<Language> = [
     subname: '简体中文',
     editorCode: 'zh-Hans',
     locale: 'zh-Hans',
+    currency: 'CNY',
   },
   {
     id: 'zh-Hant',
@@ -36,5 +40,6 @@ export const languages: Array<Language> = [
     subname: '繁體中文',
     editorCode: 'zh-Hant',
     locale: 'zh-Hant',
+    currency: 'TWD',
   },
 ]

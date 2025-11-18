@@ -1,4 +1,4 @@
-import type { Navigation } from '@/types/navigation.types'
+import type { Navigation } from '@/types/navigation.type'
 import { SidebarGroup, SidebarMenu } from '@/components/ui/sidebar'
 import NavItem from '@/components/organisms/app-sidebar/nav-item.tsx'
 

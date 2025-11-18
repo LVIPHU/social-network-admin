@@ -10,7 +10,7 @@ export function AdminLayout() {
       <AppSidebar />
       <SidebarInset>
         <AppHeader />
-        <main className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <main className="@container/main flex flex-1 flex-col gap-4 md:gap-6 p-4 pt-0">
           <Outlet />
         </main>
       </SidebarInset>

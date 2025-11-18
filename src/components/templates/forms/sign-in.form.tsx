@@ -4,29 +4,29 @@ import { t } from '@lingui/core/macro'
 import { useState } from 'react'
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button.tsx'
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from '@/components/ui/field'
-import { Input } from '@/components/ui/input'
-import { cn } from '@/packages/utils/styles'
+} from '@/components/ui/field.tsx'
+import { Input } from '@/components/ui/input.tsx'
+import { cn } from '@/packages/utils/styles.ts'
 import { signInSchema } from '@/packages/models'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from '@/components/ui/input-group'
+} from '@/components/ui/input-group.tsx'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { useSignIn } from '@/services/auth/sign-in'
+} from '@/components/ui/tooltip.tsx'
+import { useSignIn } from '@/services/auth/sign-in.ts'
 
 export default function SignInForm({
   className,

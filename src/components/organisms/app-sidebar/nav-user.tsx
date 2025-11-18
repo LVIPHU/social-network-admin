@@ -3,7 +3,7 @@ import { Trans } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
 import { useLingui } from '@lingui/react'
 import type { UserDto } from '@/packages/models'
-import type { NavItem } from '@/types/navigation.types.ts'
+import type { NavItem } from '@/types/navigation.type.ts'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,

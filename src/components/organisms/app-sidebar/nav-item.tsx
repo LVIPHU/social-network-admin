@@ -1,7 +1,7 @@
 import { ChevronRight } from 'lucide-react'
 import { useLingui } from '@lingui/react'
 import { Link, useLocation } from '@tanstack/react-router'
-import type { NavItem, NavSection } from '@/types/navigation.types.ts'
+import type { NavItem, NavSection } from '@/types/navigation.type.ts'
 import type { I18n } from '@lingui/core'
 import {
   SidebarMenuAction,
