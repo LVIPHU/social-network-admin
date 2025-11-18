@@ -47,11 +47,11 @@ export const LocaleCombobox = ({ value, onValueChange }: Props) => {
         <CommandGroup>
           <ScrollArea>
             <div className="max-h-60">
-              {options.map(({ original }) => (
+              {options.map((option) => (
                 <CommandItem
-                  key={original.id}
+                  key={option.original.id}
                   disabled={false}
-                  value={original.id.trim()}
+                  value={option.original.id.trim()}
                   onSelect={(selectedValue) => {
                     const result = options.find(
                       ({ original }) => original.id.trim() === selectedValue,
@@ -65,12 +65,12 @@ export const LocaleCombobox = ({ value, onValueChange }: Props) => {
                   <CheckIcon
                     className={cn(
                       'mr-2 size-4 opacity-0',
-                      value === original.id && 'opacity-100',
+                      value === option.original.id && 'opacity-100',
                     )}
                   />
-                  {original.subname}{' '}
+                  {option.original.subname}{' '}
                   <span className="ml-1 text-xs opacity-50">
-                    ({original.locale})
+                    ({option.original.locale})
                   </span>
                 </CommandItem>
               ))}
