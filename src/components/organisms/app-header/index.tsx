@@ -1,4 +1,4 @@
-import Breadcrumbs from './breadcrumbs'
+import SearchDialog from './search-dialog'
 import { SidebarTrigger } from '@/components/ui/sidebar.tsx'
 import { Separator } from '@/components/ui/separator.tsx'
 
@@ -11,7 +11,7 @@ export default function AppHeader() {
           orientation="vertical"
           className="mr-2 data-[orientation=vertical]:h-4"
         />
-        <Breadcrumbs />
+        <SearchDialog />
       </div>
     </header>
   )

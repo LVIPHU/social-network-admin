@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useLayoutEffect, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import { useMediaQuery } from '@/hooks/use-media-query'
 import { useLocalStorage } from '@/hooks/use-local-storage'
@@ -36,7 +42,7 @@ export function ThemeProvider({
 
   useLayoutEffect(() => {
     const root = window.document.documentElement
-    root.classList.add("disable-transitions");
+    root.classList.add('disable-transitions')
     root.classList.remove('light', 'dark')
 
     if (theme === 'system') {
@@ -45,8 +51,8 @@ export function ThemeProvider({
       root.classList.add(theme)
     }
     requestAnimationFrame(() => {
-      root.classList.remove("disable-transitions");
-    });
+      root.classList.remove('disable-transitions')
+    })
   }, [theme, isDarkOS])
 
   useEffect(() => {

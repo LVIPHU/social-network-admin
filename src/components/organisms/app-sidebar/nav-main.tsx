@@ -9,7 +9,7 @@ interface NavMainProps {
 export default function NavMain({ items }: NavMainProps) {
   return (
     <SidebarGroup>
-      <SidebarMenu className='gap-y-2'>
+      <SidebarMenu className="gap-y-2">
         {items.map((item) => (
           <NavItem key={item.id} data={item} />
         ))}

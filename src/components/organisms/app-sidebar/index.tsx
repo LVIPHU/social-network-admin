@@ -20,7 +20,7 @@ import { useAuthStore } from '@/stores/auth'
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user } = useAuthStore()
   return (
-    <Sidebar collapsible='icon' variant="inset" {...props}>
+    <Sidebar collapsible="icon" variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>

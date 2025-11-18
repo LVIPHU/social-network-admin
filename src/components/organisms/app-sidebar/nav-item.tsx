@@ -35,9 +35,10 @@ export default function NavItem({ data }: NavItemProps) {
         <SidebarMenuButton
           asChild
           tooltip={i18n._(data.title)}
-          className={
-            cn('h-11 py-3 px-4 font-medium', isActive && 'bg-sidebar-accent text-sidebar-accent-foreground')
-          }
+          className={cn(
+            'h-11 py-3 px-4 font-medium',
+            isActive && 'bg-sidebar-accent text-sidebar-accent-foreground',
+          )}
         >
           <Link to={data.href}>
             {data.icon ? <data.icon /> : null}
@@ -52,7 +53,7 @@ export default function NavItem({ data }: NavItemProps) {
 }
 
 interface SubItemProps {
-  data?: ReadonlyArray<NavItem>,
+  data?: ReadonlyArray<NavItem>
   i18n: I18n
 }
 
