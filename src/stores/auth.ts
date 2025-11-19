@@ -1,23 +1,23 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
-import type { UserDto } from '@/packages/models'
+import { createJSONStorage, persist } from 'zustand/middleware'
+import type { AuthResponseDto } from '@/packages/models'
 
 type AuthState = {
-  user: UserDto | null
+  auth: AuthResponseDto | null
 }
 
 type AuthActions = {
-  setUser: (user: UserDto | null) => void
+  setAuth: (auth: AuthResponseDto | null) => void
 }
 
 export const useAuthStore = create<AuthState & AuthActions>()(
   persist(
     (set) => ({
-      user: null,
-      setUser: (user) => {
-        set({ user })
+      auth: null,
+      setAuth: (auth) => {
+        set({ auth })
       },
     }),
-    { name: 'auth' },
+    { name: 'auth', storage: createJSONStorage(() => sessionStorage) },
   ),
 )

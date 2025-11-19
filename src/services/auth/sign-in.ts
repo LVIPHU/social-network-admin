@@ -1,36 +1,24 @@
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate, useSearch } from '@tanstack/react-router'
-import type { SignInDto } from '@/packages/models'
-import { queryClient } from '@/packages/libs/query-client'
+import type { AuthResponseDto, SignInDto } from '@/packages/models'
+import type { AxiosResponse } from 'axios'
 import { useAuthStore } from '@/stores/auth'
+import { axios } from '@/packages/libs/axios.ts'
 
 export const signIn = async (data: SignInDto) => {
-  // const response = await axios.post<
-  //   AuthResponseDto,
-  //   AxiosResponse<AuthResponseDto>,
-  //   SignInDto
-  // >('/auth/sign-in', data)
-  // console.log(response)
-  console.log('data', data)
+  const response = await axios.post<
+    AuthResponseDto,
+    AxiosResponse<AuthResponseDto>,
+    SignInDto
+  >('/v1/public/login', data)
 
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
-  return {
-    status: true,
-    user: {
-      name: 'Lương Vĩ Phú',
-      picture: '',
-      username: 'phu',
-      email: 'lviphu@gmail.com',
-      locale: 'en',
-    },
-  }
+  return response.data
 }
 
 export const useSignIn = () => {
   const navigate = useNavigate()
   const search = useSearch({ from: '/auth/sign-in/' })
-  const setUser = useAuthStore((state) => state.setUser)
+  const setAuth = useAuthStore((state) => state.setAuth)
 
   const {
     error,
@@ -39,8 +27,7 @@ export const useSignIn = () => {
   } = useMutation({
     mutationFn: signIn,
     onSuccess: (data) => {
-      setUser(data.user)
-      queryClient.setQueryData(['user'], data.user)
+      setAuth(data)
 
       // Redirect to the original page or dashboard
       void navigate({

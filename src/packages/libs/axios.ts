@@ -1,6 +1,6 @@
 import { msg } from '@lingui/core/macro'
 import { i18n } from '@lingui/core'
-import _axios from 'axios'
+import _axios, { type AxiosRequestHeaders } from 'axios'
 import createAuthRefreshInterceptor from 'axios-auth-refresh'
 import { toast } from 'sonner'
 import { queryClient } from './query-client'
@@ -10,15 +10,27 @@ import { translateError } from '@/services/errors/translate-error'
 import { refreshToken } from '@/services/auth'
 import { deepSearchAndParseDates } from '@/packages/utils/date'
 import { router } from '@/main'
+import { useAuthStore } from '@/stores/auth.ts'
 
 export const axios = _axios.create({ baseURL: '/api', withCredentials: true })
+
+axios.interceptors.request.use((config) => {
+  const token = useAuthStore.getState().auth?.access_token
+  if (token) {
+    config.headers = {
+      ...config.headers,
+      Authorization: `Bearer ${token}`
+    } as AxiosRequestHeaders
+  }
+  return config
+})
 
 // Intercept responses to transform ISO dates to JS date objects
 axios.interceptors.response.use(
   (response) => {
     const transformedResponse = deepSearchAndParseDates(response.data, [
-      'createdAt',
-      'updatedAt',
+      'created_at',
+      'updated_at',
     ])
     return { ...response, data: transformedResponse }
   },

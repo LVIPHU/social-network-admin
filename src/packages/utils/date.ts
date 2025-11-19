@@ -2,10 +2,19 @@ import dayjs from 'dayjs'
 import { z } from 'zod'
 
 export const dateSchema = z
-  .union([z.date(), z.string().datetime()])
+  .union([
+    z.date(),
+    z.string().datetime(),
+    z.object({
+      seconds: z.number(),
+      nanos: z.number(),
+    }),
+  ])
   .transform((value) => {
+    if (value instanceof Date) return value
     if (typeof value === 'string') return dayjs(value).toDate()
-    return value
+    // {seconds, nanos} -> Date
+    return new Date(value.seconds * 1000 + Math.floor(value.nanos / 1_000_000))
   })
 
 export const sortByDate = <T>(a: T, b: T, key: keyof T, desc = true) => {
@@ -17,6 +26,20 @@ export const sortByDate = <T>(a: T, b: T, key: keyof T, desc = true) => {
     return dayjs(a[key] as Date).isBefore(dayjs(b[key] as Date)) ? 1 : -1
   else return dayjs(a[key] as Date).isBefore(dayjs(b[key] as Date)) ? -1 : 1
 }
+
+export function parseDate(value: any): Date | undefined {
+  if (!value) return undefined
+  if (value instanceof Date) return value
+  if (typeof value === 'string') {
+    const d = dayjs(value)
+    if (d.isValid()) return d.toDate()
+  }
+  if ('seconds' in value && 'nanos' in value) {
+    return new Date(value.seconds * 1000 + Math.floor(value.nanos / 1_000_000))
+  }
+  return undefined
+}
+
 
 export const deepSearchAndParseDates = (
   obj: any,
@@ -35,14 +58,12 @@ export const deepSearchAndParseDates = (
   for (const key of keys) {
     let value = obj[key]
 
-    if (dateKeys.includes(key) && typeof value === 'string') {
-      const parsedDate = new Date(value)
-      if (!Number.isNaN(parsedDate.getTime())) {
-        value = parsedDate
-      }
+    if (dateKeys.includes(key)) {
+      const parsed = parseDate(value)
+      if (parsed) obj[key] = parsed
+    } else if (typeof value === 'object') {
+      obj[key] = deepSearchAndParseDates(value, dateKeys)
     }
-
-    obj[key] = deepSearchAndParseDates(value, dateKeys)
   }
 
   return obj

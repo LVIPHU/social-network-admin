@@ -1,10 +1,8 @@
 import { z } from 'zod'
-import { emailSchema, usernameSchema } from '../user'
-
-const identifierSchema = z.union([emailSchema, usernameSchema])
+import { usernameSchema } from '../user'
 
 export const signInSchema = z.object({
-  identifier: identifierSchema,
+  identifier: usernameSchema,
   password: z.string().min(8),
 })
 

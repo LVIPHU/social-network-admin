@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { dateSchema } from '@/packages/utils/date.ts'
 
 export const usernameSchema = z
   .string()
@@ -10,17 +11,20 @@ export const usernameSchema = z
   })
   .transform((value) => value.toLowerCase())
 
-export const emailSchema = z
-  .string()
-  .email()
-  .transform((value) => value.toLowerCase())
-
 export const userSchema = z.object({
-  name: z.string().min(1).max(255),
-  picture: z.literal('').or(z.null()).or(z.string().url()),
+  user_id: z.string(),
   username: usernameSchema,
-  email: emailSchema,
+  name: z.string().min(1).max(255),
+  bio: z.string().max(255).optional(),
+  location: z.string().max(255).optional(),
+  website_url: z.string().url().optional().nullable(),
+  thumbnail_url: z.string().url().optional().nullable(),
+  avatar_url: z.string().url().optional().nullable(),
+  banner_url: z.string().url().optional().nullable(),
+  user_stat: z.record(z.string(), z.any()).optional(),
   locale: z.string().default('en'),
+  created_at: dateSchema,
+  updated_at: dateSchema,
 })
 
 export type UserDto = z.infer<typeof userSchema>

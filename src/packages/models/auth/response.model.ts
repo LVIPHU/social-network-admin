@@ -1,9 +1,9 @@
 import { z } from 'zod'
-import { userSchema } from '../user'
 
 export const authResponseSchema = z.object({
-  status: z.boolean(),
-  user: userSchema,
+  access_token: z.string().min(1),
+  refresh_token: z.string().min(1),
+  expires_in: z.string().datetime(), // ISO 8601 format
 })
 
 export type AuthResponseDto = z.infer<typeof authResponseSchema>
