@@ -1,25 +1,30 @@
 import { msg } from '@lingui/core/macro'
 import { i18n } from '@lingui/core'
-import _axios, { type AxiosRequestHeaders } from 'axios'
+import _axios from 'axios'
 import createAuthRefreshInterceptor from 'axios-auth-refresh'
 import { toast } from 'sonner'
 import { queryClient } from './query-client'
+import type { AxiosRequestHeaders } from 'axios'
 import type { ErrorMessage } from '@/packages/utils/error'
-import { USER_KEY } from '@/constants/query-keys.constants'
 import { translateError } from '@/services/errors/translate-error'
 import { refreshToken } from '@/services/auth'
 import { deepSearchAndParseDates } from '@/packages/utils/date'
 import { router } from '@/main'
 import { useAuthStore } from '@/stores/auth.ts'
+import { PROFILE_KEY } from '@/services/profile'
 
-export const axios = _axios.create({ baseURL: '/api', withCredentials: true })
+export const axios = _axios.create({
+  baseURL: '/api',
+  withCredentials: true,
+  timeout: 10000,
+})
 
 axios.interceptors.request.use((config) => {
   const token = useAuthStore.getState().auth?.access_token
   if (token) {
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     } as AxiosRequestHeaders
   }
   return config
@@ -53,6 +58,7 @@ axios.interceptors.response.use(
 const axiosForRefresh = _axios.create({
   baseURL: '/api',
   withCredentials: true,
+  timeout: 10000,
 })
 
 // Interceptor to handle expired access token errors
@@ -60,7 +66,7 @@ const handleAuthError = () => refreshToken(axiosForRefresh)
 
 // Interceptor to handle expired refresh token errors
 const handleRefreshError = async () => {
-  await queryClient.invalidateQueries({ queryKey: USER_KEY })
+  await queryClient.invalidateQueries({ queryKey: [PROFILE_KEY] })
   await router.navigate({
     to: '/auth/sign-in',
     search: {

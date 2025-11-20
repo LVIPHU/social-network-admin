@@ -1,7 +1,7 @@
-import { userSchema } from './user.model.ts'
+import { profileSchema } from './profile.model.ts'
 import type { z } from 'zod'
 
-export const updateUserSchema = userSchema.partial().pick({
+export const updateProfileSchema = profileSchema.partial().pick({
   username: true,
   name: true,
   bio: true,
@@ -13,4 +13,4 @@ export const updateUserSchema = userSchema.partial().pick({
   locale: true,
 })
 
-export type UpdateUserDto = z.infer<typeof updateUserSchema>
+export type UpdateProfileDto = z.infer<typeof updateProfileSchema>

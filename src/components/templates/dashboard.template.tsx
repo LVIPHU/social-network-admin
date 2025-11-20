@@ -8,7 +8,6 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import type { MetricData } from '@/types/report.type.ts'
 import { H1 } from '@/components/atoms/heading'
 import {
   Card,
@@ -23,17 +22,7 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart.tsx'
 import SectionCards from '@/components/molecules/section-cards'
-import { convertMetricData } from '@/components/molecules/section-cards/section-card.helper.ts'
-
-// Mock data
-export const userMetrics: MetricData = {
-  total_users: '1050',
-  user_growth_percent: -16.666666666666664,
-  new_users: '150',
-  new_users_growth_percent: 50,
-  total_posts: '48',
-  posts_growth_percent: 0,
-}
+import { useMetrics } from '@/services/reports'
 
 const userGrowthData = [
   { month: 'Jan', newUsers: 120, totalUsers: 1200 },
@@ -56,7 +45,7 @@ const chartConfig = {
 }
 
 export default function DashboardTemplate() {
-  const metrics = convertMetricData(userMetrics)
+  const { metrics, loading } = useMetrics()
   return (
     <>
       <div>
@@ -69,7 +58,7 @@ export default function DashboardTemplate() {
       </div>
 
       {/* Stats Cards */}
-      <SectionCards data={metrics} />
+      <SectionCards data={metrics} loading={loading} />
       {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">*/}
       {/*  <Card>*/}
       {/*    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">*/}

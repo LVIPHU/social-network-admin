@@ -4,8 +4,10 @@ import {
   TrendingUpIcon,
 } from 'lucide-react'
 import { useLingui } from '@lingui/react'
+import { useMemo } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import type { MessageDescriptor } from '@lingui/core'
+import type { MetricData } from '@/types/report.type.ts'
 import { Badge } from '@/components/ui/badge.tsx'
 import {
   Card,
@@ -15,6 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card.tsx'
+import { convertMetricData } from '@/components/molecules/section-cards/section-card.helper.ts'
 
 export type GrowthStatus = 'up' | 'down' | 'neutral'
 
@@ -28,12 +31,13 @@ export interface SectionItem {
 }
 
 interface SectionCardsProps {
-  data: Array<SectionItem>
+  data?: MetricData
+  loading?: boolean
 }
 
 export default function SectionCards({ data }: SectionCardsProps) {
   const { i18n } = useLingui()
-  console.log(data)
+  const convertData = useMemo(() => convertMetricData(data), [data])
 
   const variantBadge: Record<GrowthStatus, any> = {
     up: 'success',
@@ -55,7 +59,7 @@ export default function SectionCards({ data }: SectionCardsProps) {
 
   return (
     <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
-      {data.map((item, idx) => {
+      {convertData.map((item, idx) => {
         const IconComponent = variantIcon[item.growthStatus]
         return (
           <Card key={idx} className="@container/card">

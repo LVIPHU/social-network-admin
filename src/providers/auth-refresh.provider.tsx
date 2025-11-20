@@ -16,7 +16,7 @@ type Props = {
  */
 export const AuthRefreshProvider = ({ children }: Props) => {
   const intervalId = useRef<NodeJS.Timeout | undefined>(undefined)
-  const isLoggedIn = useAuthStore((state) => !!state.user)
+  const isLoggedIn = useAuthStore((state) => Boolean(state.auth?.access_token))
 
   useEffect(() => {
     if (!isLoggedIn && intervalId.current) {

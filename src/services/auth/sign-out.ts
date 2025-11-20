@@ -8,7 +8,9 @@ export const signOut = () => axios.post('/auth/sign-out')
 
 export const useSignOut = () => {
   const navigate = useNavigate()
-  const setUser = useAuthStore((state) => state.setUser)
+
+  const setAuth = useAuthStore((state) => state.setAuth)
+  const setProfile = useAuthStore((state) => state.setProfile)
 
   const {
     error,
@@ -17,7 +19,8 @@ export const useSignOut = () => {
   } = useMutation({
     mutationFn: signOut,
     onSuccess: () => {
-      setUser(null)
+      setAuth(null)
+      setProfile(null)
       queryClient.clear()
 
       void navigate({
@@ -29,7 +32,8 @@ export const useSignOut = () => {
       })
     },
     onError: () => {
-      setUser(null)
+      setAuth(null)
+      setProfile(null)
       queryClient.clear()
 
       void navigate({

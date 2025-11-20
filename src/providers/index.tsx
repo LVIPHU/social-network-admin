@@ -7,27 +7,30 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { ThemeProvider } from '@/providers/theme.provider'
 import { LocaleProvider } from '@/providers/locale.provider'
 import { queryClient } from '@/packages/libs/query-client'
+import { AuthRefreshProvider } from '@/providers/auth-refresh.provider'
 
 export const Providers = () => (
-  <QueryClientProvider client={queryClient}>
-    <LocaleProvider>
-      <ThemeProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Outlet />
-          <TanStackDevtools
-            config={{
-              position: 'bottom-right',
-            }}
-            plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-            ]}
-          />
-        </TooltipProvider>
-      </ThemeProvider>
-    </LocaleProvider>
-  </QueryClientProvider>
+  <LocaleProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthRefreshProvider>
+        <ThemeProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Outlet />
+            <TanStackDevtools
+              config={{
+                position: 'bottom-right',
+              }}
+              plugins={[
+                {
+                  name: 'Tanstack Router',
+                  render: <TanStackRouterDevtoolsPanel />,
+                },
+              ]}
+            />
+          </TooltipProvider>
+        </ThemeProvider>
+      </AuthRefreshProvider>
+    </QueryClientProvider>
+  </LocaleProvider>
 )

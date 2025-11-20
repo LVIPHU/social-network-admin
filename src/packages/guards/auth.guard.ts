@@ -1,5 +1,4 @@
 import { redirect } from '@tanstack/react-router'
-
 import { useAuthStore } from '@/stores/auth'
 
 /**
@@ -12,9 +11,9 @@ import { useAuthStore } from '@/stores/auth'
 export const requireAuth = (context: {
   location: { pathname: string; search: Record<string, unknown> }
 }) => {
-  const user = useAuthStore.getState().user
+  const isLoggedIn = Boolean(useAuthStore.getState().auth?.access_token)
 
-  if (!user) {
+  if (!isLoggedIn) {
     const location = context.location
     const searchParams = new URLSearchParams()
     Object.entries(location.search).forEach(([key, value]) => {
@@ -44,14 +43,14 @@ export const requireAuth = (context: {
  * @throws redirect to /dashboard if authenticated
  */
 export const redirectIfAuthenticated = (context: {
-  location: { pathname: string; search: Record<string, unknown> }
+  location: { pathname: string; search?: Record<string, unknown> }
 }) => {
-  const user = useAuthStore.getState().user
+  const isLoggedIn = Boolean(useAuthStore.getState().auth?.access_token)
 
-  if (user) {
+  if (isLoggedIn) {
     // Get redirect parameter if exists, otherwise go to dashboard
     const search = context.location.search as { redirect?: string }
-    const redirectTo = search?.redirect || '/dashboard'
+    const redirectTo = search.redirect || '/dashboard'
 
     throw redirect({
       to: redirectTo,

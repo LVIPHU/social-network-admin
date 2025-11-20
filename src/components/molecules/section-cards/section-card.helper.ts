@@ -78,9 +78,10 @@ function formatMetricValue(
 }
 
 export function convertMetricData(
-  data: MetricData,
+  data?: MetricData,
   locale?: string,
 ): Array<SectionItem> {
+  if (!data) return initialData
   return initialData.map((item) => {
     const rawValue = data[item.valueKey as keyof MetricData]
     const rawPercent = data[item.percentKey as keyof MetricData]

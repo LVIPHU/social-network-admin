@@ -1,6 +1,6 @@
 import * as React from 'react'
 import NavMain from './nav-main'
-import NavUser from './nav-user'
+import NavProfile from './nav-profile'
 import {
   Sidebar,
   SidebarContent,
@@ -15,10 +15,10 @@ import {
   NAVIGATION_ITEMS,
   USER_NAVIGATION_ITEMS,
 } from '@/constants/navigation.constants'
-import { useAuthStore } from '@/stores/auth'
+import { useProfile } from '@/services/profile'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { user } = useAuthStore()
+  const { profile } = useProfile()
   return (
     <Sidebar collapsible="icon" variant="inset" {...props}>
       <SidebarHeader>
@@ -40,7 +40,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={NAVIGATION_ITEMS} />
       </SidebarContent>
       <SidebarFooter>
-        {user && <NavUser user={user} items={USER_NAVIGATION_ITEMS} />}
+        {profile && (
+          <NavProfile profile={profile} items={USER_NAVIGATION_ITEMS} />
+        )}
       </SidebarFooter>
     </Sidebar>
   )

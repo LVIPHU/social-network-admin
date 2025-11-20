@@ -15,7 +15,7 @@ type Props = {
 
 export const LocaleProvider = ({ children }: Props) => {
   const userLocale = useAuthStore(
-    (state) => state.user?.locale ?? defaultLocale,
+    (state) => state.profile?.locale ?? defaultLocale,
   )
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const changeLanguage = (locale: string) => {
 
   // Update locale in user profile, if authenticated
   const state = useAuthStore.getState()
-  if (state.user) state.setUser({ ...state.user, locale })
+  if (state.profile) state.setProfile({ ...state.profile, locale })
 
   // Reload the page for language switch to take effect
   window.location.reload()

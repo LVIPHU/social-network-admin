@@ -4,6 +4,7 @@ import { z } from 'zod'
 export const dateSchema = z
   .union([
     z.date(),
+    z.number(),
     z.string().datetime(),
     z.object({
       seconds: z.number(),
@@ -12,7 +13,8 @@ export const dateSchema = z
   ])
   .transform((value) => {
     if (value instanceof Date) return value
-    if (typeof value === 'string') return dayjs(value).toDate()
+    if (typeof value === 'string' || typeof value === 'number')
+      return dayjs(value).toDate()
     // {seconds, nanos} -> Date
     return new Date(value.seconds * 1000 + Math.floor(value.nanos / 1_000_000))
   })
@@ -40,7 +42,6 @@ export function parseDate(value: any): Date | undefined {
   return undefined
 }
 
-
 export const deepSearchAndParseDates = (
   obj: any,
   dateKeys: Array<string>,
@@ -56,7 +57,7 @@ export const deepSearchAndParseDates = (
   }
 
   for (const key of keys) {
-    let value = obj[key]
+    const value = obj[key]
 
     if (dateKeys.includes(key)) {
       const parsed = parseDate(value)

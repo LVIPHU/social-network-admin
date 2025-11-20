@@ -2,8 +2,8 @@ import { ChevronsUpDownIcon, LogOutIcon } from 'lucide-react'
 import { Trans } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
 import { useLingui } from '@lingui/react'
-import type { UserDto } from '@/packages/models'
 import type { NavItem } from '@/types/navigation.type.ts'
+import type { ProfileDto } from '@/packages/models'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -22,12 +22,12 @@ import {
 } from '@/components/ui/sidebar'
 import { useSignOut } from '@/services/auth/sign-out'
 
-interface NavUserProps {
-  user: UserDto
+interface NavProfileProps {
+  profile: ProfileDto
   items: Array<NavItem>
 }
 
-export default function NavUser({ user, items }: NavUserProps) {
+export default function NavProfile({ profile, items }: NavProfileProps) {
   const { i18n } = useLingui()
   const { isMobile } = useSidebar()
   const { signOut } = useSignOut()
@@ -44,11 +44,14 @@ export default function NavUser({ user, items }: NavUserProps) {
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.picture || undefined} alt={user.name} />
+                <AvatarImage
+                  src={profile.avatar_url || undefined}
+                  alt={profile.name}
+                />
                 <AvatarFallback className="rounded-lg">TBC</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{user.name}</span>
+                <span className="truncate font-medium">{profile.name}</span>
               </div>
               <ChevronsUpDownIcon className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -63,14 +66,14 @@ export default function NavUser({ user, items }: NavUserProps) {
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage
-                    src={user.picture || undefined}
-                    alt={user.name}
+                    src={profile.avatar_url || undefined}
+                    alt={profile.name}
                   />
                   <AvatarFallback className="rounded-lg">TBC</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs">{user.email}</span>
+                  <span className="truncate font-medium">{profile.name}</span>
+                  <span className="truncate text-xs">{profile.bio}</span>
                 </div>
               </div>
             </DropdownMenuLabel>

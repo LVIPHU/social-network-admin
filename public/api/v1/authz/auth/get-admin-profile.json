@@ -1,0 +1,21 @@
+{
+  "user_id": "ELQfzt3BhekiCoa861jpDSetRn9q853hrdBb39qY55obO",
+  "username": "a_foden_4",
+  "name": "A Foden 4",
+  "bio": "Software Engineer",
+  "location": "HCM,City",
+  "website_url": "https://foden.blog.com",
+  "thumbnail_url": "https://asset/2025/10/23/foden_thumbnail.png",
+  "avatar_url": "https://asset/2025/10/23/foden_avatar.png",
+  "banner_url": "https://asset/2025/10/23/foden_banner.png",
+  "roles": ["viewer"],
+  "user_stat": {},
+  "created_at": {
+    "seconds": 1763020748,
+    "nanos": 797539000
+  },
+  "updated_at": {
+    "seconds": 1763020748,
+    "nanos": 797227000
+  }
+}

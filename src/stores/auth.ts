@@ -1,13 +1,15 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import type { AuthResponseDto } from '@/packages/models'
+import type { AuthResponseDto, ProfileDto } from '@/packages/models'
 
 type AuthState = {
   auth: AuthResponseDto | null
+  profile: ProfileDto | null
 }
 
 type AuthActions = {
   setAuth: (auth: AuthResponseDto | null) => void
+  setProfile: (profile: ProfileDto | null) => void
 }
 
 export const useAuthStore = create<AuthState & AuthActions>()(
@@ -16,6 +18,11 @@ export const useAuthStore = create<AuthState & AuthActions>()(
       auth: null,
       setAuth: (auth) => {
         set({ auth })
+      },
+
+      profile: null,
+      setProfile: (profile) => {
+        set({ profile })
       },
     }),
     { name: 'auth', storage: createJSONStorage(() => sessionStorage) },
