@@ -48,7 +48,6 @@ msgid "Content Moderation"
 msgstr ""
 
 #: src/constants/navigation.constants.ts:20
-#: src/routes/_authenticated/dashboard/index.tsx:13
 msgid "Dashboard"
 msgstr ""
 
@@ -165,7 +164,7 @@ msgid "Search for a language"
 msgstr ""
 
 #: src/constants/navigation.constants.ts:65
-#: src/routes/_authenticated/settings/index.tsx:13
+#: src/routes/_authenticated/settings/index.tsx:8
 msgid "Settings"
 msgstr ""
 
@@ -178,7 +177,8 @@ msgid "Sign in"
 msgstr ""
 
 #: src/components/organisms/forms/sign-in.form.tsx:73
-#: src/routes/auth/sign-in/index.tsx:18
+#: src/routes/_authenticated/dashboard/index.tsx:8
+#: src/routes/auth/sign-in/index.tsx:8
 msgid "Sign in to your account"
 msgstr ""
 
@@ -188,6 +188,10 @@ msgstr ""
 
 #: src/components/organisms/forms/sign-in.form.tsx:173
 msgid "Sign up"
+msgstr ""
+
+#: src/routes/auth/sign-up/index.tsx:7
+msgid "Sign up to get your new account"
 msgstr ""
 
 #: src/components/organisms/forms/sign-in.form.tsx:166
@@ -210,9 +214,10 @@ msgstr ""
 msgid "Switch to Light Mode"
 msgstr ""
 
-#: src/routes/_authenticated/dashboard/index.tsx:13
-#: src/routes/_authenticated/settings/index.tsx:13
-#: src/routes/auth/sign-in/index.tsx:18
+#: src/routes/_authenticated/dashboard/index.tsx:8
+#: src/routes/_authenticated/settings/index.tsx:8
+#: src/routes/auth/sign-in/index.tsx:8
+#: src/routes/auth/sign-up/index.tsx:7
 msgid "TBC Admin"
 msgstr ""
 

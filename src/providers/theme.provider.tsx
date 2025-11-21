@@ -11,7 +11,7 @@ import { useLocalStorage } from '@/hooks/use-local-storage'
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)'
 
-type Theme = 'dark' | 'light' | 'system'
+export type Theme = 'dark' | 'light' | 'system'
 
 type ThemeProviderProps = {
   children: React.ReactNode

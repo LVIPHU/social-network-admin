@@ -8,7 +8,7 @@ import {
 import type {
   GrowthStatus,
   SectionItem,
-} from '@/components/molecules/section-cards/index.tsx'
+} from '@/components/organisms/section-cards/index.tsx'
 import type { MetricData } from '@/types/report.type.ts'
 import { formatNumber } from '@/packages/utils/number.ts'
 

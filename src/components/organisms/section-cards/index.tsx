@@ -17,7 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card.tsx'
-import { convertMetricData } from '@/components/molecules/section-cards/section-card.helper.ts'
+import { convertMetricData } from '@/components/organisms/section-cards/section-card.helper.ts'
 
 export type GrowthStatus = 'up' | 'down' | 'neutral'
 

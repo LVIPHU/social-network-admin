@@ -54,7 +54,7 @@ export function UsersTable({
   const prevSelectedRef = useRef<string>('')
 
   const { columnStates, visibleColumns, columnOrder, updateColumnOrder } =
-    useTableColumns('/users', defaultColumnIds)
+    useTableColumns('users', defaultColumnIds)
 
   // Update local data when data prop changes
   useEffect(() => {

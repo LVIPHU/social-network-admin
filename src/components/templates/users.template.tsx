@@ -91,7 +91,7 @@ export default function UsersTemplate() {
   return (
     <div className="space-y-6">
       <div>
-        <H1 className="text-2xl font-bold">
+        <H1>
           <Trans>User Management</Trans>
         </H1>
         <p className="text-muted-foreground">
