@@ -4,7 +4,7 @@ import { useAuthStore } from '@/stores/auth'
 
 export const Route = createFileRoute('/')({
   beforeLoad: () => {
-    const user = useAuthStore.getState().user
+    const user = Boolean(useAuthStore.getState().auth?.access_token)
     if (user) {
       throw redirect({
         to: '/dashboard',

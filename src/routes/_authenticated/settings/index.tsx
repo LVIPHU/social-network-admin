@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import SettingsTemplate from '@/components/templates/settings.template.tsx'
-import { Helmet } from 'react-helmet-async'
 import { t } from '@lingui/core/macro'
+import SettingsTemplate from '@/components/templates/settings.template.tsx'
 
 export const Route = createFileRoute('/_authenticated/settings/')({
   component: SettingsPage,
@@ -10,11 +9,9 @@ export const Route = createFileRoute('/_authenticated/settings/')({
 function SettingsPage() {
   return (
     <>
-      <Helmet>
-        <title>
-          {t`Settings`} - {t`TBC Admin`}
-        </title>
-      </Helmet>
+      <title>
+        {t`Settings`} - {t`TBC Admin`}
+      </title>
       <SettingsTemplate />
     </>
   )

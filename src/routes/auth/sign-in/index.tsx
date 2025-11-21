@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import SignInForm from '@/components/organisms/forms/sign-in.form.tsx'
-import { Helmet } from 'react-helmet-async'
 import { t } from '@lingui/core/macro'
+import SignInForm from '@/components/organisms/forms/sign-in.form.tsx'
 
 export const Route = createFileRoute('/auth/sign-in/')({
   validateSearch: (search: Record<string, unknown>) => {
@@ -15,11 +14,9 @@ export const Route = createFileRoute('/auth/sign-in/')({
 function SignInPage() {
   return (
     <>
-      <Helmet>
-        <title>
-          {t`Sign in to your account`} - {t`TBC Admin`}
-        </title>
-      </Helmet>
+      <title>
+        {t`Sign in to your account`} - {t`TBC Admin`}
+      </title>
       <SignInForm />
     </>
   )
