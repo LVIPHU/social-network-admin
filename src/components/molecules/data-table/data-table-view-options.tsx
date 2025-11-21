@@ -3,12 +3,11 @@
 import { GripVertical, Settings2 } from 'lucide-react'
 import {
   DndContext,
-  
   KeyboardSensor,
   PointerSensor,
   closestCenter,
   useSensor,
-  useSensors
+  useSensors,
 } from '@dnd-kit/core'
 import {
   SortableContext,
@@ -18,7 +17,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import type {DragEndEvent} from '@dnd-kit/core';
+import type { DragEndEvent } from '@dnd-kit/core'
 import type { Table } from '@tanstack/react-table'
 
 import type { ColumnState } from '@/packages/utils/table-columns'

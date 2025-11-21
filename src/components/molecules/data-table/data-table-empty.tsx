@@ -1,6 +1,12 @@
 import { DatabaseIcon } from 'lucide-react'
 import { Trans } from '@lingui/react/macro'
-import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty.tsx'
+import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/ui/empty.tsx'
 
 export default function DataTableEmpty() {
   return (

@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-
 import { requireAuth } from '@/packages/guards'
 import { AdminLayout } from '@/components/templates/layouts/admin.layout.tsx'
 

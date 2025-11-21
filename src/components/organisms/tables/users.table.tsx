@@ -271,7 +271,7 @@ export function UsersTable({
   }, [rowSelection, localData, onRowSelect])
 
   if (loading) {
-    return <DataTableSkeleton columns={orderedColumns.length}/>
+    return <DataTableSkeleton columns={orderedColumns.length} />
   }
 
   return (
@@ -284,12 +284,14 @@ export function UsersTable({
           onColumnOrderChange={updateColumnOrder}
         />
       </div>
-      <DataTable
-        table={table}
-        columns={orderedColumns}
-        dndEnabled={true}
-        onReorder={handleReorder}
-      />
+      <div className="overflow-hidden rounded-lg border">
+        <DataTable
+          table={table}
+          columns={orderedColumns}
+          dndEnabled={true}
+          onReorder={handleReorder}
+        />
+      </div>
     </div>
   )
 }
