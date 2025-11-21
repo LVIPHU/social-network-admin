@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useNavigate, useSearch } from '@tanstack/react-router'
-import { Search } from 'lucide-react'
+import { AlertCircleIcon, Search } from 'lucide-react'
 import { Trans } from '@lingui/react/macro'
 import {
   getCoreRowModel,
@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input'
 import { UsersTable } from '@/components/organisms/tables/users.table'
 import { DataTablePagination } from '@/components/molecules/data-table/data-table-pagination'
 import { useUsers } from '@/services/users'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
 
 export default function UsersTemplate() {
   const search = useSearch({ from: '/_authenticated/users/' })
@@ -111,16 +112,17 @@ export default function UsersTemplate() {
       </div>
 
       {error && !loading && (
-        <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-4 text-destructive">
-          <p className="font-medium">
+        <Alert variant="destructive">
+          <AlertCircleIcon />
+          <AlertTitle>
             <Trans>Error loading users</Trans>
-          </p>
-          <p className="text-sm">
+          </AlertTitle>
+          <AlertDescription>
             <Trans>
               Please try again or contact support if the problem persists.
             </Trans>
-          </p>
-        </div>
+          </AlertDescription>
+        </Alert>
       )}
 
       {!error && (

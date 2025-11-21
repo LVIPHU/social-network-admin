@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import {
   DndContext,
   KeyboardSensor,
@@ -16,7 +15,6 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 import { flexRender } from '@tanstack/react-table'
-import { Trans } from '@lingui/react/macro'
 import DraggableRow from './draggable-row'
 import type { DragEndEvent, UniqueIdentifier } from '@dnd-kit/core'
 import type { ColumnDef, Table as TanStackTable } from '@tanstack/react-table'
@@ -29,6 +27,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import DataTableEmpty from '@/components/molecules/data-table/data-table-empty.tsx'
 
 interface DataTableProps<TData, TValue> {
   table: TanStackTable<TData>
@@ -52,7 +51,7 @@ function renderTableBody<TData, TValue>({
     return (
       <TableRow>
         <TableCell colSpan={columns.length} className="h-24 text-center">
-          <Trans>No results.</Trans>
+          <DataTableEmpty/>
         </TableCell>
       </TableRow>
     )

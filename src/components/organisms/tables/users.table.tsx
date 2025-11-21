@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { EllipsisVertical, Users } from 'lucide-react'
+import { EllipsisVertical } from 'lucide-react'
 import {
   getCoreRowModel,
   getPaginationRowModel,
@@ -7,7 +7,6 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import dayjs from 'dayjs'
-import { Trans } from '@lingui/react/macro'
 import type { ColumnDef } from '@tanstack/react-table'
 import type { UserDto } from '@/packages/models/user/user.model.ts'
 import { Checkbox } from '@/components/ui/checkbox.tsx'
@@ -25,13 +24,6 @@ import { DataTableColumnHeader } from '@/components/molecules/data-table/data-ta
 import { DataTableViewOptions } from '@/components/molecules/data-table/data-table-view-options.tsx'
 import { DataTableSkeleton } from '@/components/molecules/data-table/data-table-skeleton.tsx'
 import { useTableColumns } from '@/packages/utils/table-columns.ts'
-import {
-  Empty,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from '@/components/ui/empty.tsx'
 import { dragColumn } from '@/components/molecules/data-table/drag-column.tsx'
 
 type UsersTableProps = {
@@ -280,37 +272,6 @@ export function UsersTable({
 
   if (loading) {
     return <DataTableSkeleton columns={orderedColumns.length}/>
-  }
-
-  if (data.length === 0) {
-    return (
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex-1" />
-          <DataTableViewOptions
-            table={table}
-            columnStates={columnStates}
-            onColumnOrderChange={updateColumnOrder}
-          />
-        </div>
-        <Empty>
-          <EmptyMedia variant="icon">
-            <Users className="size-6" />
-          </EmptyMedia>
-          <EmptyHeader>
-            <EmptyTitle>
-              <Trans>No users found</Trans>
-            </EmptyTitle>
-            <EmptyDescription>
-              <Trans>
-                No users match your search criteria. Try adjusting your search
-                or filters.
-              </Trans>
-            </EmptyDescription>
-          </EmptyHeader>
-        </Empty>
-      </div>
-    )
   }
 
   return (
