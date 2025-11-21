@@ -36,7 +36,15 @@ export function parseDate(value: any): Date | undefined {
     const d = dayjs(value)
     if (d.isValid()) return d.toDate()
   }
-  if ('seconds' in value && 'nanos' in value) {
+  if (typeof value === 'number') {
+    return dayjs(value).toDate()
+  }
+  if (
+    typeof value === 'object' &&
+    value !== null &&
+    'seconds' in value &&
+    'nanos' in value
+  ) {
     return new Date(value.seconds * 1000 + Math.floor(value.nanos / 1_000_000))
   }
   return undefined
@@ -59,11 +67,26 @@ export const deepSearchAndParseDates = (
   for (const key of keys) {
     const value = obj[key]
 
-    if (dateKeys.includes(key)) {
-      const parsed = parseDate(value)
-      if (parsed) obj[key] = parsed
-    } else if (typeof value === 'object') {
+    if (dateKeys.includes(key) && value !== null && value !== undefined) {
+      // Only parse if value looks like a date (string that can be parsed, number, or Date)
+      // Skip if it's a plain string like "DESC" in sort object
+      if (
+        typeof value === 'string' ||
+        typeof value === 'number' ||
+        value instanceof Date ||
+        (typeof value === 'object' && 'seconds' in value)
+      ) {
+        const parsed = parseDate(value)
+        if (parsed) obj[key] = parsed
+      }
+    } else if (
+      typeof value === 'object' &&
+      value !== null &&
+      !Array.isArray(value)
+    ) {
       obj[key] = deepSearchAndParseDates(value, dateKeys)
+    } else if (Array.isArray(value)) {
+      obj[key] = value.map((item) => deepSearchAndParseDates(item, dateKeys))
     }
   }
 

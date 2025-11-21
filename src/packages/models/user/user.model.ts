@@ -15,6 +15,7 @@ export const userSchema = z.object({
   user_id: z.string(),
   username: usernameSchema,
   name: z.string().min(1).max(255),
+  status: z.string().optional(),
   bio: z.string().max(255).optional(),
   location: z.string().max(255).optional(),
   website_url: z.string().url().optional().nullable(),
@@ -22,9 +23,10 @@ export const userSchema = z.object({
   avatar_url: z.string().url().optional().nullable(),
   banner_url: z.string().url().optional().nullable(),
   user_stat: z.record(z.string(), z.any()).optional(),
+  stat: z.record(z.string(), z.any()).optional(),
   locale: z.string().default('en'),
-  created_at: dateSchema,
-  updated_at: dateSchema,
+  created_at: dateSchema.optional(),
+  updated_at: dateSchema.optional(),
 })
 
 export type UserDto = z.infer<typeof userSchema>
