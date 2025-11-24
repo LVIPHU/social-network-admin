@@ -1,5 +1,7 @@
 import { z } from 'zod'
 import { dateSchema } from '@/packages/utils/date.ts'
+import { languageSchema } from '@/packages/models'
+import { DEFAULT_LANGUAGE } from '@/constants/language.constants.ts'
 
 export const usernameSchema = z
   .string()
@@ -24,7 +26,7 @@ export const userSchema = z.object({
   banner_url: z.string().url().optional().nullable(),
   user_stat: z.record(z.string(), z.any()).optional(),
   stat: z.record(z.string(), z.any()).optional(),
-  locale: z.string().default('en'),
+  locale: languageSchema.default(DEFAULT_LANGUAGE),
   created_at: dateSchema.optional(),
   updated_at: dateSchema.optional(),
 })

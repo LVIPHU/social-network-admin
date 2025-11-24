@@ -21,7 +21,7 @@ msgstr "A user with this email address and/or username already exists."
 msgid "Account"
 msgstr "Account"
 
-#: src/components/molecules/section-cards/section-card.helper.ts:51
+#: src/components/organisms/section-cards/section-card.helper.ts:51
 msgid "Active hashtags"
 msgstr "Active hashtags"
 
@@ -37,15 +37,19 @@ msgstr "Asc"
 msgid "Change Language"
 msgstr "Change Language"
 
-#: src/components/molecules/section-cards/section-card.helper.ts:22
-#: src/components/molecules/section-cards/section-card.helper.ts:32
-#: src/components/molecules/section-cards/section-card.helper.ts:42
+#: src/components/organisms/section-cards/section-card.helper.ts:22
+#: src/components/organisms/section-cards/section-card.helper.ts:32
+#: src/components/organisms/section-cards/section-card.helper.ts:42
 msgid "compared with the previous month"
 msgstr "compared with the previous month"
 
 #: src/constants/navigation.constants.ts:38
 msgid "Content Moderation"
 msgstr "Content Moderation"
+
+#: src/components/organisms/forms/layout.form.tsx:90
+msgid "Dark"
+msgstr "Dark"
 
 #: src/constants/navigation.constants.ts:20
 msgid "Dashboard"
@@ -59,9 +63,17 @@ msgstr "Dashboard overview"
 msgid "Desc"
 msgstr "Desc"
 
+#: src/components/organisms/forms/layout.form.tsx:137
+msgid "Discard"
+msgstr "Discard"
+
 #: src/components/organisms/forms/sign-in.form.tsx:171
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
+
+#: src/components/organisms/forms/layout.form.tsx:110
+msgid "Don't see your language? <0>Help translate the app.</0>"
+msgstr "Don't see your language? <0>Help translate the app.</0>"
 
 #: src/constants/navigation.constants.ts:44
 msgid "Donation Management"
@@ -87,6 +99,10 @@ msgstr "Event Management"
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
+#: src/components/organisms/forms/layout.form.tsx:71
+msgid "Here, you can update your profile to customize and personalize your experience."
+msgstr "Here, you can update your profile to customize and personalize your experience."
+
 #: src/components/molecules/data-table/data-table-column-header.tsx:67
 msgid "Hide"
 msgstr "Hide"
@@ -111,6 +127,14 @@ msgstr "It looks like the verification token you provided is invalid. Please try
 msgid "It looks like your email address has already been verified."
 msgstr "It looks like your email address has already been verified."
 
+#: src/components/organisms/forms/layout.form.tsx:104
+msgid "Language"
+msgstr "Language"
+
+#: src/components/organisms/forms/layout.form.tsx:89
+msgid "Light"
+msgstr "Light"
+
 #: src/components/organisms/forms/sign-in.form.tsx:97
 msgid "m@example.com"
 msgstr "m@example.com"
@@ -119,11 +143,11 @@ msgstr "m@example.com"
 msgid "Manage and view all users in the system"
 msgstr "Manage and view all users in the system"
 
-#: src/components/molecules/section-cards/section-card.helper.ts:52
+#: src/components/organisms/section-cards/section-card.helper.ts:52
 msgid "new hashtags this month"
 msgstr "new hashtags this month"
 
-#: src/components/molecules/section-cards/section-card.helper.ts:31
+#: src/components/organisms/section-cards/section-card.helper.ts:31
 msgid "New users"
 msgstr "New users"
 
@@ -159,12 +183,23 @@ msgstr "Password"
 msgid "Please try again or contact support if the problem persists."
 msgstr "Please try again or contact support if the problem persists."
 
+#: src/components/organisms/forms/layout.form.tsx:68
+msgid "Profile"
+msgstr "Profile"
+
+#: src/components/organisms/forms/layout.form.tsx:134
+msgid "Save Changes"
+msgstr "Save Changes"
+
 #: src/components/atoms/locale-combobox.tsx:42
 msgid "Search for a language"
 msgstr "Search for a language"
 
+#: src/components/templates/settings.template.tsx:10
+msgid "Setting"
+msgstr "Setting"
+
 #: src/constants/navigation.constants.ts:65
-#: src/routes/_authenticated/settings/index.tsx:8
 msgid "Settings"
 msgstr "Settings"
 
@@ -177,8 +212,6 @@ msgid "Sign in"
 msgstr "Sign in"
 
 #: src/components/organisms/forms/sign-in.form.tsx:73
-#: src/routes/_authenticated/dashboard/index.tsx:8
-#: src/routes/auth/sign-in/index.tsx:8
 msgid "Sign in to your account"
 msgstr "Sign in to your account"
 
@@ -189,10 +222,6 @@ msgstr "Sign out"
 #: src/components/organisms/forms/sign-in.form.tsx:173
 msgid "Sign up"
 msgstr "Sign up"
-
-#: src/routes/auth/sign-up/index.tsx:7
-msgid "Sign up to get your new account"
-msgstr "Sign up to get your new account"
 
 #: src/components/organisms/forms/sign-in.form.tsx:166
 msgid "Signing in..."
@@ -214,22 +243,23 @@ msgstr "Switch to Dark Mode"
 msgid "Switch to Light Mode"
 msgstr "Switch to Light Mode"
 
-#: src/routes/_authenticated/dashboard/index.tsx:8
-#: src/routes/_authenticated/settings/index.tsx:8
-#: src/routes/auth/sign-in/index.tsx:8
-#: src/routes/auth/sign-up/index.tsx:7
-msgid "TBC Admin"
-msgstr "TBC Admin"
+#: src/components/organisms/forms/layout.form.tsx:88
+msgid "System"
+msgstr "System"
+
+#: src/components/organisms/forms/layout.form.tsx:82
+msgid "Theme"
+msgstr "Theme"
 
 #: src/services/errors/translate-error.ts:16
 msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 msgstr "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 
-#: src/components/molecules/section-cards/section-card.helper.ts:41
+#: src/components/organisms/section-cards/section-card.helper.ts:41
 msgid "Total posts"
 msgstr "Total posts"
 
-#: src/components/molecules/section-cards/section-card.helper.ts:21
+#: src/components/organisms/section-cards/section-card.helper.ts:21
 msgid "Total users"
 msgstr "Total users"
 
@@ -249,3 +279,7 @@ msgstr "User Management"
 #: src/components/organisms/forms/sign-in.form.tsx:87
 msgid "Username"
 msgstr "Username"
+
+#: src/components/molecules/data-table/data-table-view-options.tsx:142
+msgid "View options"
+msgstr "View options"

@@ -6,24 +6,24 @@ import {
   useState,
 } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
+import type { ThemeDto } from '@/packages/models'
 import { useMediaQuery } from '@/hooks/use-media-query'
 import { useLocalStorage } from '@/hooks/use-local-storage'
+import { DEFAULT_THEME } from '@/constants/app.constants.ts'
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)'
 
-export type Theme = 'dark' | 'light' | 'system'
-
 type ThemeProviderProps = {
   children: React.ReactNode
-  defaultTheme?: Theme
+  defaultTheme?: ThemeDto
   storageKey?: string
 }
 
 type ThemeProviderState = {
-  theme: Theme
+  theme: ThemeDto
   isDarkMode: boolean
   toggleTheme: () => void
-  setTheme: Dispatch<SetStateAction<Theme>>
+  setTheme: Dispatch<SetStateAction<ThemeDto>>
 }
 
 const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
@@ -32,13 +32,13 @@ const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'system',
+  defaultTheme = DEFAULT_THEME,
   storageKey = 'theme',
   ...props
 }: ThemeProviderProps) {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY)
   const [isDarkMode, setDarkMode] = useState<boolean>(isDarkOS)
-  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, defaultTheme)
+  const [theme, setTheme] = useLocalStorage<ThemeDto>(storageKey, defaultTheme)
 
   useLayoutEffect(() => {
     const root = window.document.documentElement
@@ -73,7 +73,7 @@ export function ThemeProvider({
   }, [theme, isDarkOS])
 
   function toggleTheme() {
-    const toggleDict: Record<Theme, Theme> = {
+    const toggleDict: Record<ThemeDto, ThemeDto> = {
       light: 'system',
       system: 'dark',
       dark: 'light',

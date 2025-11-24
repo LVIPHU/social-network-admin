@@ -17,6 +17,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import { Trans } from '@lingui/react/macro'
 import type { DragEndEvent } from '@dnd-kit/core'
 import type { Table } from '@tanstack/react-table'
 
@@ -30,8 +31,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
-
-const EXCLUDED_COLUMNS = ['select', 'drag', 'actions'] as const
 
 interface DataTableViewOptionsProps<TData> {
   table: Table<TData>
@@ -95,11 +94,7 @@ export function DataTableViewOptions<TData>({
     .getAllColumns()
     .filter(
       (column) =>
-        typeof column.accessorFn !== 'undefined' &&
-        column.getCanHide() &&
-        !EXCLUDED_COLUMNS.includes(
-          column.id as (typeof EXCLUDED_COLUMNS)[number],
-        ),
+        typeof column.accessorFn !== 'undefined' && column.getCanHide(),
     )
 
   const sensors = useSensors(
@@ -143,7 +138,7 @@ export function DataTableViewOptions<TData>({
           className="ml-auto hidden h-8 lg:flex"
         >
           <Settings2 />
-          View
+          <Trans>View options</Trans>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[180px]">

@@ -1,3 +1,3 @@
 export * from './users.ts'
 
-export const LIST_USERS = ['users', 'list'] as const
+export const LIST_USERS = 'users' as const

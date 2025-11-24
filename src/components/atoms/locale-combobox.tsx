@@ -1,7 +1,7 @@
 import { t } from '@lingui/core/macro'
 import fuzzy from 'fuzzy'
 import { useMemo, useState } from 'react'
-import { CheckIcon, LanguagesIcon } from 'lucide-react'
+import { CheckIcon, ChevronDownIcon } from 'lucide-react'
 import type { Language } from '@/constants/language.constants.ts'
 import { cn } from '@/packages/utils/styles.ts'
 import {
@@ -21,12 +21,12 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area.tsx'
 import { languages } from '@/constants/language.constants.ts'
 
-type Props = {
+interface Props extends React.ComponentProps<'input'> {
   value: string
   onValueChange: (id: string) => void
 }
 
-export const LocaleCombobox = ({ value, onValueChange }: Props) => {
+export const LocaleCombobox = ({ value, onValueChange, ...rest }: Props) => {
   const [search, setSearch] = useState('')
 
   const options = useMemo(() => {
@@ -41,6 +41,7 @@ export const LocaleCombobox = ({ value, onValueChange }: Props) => {
         value={search}
         placeholder={t`Search for a language`}
         onValueChange={setSearch}
+        {...rest}
       />
       <CommandList>
         <CommandEmpty>{t`No results found`}</CommandEmpty>
@@ -82,7 +83,7 @@ export const LocaleCombobox = ({ value, onValueChange }: Props) => {
   )
 }
 
-export const LocaleComboboxPopover = ({ value, onValueChange }: Props) => {
+export const LocaleComboboxPopover = ({ value, onValueChange, ...rest }: Props) => {
   const [open, setOpen] = useState(false)
 
   const selected = useMemo(() => {
@@ -109,7 +110,7 @@ export const LocaleComboboxPopover = ({ value, onValueChange }: Props) => {
               ({selected?.locale})
             </span>
           </span>
-          <LanguagesIcon
+          <ChevronDownIcon
             className={cn(
               'ml-2 size-4 shrink-0 rotate-0 opacity-50 transition-transform',
               open && 'rotate-180',
@@ -118,7 +119,7 @@ export const LocaleComboboxPopover = ({ value, onValueChange }: Props) => {
         </Button>
       </PopoverTrigger>
       <PopoverContent align="start" className="p-0">
-        <LocaleCombobox value={value} onValueChange={onSelect} />
+        <LocaleCombobox value={value} onValueChange={onSelect} {...rest}/>
       </PopoverContent>
     </Popover>
   )

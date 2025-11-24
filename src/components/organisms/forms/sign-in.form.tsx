@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/react/macro'
-import { useForm } from '@tanstack/react-form'
+import { useForm, useStore  } from '@tanstack/react-form'
 import { t } from '@lingui/core/macro'
 import { useState } from 'react'
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
@@ -56,6 +56,8 @@ export default function SignInForm({
       }
     },
   })
+
+  const { isDirty, isDefaultValue } = useStore(form.store, (state) => state)
 
   return (
     <form
@@ -162,7 +164,7 @@ export default function SignInForm({
           }}
         />
         <Field>
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" disabled={loading || !isDirty || isDefaultValue}>
             {loading ? <Trans>Signing in...</Trans> : <Trans>Sign in</Trans>}
           </Button>
         </Field>

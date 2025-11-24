@@ -1,6 +1,10 @@
 // Languages
+export const DEFAULT_LANGUAGE = 'en'
+
+export type LocaleId = 'en' | 'vi' | 'zh-Hans' | 'zh-Hant'
+
 export type Language = {
-  id: string
+  id: LocaleId
   name: string
   subname: string
   locale: string
@@ -43,3 +47,5 @@ export const languages: Array<Language> = [
     currency: 'TWD',
   },
 ]
+
+export const localeIds = languages.map((lang) => lang.id)

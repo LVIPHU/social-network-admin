@@ -3,8 +3,6 @@ import dayjs from 'dayjs'
 
 import { dayjsLocales } from './dayjs'
 
-export const defaultLocale = 'en'
-
 /**
  * Load messages for requested locale and activate it.
  * This function isn't part of the LinguiJS library because there are
