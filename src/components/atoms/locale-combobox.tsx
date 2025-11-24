@@ -2,7 +2,7 @@ import { t } from '@lingui/core/macro'
 import fuzzy from 'fuzzy'
 import { useMemo, useState } from 'react'
 import { CheckIcon, ChevronDownIcon } from 'lucide-react'
-import type { Language } from '@/constants/language.constants.ts'
+import type { Language, LocaleId } from '@/constants/language.constants.ts'
 import { cn } from '@/packages/utils/styles.ts'
 import {
   Popover,
@@ -23,7 +23,7 @@ import { languages } from '@/constants/language.constants.ts'
 
 interface Props extends React.ComponentProps<'input'> {
   value: string
-  onValueChange: (id: string) => void
+  onValueChange: (id: LocaleId) => void
 }
 
 export const LocaleCombobox = ({ value, onValueChange, ...rest }: Props) => {
@@ -90,7 +90,7 @@ export const LocaleComboboxPopover = ({ value, onValueChange, ...rest }: Props) 
     return languages.find((lang) => lang.id === value)
   }, [value])
 
-  const onSelect = (selectedValue: string) => {
+  const onSelect = (selectedValue: LocaleId) => {
     onValueChange(selectedValue)
     setOpen(false)
   }
