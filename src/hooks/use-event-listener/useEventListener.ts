@@ -4,40 +4,40 @@ import { useIsomorphicLayoutEffect } from '../use-isomorphic-layout-effect'
 import type { RefObject } from 'react'
 
 // MediaQueryList Event based useEventListener interface
-function useEventListener<K extends keyof MediaQueryListEventMap>(
-  eventName: K,
-  handler: (event: MediaQueryListEventMap[K]) => void,
+function useEventListener<TKey extends keyof MediaQueryListEventMap>(
+  eventName: TKey,
+  handler: (event: MediaQueryListEventMap[TKey]) => void,
   element: RefObject<MediaQueryList>,
   options?: boolean | AddEventListenerOptions,
 ): void
 
 // Window Event based useEventListener interface
-function useEventListener<K extends keyof WindowEventMap>(
-  eventName: K,
-  handler: (event: WindowEventMap[K]) => void,
+function useEventListener<TKey extends keyof WindowEventMap>(
+  eventName: TKey,
+  handler: (event: WindowEventMap[TKey]) => void,
   element?: undefined,
   options?: boolean | AddEventListenerOptions,
 ): void
 
 // Element Event based useEventListener interface
 function useEventListener<
-  K extends keyof HTMLElementEventMap & keyof SVGElementEventMap,
-  T extends Element = K extends keyof HTMLElementEventMap
+  TKey extends keyof HTMLElementEventMap & keyof SVGElementEventMap,
+  T extends Element = TKey extends keyof HTMLElementEventMap
     ? HTMLDivElement
     : SVGElement,
 >(
-  eventName: K,
+  eventName: TKey,
   handler:
-    | ((event: HTMLElementEventMap[K]) => void)
-    | ((event: SVGElementEventMap[K]) => void),
+    | ((event: HTMLElementEventMap[TKey]) => void)
+    | ((event: SVGElementEventMap[TKey]) => void),
   element: RefObject<T | null>,
   options?: boolean | AddEventListenerOptions,
 ): void
 
 // Document Event based useEventListener interface
-function useEventListener<K extends keyof DocumentEventMap>(
-  eventName: K,
-  handler: (event: DocumentEventMap[K]) => void,
+function useEventListener<TKey extends keyof DocumentEventMap>(
+  eventName: TKey,
+  handler: (event: DocumentEventMap[TKey]) => void,
   element: RefObject<Document>,
   options?: boolean | AddEventListenerOptions,
 ): void
@@ -101,6 +101,7 @@ function useEventListener<
     // Define the listening target
     const targetElement: T | Window = element?.current ?? window
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!(targetElement && targetElement.addEventListener)) return
 
     // Create event listener that calls handler function stored in ref

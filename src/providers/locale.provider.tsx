@@ -5,13 +5,9 @@ import { detect, fromStorage, fromUrl } from '@lingui/detect-locale'
 import { I18nProvider } from '@lingui/react'
 import { useEffect } from 'react'
 
-import type {LocaleId} from '@/constants/language.constants';
+import type { LocaleId } from '@/constants/language.constants'
 import { useAuthStore } from '@/stores/auth'
-import {
-  DEFAULT_LANGUAGE,
-  
-  languages
-} from '@/constants/language.constants'
+import { DEFAULT_LANGUAGE, languages } from '@/constants/language.constants'
 import { dynamicActivate } from '@/packages/libs/lingui'
 
 type Props = {
