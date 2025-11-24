@@ -83,7 +83,11 @@ export const LocaleCombobox = ({ value, onValueChange, ...rest }: Props) => {
   )
 }
 
-export const LocaleComboboxPopover = ({ value, onValueChange, ...rest }: Props) => {
+export const LocaleComboboxPopover = ({
+  value,
+  onValueChange,
+  ...rest
+}: Props) => {
   const [open, setOpen] = useState(false)
 
   const selected = useMemo(() => {
@@ -119,7 +123,7 @@ export const LocaleComboboxPopover = ({ value, onValueChange, ...rest }: Props) 
         </Button>
       </PopoverTrigger>
       <PopoverContent align="start" className="p-0">
-        <LocaleCombobox value={value} onValueChange={onSelect} {...rest}/>
+        <LocaleCombobox value={value} onValueChange={onSelect} {...rest} />
       </PopoverContent>
     </Popover>
   )

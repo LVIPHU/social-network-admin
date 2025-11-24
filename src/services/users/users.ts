@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { LIST_USERS } from './index.ts'
+import type { PaginationDto, UserDto } from '@/packages/models'
 import { axios } from '@/packages/libs/axios.ts'
-import { usersSchema } from '@/packages/models'
 
 type GetUsersParams = {
   search?: string
@@ -10,12 +10,13 @@ type GetUsersParams = {
 }
 
 export const getUsers = async (params: GetUsersParams) => {
-  const response = await axios.get<unknown>('/v1/authz/user/users.json', {
+  const response = await axios.get<{
+    data: Array<UserDto>
+    pagination: PaginationDto
+  }>('/v1/authz/user/users.json', {
     params,
   })
-  // Validate response with Zod schema
-  const validatedData = usersSchema.safeParse(response.data)
-  return validatedData.data
+  return response.data
 }
 
 export const useUsers = (params: GetUsersParams) => {

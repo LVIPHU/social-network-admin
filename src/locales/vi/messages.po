@@ -29,6 +29,10 @@ msgstr ""
 msgid "Admin Management"
 msgstr ""
 
+#: src/components/organisms/forms/app.form.tsx:49
+msgid "App"
+msgstr ""
+
 #: src/components/molecules/data-table/data-table-column-header.tsx:56
 msgid "Asc"
 msgstr ""
@@ -47,7 +51,7 @@ msgstr ""
 msgid "Content Moderation"
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:90
+#: src/components/organisms/forms/app.form.tsx:83
 msgid "Dark"
 msgstr ""
 
@@ -63,27 +67,23 @@ msgstr ""
 msgid "Desc"
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:137
+#: src/components/organisms/forms/app.form.tsx:128
 msgid "Discard"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:171
+#: src/components/organisms/forms/sign-in.form.tsx:173
 msgid "Don't have an account?"
-msgstr ""
-
-#: src/components/organisms/forms/layout.form.tsx:110
-msgid "Don't see your language? <0>Help translate the app.</0>"
 msgstr ""
 
 #: src/constants/navigation.constants.ts:44
 msgid "Donation Management"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:131
+#: src/components/organisms/forms/sign-in.form.tsx:133
 msgid "Enter password"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:76
+#: src/components/organisms/forms/sign-in.form.tsx:78
 msgid "Enter your username below to sign in to your account"
 msgstr ""
 
@@ -95,19 +95,19 @@ msgstr ""
 msgid "Event Management"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:120
+#: src/components/organisms/forms/sign-in.form.tsx:122
 msgid "Forgot your password?"
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:71
-msgid "Here, you can update your profile to customize and personalize your experience."
+#: src/components/organisms/forms/app.form.tsx:52
+msgid "Here, you can update your app to customize and personalize your experience."
 msgstr ""
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:67
 msgid "Hide"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:150
+#: src/components/organisms/forms/sign-in.form.tsx:152
 msgid "Hide password"
 msgstr ""
 
@@ -127,15 +127,15 @@ msgstr ""
 msgid "It looks like your email address has already been verified."
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:104
+#: src/components/organisms/forms/app.form.tsx:100
 msgid "Language"
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:89
+#: src/components/organisms/forms/app.form.tsx:82
 msgid "Light"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:97
+#: src/components/organisms/forms/sign-in.form.tsx:99
 msgid "m@example.com"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 msgid "No data match your search criteria. Try adjusting your search or filters."
 msgstr ""
 
-#: src/components/atoms/locale-combobox.tsx:46
+#: src/components/atoms/locale-combobox.tsx:47
 msgid "No results found"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Oops, the server returned an error."
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:114
+#: src/components/organisms/forms/sign-in.form.tsx:116
 msgid "Password"
 msgstr ""
 
@@ -183,11 +183,7 @@ msgstr ""
 msgid "Please try again or contact support if the problem persists."
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:68
-msgid "Profile"
-msgstr ""
-
-#: src/components/organisms/forms/layout.form.tsx:134
+#: src/components/organisms/forms/app.form.tsx:125
 msgid "Save Changes"
 msgstr ""
 
@@ -203,15 +199,15 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:152
+#: src/components/organisms/forms/sign-in.form.tsx:154
 msgid "Show password"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:166
+#: src/components/organisms/forms/sign-in.form.tsx:168
 msgid "Sign in"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:73
+#: src/components/organisms/forms/sign-in.form.tsx:75
 msgid "Sign in to your account"
 msgstr ""
 
@@ -219,11 +215,11 @@ msgstr ""
 msgid "Sign out"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:175
 msgid "Sign up"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:166
+#: src/components/organisms/forms/sign-in.form.tsx:168
 msgid "Signing in..."
 msgstr ""
 
@@ -243,11 +239,11 @@ msgstr ""
 msgid "Switch to Light Mode"
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:88
+#: src/components/organisms/forms/app.form.tsx:81
 msgid "System"
 msgstr ""
 
-#: src/components/organisms/forms/layout.form.tsx:82
+#: src/components/organisms/forms/app.form.tsx:69
 msgid "Theme"
 msgstr ""
 
@@ -276,10 +272,10 @@ msgstr ""
 msgid "User Management"
 msgstr ""
 
-#: src/components/organisms/forms/sign-in.form.tsx:87
+#: src/components/organisms/forms/sign-in.form.tsx:89
 msgid "Username"
 msgstr ""
 
-#: src/components/molecules/data-table/data-table-view-options.tsx:142
+#: src/components/molecules/data-table/data-table-view-options.tsx:141
 msgid "View options"
 msgstr ""

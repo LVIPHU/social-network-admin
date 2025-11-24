@@ -5,14 +5,14 @@ import { AppSettings } from '@/components/organisms/forms/app.form.tsx'
 
 export default function SettingsTemplate() {
   return (
-    <div className='max-w-2xl space-y-4'>
+    <div className="max-w-2xl space-y-4">
       <H1>
         <Trans>Setting</Trans>
       </H1>
 
       <ScrollArea className="h-[calc(100vh-140px)] lg:h-[calc(100vh-88px)]">
         <div className="space-y-6">
-          <AppSettings/>
+          <AppSettings />
         </div>
       </ScrollArea>
     </div>

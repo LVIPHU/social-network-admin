@@ -10,7 +10,6 @@ export const updateUserSchema = userSchema.partial().pick({
   thumbnail_url: true,
   avatar_url: true,
   banner_url: true,
-  locale: true,
 })
 
 export type UpdateUserDto = z.infer<typeof updateUserSchema>

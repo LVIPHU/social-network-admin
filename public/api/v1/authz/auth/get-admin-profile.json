@@ -1,5 +1,5 @@
 {
-  "user_id": "ELQfzt3BhekiCoa861jpDSetRn9q853hrdBb39qY55obO",
+  "id": 0,
   "username": "a_foden_4",
   "name": "A Foden 4",
   "bio": "Software Engineer",
@@ -8,7 +8,17 @@
   "thumbnail_url": "https://asset/2025/10/23/foden_thumbnail.png",
   "avatar_url": "https://asset/2025/10/23/foden_avatar.png",
   "banner_url": "https://asset/2025/10/23/foden_banner.png",
-  "roles": ["viewer"],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Super Admin",
+      "description": "Has full access to all system features and settings.",
+      "created_by": "system",
+      "updated_by": "system",
+      "created_at": "2025-11-13T15:36:05.5583+07:00",
+      "updated_at": "2025-11-13T15:36:05.5583+07:00"
+    }
+  ],
   "user_stat": {},
   "created_at": {
     "seconds": 1763020748,

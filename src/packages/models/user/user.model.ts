@@ -1,7 +1,5 @@
 import { z } from 'zod'
 import { dateSchema } from '@/packages/utils/date.ts'
-import { languageSchema } from '@/packages/models'
-import { DEFAULT_LANGUAGE } from '@/constants/language.constants.ts'
 
 export const usernameSchema = z
   .string()
@@ -13,11 +11,13 @@ export const usernameSchema = z
   })
   .transform((value) => value.toLowerCase())
 
+export const statusSchema = z.enum(['ACTIVE', 'INACTIVE']).default('INACTIVE')
+
 export const userSchema = z.object({
   user_id: z.string(),
   username: usernameSchema,
   name: z.string().min(1).max(255),
-  status: z.string().optional(),
+  status: statusSchema.optional(),
   bio: z.string().max(255).optional(),
   location: z.string().max(255).optional(),
   website_url: z.string().url().optional().nullable(),
@@ -26,9 +26,8 @@ export const userSchema = z.object({
   banner_url: z.string().url().optional().nullable(),
   user_stat: z.record(z.string(), z.any()).optional(),
   stat: z.record(z.string(), z.any()).optional(),
-  locale: languageSchema.default(DEFAULT_LANGUAGE),
-  created_at: dateSchema.optional(),
-  updated_at: dateSchema.optional(),
+  created_at: dateSchema,
+  updated_at: dateSchema,
 })
 
 export type UserDto = z.infer<typeof userSchema>

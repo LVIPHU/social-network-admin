@@ -10,7 +10,6 @@ export const updateProfileSchema = profileSchema.partial().pick({
   thumbnail_url: true,
   avatar_url: true,
   banner_url: true,
-  locale: true,
 })
 
 export type UpdateProfileDto = z.infer<typeof updateProfileSchema>
