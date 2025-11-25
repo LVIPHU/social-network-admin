@@ -12,11 +12,12 @@ import {
 } from '@/components/ui/sidebar'
 import {
   SIDEBAR_COLLAPSIBLE_VALUES,
-  SIDEBAR_VARIANT_VALUES
-  
-  
+  SIDEBAR_VARIANT_VALUES,
 } from '@/constants/layout.constants.ts'
-import type {SidebarCollapsible, SidebarVariant} from '@/constants/layout.constants.ts';
+import type {
+  SidebarCollapsible,
+  SidebarVariant,
+} from '@/constants/layout.constants.ts'
 import {
   NAVIGATION_ITEMS,
   USER_NAVIGATION_ITEMS,

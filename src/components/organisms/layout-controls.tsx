@@ -33,14 +33,14 @@ export default function LayoutControls() {
       updateNavbarStyle(value)
     }
     setValueToCookie(key, value)
+    window.location.reload()
   }
   return (
-    <div className="space-y-3">
-      <div className="space-y-1">
-        <Label className="text-xs font-medium">Sidebar Variant</Label>
+    <div className="space-y-4 md:space-y-6">
+      <div className="space-y-4">
+        <Label className="font-medium">Sidebar Variant</Label>
         <ToggleGroup
-          className="w-full **:data-[slot=toggle-group-item]:flex-1 **:data-[slot=toggle-group-item]:text-xs"
-          size="sm"
+          className="w-full **:data-[slot=toggle-group-item]:flex-1"
           variant="outline"
           type="single"
           value={sidebarVariant}
@@ -58,11 +58,10 @@ export default function LayoutControls() {
         </ToggleGroup>
       </div>
 
-      <div className="space-y-1">
-        <Label className="text-xs font-medium">Navbar Style</Label>
+      <div className="space-y-4">
+        <Label className="font-medium">Navbar Style</Label>
         <ToggleGroup
-          className="w-full **:data-[slot=toggle-group-item]:flex-1 **:data-[slot=toggle-group-item]:text-xs"
-          size="sm"
+          className="w-full **:data-[slot=toggle-group-item]:flex-1"
           variant="outline"
           type="single"
           value={navbarStyle}
@@ -77,11 +76,10 @@ export default function LayoutControls() {
         </ToggleGroup>
       </div>
 
-      <div className="space-y-1">
-        <Label className="text-xs font-medium">Sidebar Collapsible</Label>
+      <div className="space-y-4">
+        <Label className="font-medium">Sidebar Collapsible</Label>
         <ToggleGroup
-          className="w-full **:data-[slot=toggle-group-item]:flex-1 **:data-[slot=toggle-group-item]:text-xs"
-          size="sm"
+          className="w-full **:data-[slot=toggle-group-item]:flex-1"
           variant="outline"
           type="single"
           value={sidebarCollapsible}
