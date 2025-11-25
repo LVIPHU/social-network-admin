@@ -1,15 +1,16 @@
 import { msg } from '@lingui/core/macro'
 import {
-  BadgeCheckIcon,
   BellIcon,
-  BoltIcon,
   CalendarIcon,
   CircleDollarSignIcon,
   ImageIcon,
   LayoutDashboardIcon,
   MessageSquareIcon,
+  SettingsIcon,
+  UserIcon,
   UserStarIcon,
   UsersRoundIcon,
+  WrenchIcon,
 } from 'lucide-react'
 
 import type { NavItem, Navigation } from '@/types/navigation.type'
@@ -57,25 +58,40 @@ export const NAVIGATION_ITEMS: Navigation = [
     title: msg`Admin Management`,
     icon: UserStarIcon,
   },
-]
-
-export const USER_NAVIGATION_ITEMS: Array<NavItem> = [
   {
     id: 'settings',
     href: '/settings',
     title: msg`Settings`,
-    icon: BoltIcon,
+    icon: SettingsIcon,
   },
+]
+
+export const USER_NAVIGATION_ITEMS: Array<NavItem> = [
   {
-    id: 'account',
-    href: '/account',
-    title: msg`Account`,
-    icon: BadgeCheckIcon,
+    id: 'profile',
+    href: '/settings/profile',
+    title: msg`Profile`,
+    icon: UserIcon,
   },
   {
     id: 'notifications',
     href: '/notifications',
     title: msg`Notifications`,
     icon: BellIcon,
+  },
+]
+
+export const SETTINGS_NAVIGATION_ITEMS: Array<NavItem> = [
+  {
+    id: 'general',
+    href: '/settings',
+    title: msg`General`,
+    icon: WrenchIcon,
+  },
+  {
+    id: 'profile',
+    href: '/settings/profile',
+    title: msg`Profile`,
+    icon: UserIcon,
   },
 ]

@@ -1,0 +1,135 @@
+import { t } from '@lingui/core/macro'
+import { Trans } from '@lingui/react/macro'
+import { useForm, useStore } from '@tanstack/react-form'
+import { z } from 'zod'
+
+import { LocaleComboboxPopover } from '@/components/atoms/locale-combobox.tsx'
+import { Button } from '@/components/ui/button.tsx'
+import { Combobox } from '@/components/ui/combobox.tsx'
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from '@/components/ui/field.tsx'
+import { DEFAULT_LANGUAGE } from '@/constants/language.constants.ts'
+import type { LanguageDto, ThemeDto } from '@/packages/models/app'
+import { languageSchema, themeSchema } from '@/packages/models/app'
+import { cn } from '@/packages/utils/styles.ts'
+import { changeLanguage } from '@/providers/locale.provider.tsx'
+import { useTheme } from '@/providers/theme.provider.tsx'
+import { useProfile } from '@/services/profile'
+
+const formSchema = z.object({
+  theme: themeSchema,
+  locale: languageSchema,
+})
+
+export const SettingsForm = () => {
+  const { profile, loading } = useProfile()
+  const { theme, setTheme } = useTheme()
+
+  const form = useForm({
+    defaultValues: {
+      theme: theme,
+      locale: profile?.locale || DEFAULT_LANGUAGE,
+    },
+    validators: {
+      onChange: formSchema,
+    },
+    onSubmit: ({ value }) => {
+      if (!profile) return
+
+      setTheme(value.theme)
+
+      if (profile.locale !== value.locale) {
+        changeLanguage(value.locale)
+      }
+    },
+  })
+
+  const { isDirty, isDefaultValue } = useStore(form.store, (state) => state)
+
+  return (
+    <form
+      id="setting-app-form"
+      onSubmit={(e) => {
+        e.preventDefault()
+        form.handleSubmit()
+      }}
+    >
+      <FieldGroup className="grid gap-6 sm:grid-cols-2">
+        <form.Field
+          name="theme"
+          children={(field) => {
+            const isInvalid =
+              field.state.meta.isTouched && !field.state.meta.isValid
+            return (
+              <Field data-invalid={isInvalid}>
+                <FieldLabel htmlFor={field.name}>
+                  <Trans>Theme</Trans>
+                </FieldLabel>
+                <Combobox
+                  id={field.name}
+                  name={field.name}
+                  aria-invalid={isInvalid}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onValueChange={(value) => {
+                    field.handleChange(value as ThemeDto)
+                  }}
+                  options={[
+                    { label: t`System`, value: 'system' },
+                    { label: t`Light`, value: 'light' },
+                    { label: t`Dark`, value: 'dark' },
+                  ]}
+                />
+                {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                {field.state.meta.isDirty}
+              </Field>
+            )
+          }}
+        />
+        <form.Field
+          name="locale"
+          children={(field) => {
+            const isInvalid =
+              field.state.meta.isTouched && !field.state.meta.isValid
+            return (
+              <Field data-invalid={isInvalid}>
+                <FieldLabel htmlFor={field.name}>
+                  <Trans>Language</Trans>
+                </FieldLabel>
+                <LocaleComboboxPopover
+                  id={field.name}
+                  name={field.name}
+                  aria-invalid={isInvalid}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onValueChange={(value) => {
+                    field.handleChange(value as LanguageDto)
+                  }}
+                />
+                {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                {field.state.meta.isDirty}
+              </Field>
+            )
+          }}
+        />
+        <div
+          className={cn(
+            'hidden items-center space-x-2 self-center sm:col-start-2',
+            isDirty && !isDefaultValue && 'flex animate-in fade-in',
+          )}
+        >
+          <Button type="submit" disabled={loading}>
+            <Trans>Save Changes</Trans>
+          </Button>
+          <Button type="reset" variant="ghost" onClick={() => form.reset()}>
+            <Trans>Discard</Trans>
+          </Button>
+        </div>
+      </FieldGroup>
+    </form>
+  )
+}

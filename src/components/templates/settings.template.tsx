@@ -1,21 +1,27 @@
 import { Trans } from '@lingui/react/macro'
 
-import { H1 } from '@/components/atoms/heading.tsx'
-import { AppSettings } from '@/components/organisms/forms/app.form.tsx'
+import { H4 } from '@/components/atoms/heading.tsx'
+import { SettingsForm } from '@/components/organisms/forms/settings.form.tsx'
+import LayoutControls from '@/components/organisms/layout-controls.tsx'
 import { ScrollArea } from '@/components/ui/scroll-area.tsx'
 
 export default function SettingsTemplate() {
   return (
-    <div className="max-w-2xl space-y-4">
-      <H1>
-        <Trans>Setting</Trans>
-      </H1>
-
-      <ScrollArea className="h-[calc(100vh-140px)] lg:h-[calc(100vh-88px)]">
-        <div className="space-y-6">
-          <AppSettings />
+    <ScrollArea className="h-[calc(100vh-140px)] lg:h-[calc(100vh-88px)] w-full">
+      <div className="flex flex-col gap-6">
+        <div>
+          <H4>
+            <Trans>General</Trans>
+          </H4>
+          <p className="leading-relaxed opacity-75">
+            <Trans>Settings and options for your application</Trans>
+          </p>
         </div>
-      </ScrollArea>
-    </div>
+        <div className="flex flex-col gap-6 lg:max-w-xl">
+          <SettingsForm />
+          <LayoutControls />
+        </div>
+      </div>
+    </ScrollArea>
   )
 }

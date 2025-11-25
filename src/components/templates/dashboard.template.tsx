@@ -62,7 +62,7 @@ export default function DashboardTemplate() {
       <SectionCards data={metrics} loading={loading} />
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         <Card>
           <CardHeader>
             <CardTitle>User growth</CardTitle>

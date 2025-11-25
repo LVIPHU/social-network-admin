@@ -201,17 +201,23 @@ export function UsersTable({
     [],
   )
 
-  const handleSearchKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      onSearch(e.currentTarget.value)
-    }
-  }, [])
+  const handleSearchKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        onSearch(e.currentTarget.value)
+      }
+    },
+    [],
+  )
 
-  const handleSearchEmpty = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.currentTarget.value === '') {
-      onSearch(e.currentTarget.value)
-    }
-  }, [])
+  const handleSearchEmpty = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e.currentTarget.value === '') {
+        onSearch(e.currentTarget.value)
+      }
+    },
+    [],
+  )
 
   // Apply column order and visibility
   const orderedColumns = useMemo(() => {
@@ -293,7 +299,7 @@ export function UsersTable({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 md:space-y-6">
       <div className="flex items-center justify-between">
         <div className="relative flex-1 max-w-sm">
           <Search className="text-muted-foreground absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />

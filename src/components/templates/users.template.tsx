@@ -34,16 +34,19 @@ export default function UsersTemplate() {
 
   const { users, loading, error } = useUsers(params)
 
-  const handleSearch = useCallback((value: string) => {
-    void navigate({
-      to: '/users',
-      search: {
-        ...search,
-        search: value || undefined,
-        page: 1,
-      },
-    })
-  }, [search])
+  const handleSearch = useCallback(
+    (value: string) => {
+      void navigate({
+        to: '/users',
+        search: {
+          ...search,
+          search: value || undefined,
+          page: 1,
+        },
+      })
+    },
+    [search],
+  )
 
   // Create a dummy table for pagination
   const table = useReactTable({
