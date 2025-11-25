@@ -1,8 +1,9 @@
+import type { LinguiConfig } from '@lingui/conf'
+
 import {
   DEFAULT_LANGUAGE,
   localeIds,
 } from './src/constants/language.constants.ts'
-import type { LinguiConfig } from '@lingui/conf'
 
 const config: LinguiConfig = {
   format: 'po',

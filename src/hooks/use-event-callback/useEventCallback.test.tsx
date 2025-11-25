@@ -1,6 +1,7 @@
 import { fireEvent, render, renderHook, screen } from '@testing-library/react'
-import { useEventCallback } from './useEventCallback'
 import type { Mock } from 'vitest'
+
+import { useEventCallback } from './useEventCallback'
 
 describe('useEventCallback()', () => {
   it('should not call the callback during render', () => {

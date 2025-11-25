@@ -1,10 +1,11 @@
 import { t } from '@lingui/core/macro'
 import { motion } from 'framer-motion'
-import { useMemo } from 'react'
-import { CloudSunIcon, MoonIcon, SunIcon } from 'lucide-react'
 import type { Variants } from 'framer-motion'
-import { useTheme } from '@/providers/theme.provider'
+import { CloudSunIcon, MoonIcon, SunIcon } from 'lucide-react'
+import { useMemo } from 'react'
+
 import { Button } from '@/components/ui/button'
+import { useTheme } from '@/providers/theme.provider'
 
 type Props = {
   className?: string

@@ -1,14 +1,8 @@
 import { t } from '@lingui/core/macro'
 import fuzzy from 'fuzzy'
-import { useMemo, useState } from 'react'
 import { CheckIcon, ChevronDownIcon } from 'lucide-react'
-import type { Language, LocaleId } from '@/constants/language.constants.ts'
-import { cn } from '@/packages/utils/styles.ts'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover.tsx'
+import { useMemo, useState } from 'react'
+
 import { Button } from '@/components/ui/button.tsx'
 import {
   Command,
@@ -18,8 +12,15 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command.tsx'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover.tsx'
 import { ScrollArea } from '@/components/ui/scroll-area.tsx'
+import type { Language, LocaleId } from '@/constants/language.constants.ts'
 import { languages } from '@/constants/language.constants.ts'
+import { cn } from '@/packages/utils/styles.ts'
 
 interface Props extends React.ComponentProps<'input'> {
   value: string

@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import type { AuthResponseDto, ProfileDto } from '@/packages/models'
+
+import type { AuthResponseDto } from '@/packages/models/auth'
+import type { ProfileDto } from '@/packages/models/profile'
 
 type AuthState = {
   auth: AuthResponseDto | null

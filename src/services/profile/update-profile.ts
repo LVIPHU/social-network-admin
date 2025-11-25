@@ -1,9 +1,11 @@
 import { useMutation } from '@tanstack/react-query'
-import { PROFILE_KEY } from './index.ts'
 import type { AxiosResponse } from 'axios'
-import type { ProfileDto, UpdateProfileDto } from '@/packages/models'
+
 import { axios } from '@/packages/libs/axios.ts'
 import { queryClient } from '@/packages/libs/query-client.ts'
+import type { ProfileDto, UpdateProfileDto } from '@/packages/models/profile'
+
+import { PROFILE_KEY } from './constants.ts'
 
 export const updateProfile = async (data: UpdateProfileDto) => {
   const response = await axios.patch<

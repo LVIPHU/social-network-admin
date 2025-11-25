@@ -1,6 +1,5 @@
 'use client'
 
-import { GripVertical, Settings2 } from 'lucide-react'
 import {
   DndContext,
   KeyboardSensor,
@@ -9,6 +8,7 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core'
+import type { DragEndEvent } from '@dnd-kit/core'
 import {
   SortableContext,
   arrayMove,
@@ -18,10 +18,10 @@ import {
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { Trans } from '@lingui/react/macro'
-import type { DragEndEvent } from '@dnd-kit/core'
 import type { Table } from '@tanstack/react-table'
+import { GripVertical, Settings2 } from 'lucide-react'
 
-import type { ColumnState } from '@/packages/utils/table-columns'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -30,7 +30,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
+import type { ColumnState } from '@/packages/utils/table-columns'
 
 interface DataTableViewOptionsProps<TData> {
   table: Table<TData>

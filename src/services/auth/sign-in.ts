@@ -1,9 +1,10 @@
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate, useSearch } from '@tanstack/react-router'
-import type { AuthResponseDto, SignInDto } from '@/packages/models'
 import type { AxiosResponse } from 'axios'
-import { useAuthStore } from '@/stores/auth'
+
 import { axios } from '@/packages/libs/axios.ts'
+import type { AuthResponseDto, SignInDto } from '@/packages/models/auth'
+import { useAuthStore } from '@/stores/auth'
 
 export const signIn = async (data: SignInDto) => {
   console.info('data: ', data)

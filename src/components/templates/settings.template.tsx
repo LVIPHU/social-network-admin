@@ -1,7 +1,8 @@
 import { Trans } from '@lingui/react/macro'
+
 import { H1 } from '@/components/atoms/heading.tsx'
-import { ScrollArea } from '@/components/ui/scroll-area.tsx'
 import { AppSettings } from '@/components/organisms/forms/app.form.tsx'
+import { ScrollArea } from '@/components/ui/scroll-area.tsx'
 
 export default function SettingsTemplate() {
   return (

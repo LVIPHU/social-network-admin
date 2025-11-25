@@ -1,5 +1,8 @@
 import { CheckIcon, ChevronDownIcon } from 'lucide-react'
 import { forwardRef, useState } from 'react'
+
+import { cn } from '@/packages/utils/styles.ts'
+
 import { Button } from './button'
 import {
   Command,
@@ -10,7 +13,6 @@ import {
   CommandList,
 } from './command'
 import { Popover, PopoverContent, PopoverTrigger } from './popover'
-import { cn } from '@/packages/utils/styles.ts'
 
 export type ComboboxOption = {
   value: string

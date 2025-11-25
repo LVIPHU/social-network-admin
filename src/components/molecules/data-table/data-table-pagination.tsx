@@ -1,10 +1,10 @@
+import type { Table } from '@tanstack/react-table'
 import {
   ChevronFirst,
   ChevronLast,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react'
-import type { Table } from '@tanstack/react-table'
 
 import { Label } from '@/components/ui/label'
 import {

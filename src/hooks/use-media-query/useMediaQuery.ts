@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
-import { useIsomorphicLayoutEffect } from '../use-isomorphic-layout-effect'
 import { isBrowser } from '@/packages/utils/browser.ts'
+
+import { useIsomorphicLayoutEffect } from '../use-isomorphic-layout-effect'
 
 /** Hook options. */
 type UseMediaQueryOptions = {

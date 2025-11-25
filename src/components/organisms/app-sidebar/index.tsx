@@ -1,6 +1,6 @@
 import * as React from 'react'
-import NavMain from './nav-main'
-import NavProfile from './nav-profile'
+
+import { Logo } from '@/components/atoms/logo'
 import {
   Sidebar,
   SidebarContent,
@@ -10,12 +10,14 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
-import { Logo } from '@/components/atoms/logo'
 import {
   NAVIGATION_ITEMS,
   USER_NAVIGATION_ITEMS,
 } from '@/constants/navigation.constants'
 import { useProfile } from '@/services/profile'
+
+import NavMain from './nav-main'
+import NavProfile from './nav-profile'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { profile } = useProfile()

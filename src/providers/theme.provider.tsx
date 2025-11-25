@@ -6,10 +6,11 @@ import {
   useState,
 } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
-import type { ThemeDto } from '@/packages/models'
-import { useMediaQuery } from '@/hooks/use-media-query'
-import { useLocalStorage } from '@/hooks/use-local-storage'
+
 import { DEFAULT_THEME } from '@/constants/app.constants.ts'
+import { useLocalStorage } from '@/hooks/use-local-storage'
+import { useMediaQuery } from '@/hooks/use-media-query'
+import type { ThemeDto } from '@/packages/models/app'
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)'
 

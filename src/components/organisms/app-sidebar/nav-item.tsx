@@ -1,8 +1,14 @@
-import { ChevronRight } from 'lucide-react'
+import type { I18n } from '@lingui/core'
 import { useLingui } from '@lingui/react'
 import { Link, useLocation } from '@tanstack/react-router'
-import type { NavItem, NavSection } from '@/types/navigation.type.ts'
-import type { I18n } from '@lingui/core'
+import { ChevronRight } from 'lucide-react'
+
+import ActiveIndicator from '@/components/organisms/app-sidebar/active-indicator.tsx'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible.tsx'
 import {
   SidebarMenuAction,
   SidebarMenuButton,
@@ -11,13 +17,8 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar.tsx'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible.tsx'
-import ActiveIndicator from '@/components/organisms/app-sidebar/active-indicator.tsx'
 import { cn } from '@/packages/utils/styles.ts'
+import type { NavItem, NavSection } from '@/types/navigation.type.ts'
 
 interface NavItemProps {
   data: NavSection

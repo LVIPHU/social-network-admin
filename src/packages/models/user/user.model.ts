@@ -1,4 +1,5 @@
 import { z } from 'zod'
+
 import { dateSchema } from '@/packages/utils/date.ts'
 
 export const usernameSchema = z

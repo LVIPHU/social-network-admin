@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { LIST_USERS } from './index.ts'
-import type { PaginationDto, UserDto } from '@/packages/models'
+
 import { axios } from '@/packages/libs/axios.ts'
+import type { PaginationDto } from '@/packages/models/shared'
+import type { UserDto } from '@/packages/models/user'
+
+import { LIST_USERS } from './constants.ts'
 
 type GetUsersParams = {
   search?: string

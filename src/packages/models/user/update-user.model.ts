@@ -1,5 +1,6 @@
-import { userSchema } from './user.model.ts'
 import type { z } from 'zod'
+
+import { userSchema } from './user.model.ts'
 
 export const updateUserSchema = userSchema.partial().pick({
   username: true,

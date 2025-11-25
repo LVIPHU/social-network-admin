@@ -1,8 +1,8 @@
 'use client'
 
-import * as React from 'react'
 import { OTPInput, OTPInputContext } from 'input-otp'
 import { MinusIcon } from 'lucide-react'
+import * as React from 'react'
 
 import { cn } from '@/packages/utils/styles'
 
@@ -44,7 +44,9 @@ function InputOTPSlot({
   index: number
 }) {
   const inputOTPContext = React.useContext(OTPInputContext)
-  const { char, hasFakeCaret, isActive } = inputOTPContext.slots[index] ?? {}
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
 
   return (
     <div

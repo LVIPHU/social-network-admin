@@ -1,13 +1,14 @@
+import type { MessageDescriptor } from '@lingui/core'
+import { useLingui } from '@lingui/react'
 import {
   TrendingDownIcon,
   TrendingUpDownIcon,
   TrendingUpIcon,
 } from 'lucide-react'
-import { useLingui } from '@lingui/react'
-import { useMemo } from 'react'
 import type { LucideIcon } from 'lucide-react'
-import type { MessageDescriptor } from '@lingui/core'
-import type { MetricData } from '@/types/report.type.ts'
+import { useMemo } from 'react'
+
+import { convertMetricData } from '@/components/organisms/section-cards/section-card.helper.ts'
 import { Badge } from '@/components/ui/badge.tsx'
 import {
   Card,
@@ -17,7 +18,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card.tsx'
-import { convertMetricData } from '@/components/organisms/section-cards/section-card.helper.ts'
+import type { MetricData } from '@/types/report.type.ts'
 
 export type GrowthStatus = 'up' | 'down' | 'neutral'
 

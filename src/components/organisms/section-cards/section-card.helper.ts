@@ -5,12 +5,13 @@ import {
   TrendingUpIcon,
   UsersIcon,
 } from 'lucide-react'
+
 import type {
   GrowthStatus,
   SectionItem,
 } from '@/components/organisms/section-cards/index.tsx'
-import type { MetricData } from '@/types/report.type.ts'
 import { formatNumber } from '@/packages/utils/number.ts'
+import type { MetricData } from '@/types/report.type.ts'
 
 const initialData: Array<
   SectionItem & { valueKey: string; percentKey: string }

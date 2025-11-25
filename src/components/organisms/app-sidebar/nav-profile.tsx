@@ -1,9 +1,8 @@
-import { ChevronsUpDownIcon, LogOutIcon } from 'lucide-react'
+import { useLingui } from '@lingui/react'
 import { Trans } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
-import { useLingui } from '@lingui/react'
-import type { NavItem } from '@/types/navigation.type.ts'
-import type { ProfileDto } from '@/packages/models'
+import { ChevronsUpDownIcon, LogOutIcon } from 'lucide-react'
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -20,7 +19,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
+import type { ProfileDto } from '@/packages/models/profile'
 import { useSignOut } from '@/services/auth/sign-out'
+import type { NavItem } from '@/types/navigation.type.ts'
 
 interface NavProfileProps {
   profile: ProfileDto

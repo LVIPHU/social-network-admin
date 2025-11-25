@@ -1,17 +1,19 @@
-import { msg } from '@lingui/core/macro'
 import { i18n } from '@lingui/core'
+import { msg } from '@lingui/core/macro'
 import _axios from 'axios'
+import type { AxiosRequestHeaders } from 'axios'
 import createAuthRefreshInterceptor from 'axios-auth-refresh'
 import { toast } from 'sonner'
-import { queryClient } from './query-client'
-import type { AxiosRequestHeaders } from 'axios'
-import type { ErrorMessage } from '@/packages/utils/error'
-import { translateError } from '@/services/errors/translate-error'
-import { refreshToken } from '@/services/auth'
-import { deepSearchAndParseDates } from '@/packages/utils/date'
+
 import { router } from '@/main'
-import { useAuthStore } from '@/stores/auth.ts'
+import { deepSearchAndParseDates } from '@/packages/utils/date'
+import type { ErrorMessage } from '@/packages/utils/error'
+import { refreshToken } from '@/services/auth'
+import { translateError } from '@/services/errors/translate-error'
 import { PROFILE_KEY } from '@/services/profile'
+import { useAuthStore } from '@/stores/auth.ts'
+
+import { queryClient } from './query-client'
 
 export const axios = _axios.create({
   baseURL: '/api',

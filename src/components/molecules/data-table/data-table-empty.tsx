@@ -1,5 +1,6 @@
-import { DatabaseIcon } from 'lucide-react'
 import { Trans } from '@lingui/react/macro'
+import { DatabaseIcon } from 'lucide-react'
+
 import {
   Empty,
   EmptyDescription,

@@ -1,6 +1,7 @@
-import SearchDialog from './search-dialog'
-import { SidebarTrigger } from '@/components/ui/sidebar.tsx'
 import { Separator } from '@/components/ui/separator.tsx'
+import { SidebarTrigger } from '@/components/ui/sidebar.tsx'
+
+import SearchDialog from './search-dialog'
 
 export default function AppHeader() {
   return (

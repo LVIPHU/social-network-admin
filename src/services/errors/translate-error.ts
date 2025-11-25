@@ -1,4 +1,5 @@
 import { msg } from '@lingui/core/macro'
+
 import { ErrorMessage } from '@/packages/utils/error'
 
 export const translateError = (error: ErrorMessage) => {

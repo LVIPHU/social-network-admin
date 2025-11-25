@@ -1,6 +1,6 @@
-import type { Navigation } from '@/types/navigation.type'
-import { SidebarGroup, SidebarMenu } from '@/components/ui/sidebar'
 import NavItem from '@/components/organisms/app-sidebar/nav-item.tsx'
+import { SidebarGroup, SidebarMenu } from '@/components/ui/sidebar'
+import type { Navigation } from '@/types/navigation.type'
 
 interface NavMainProps {
   items: Navigation

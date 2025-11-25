@@ -1,7 +1,8 @@
-import * as React from 'react'
 import { motion } from 'framer-motion'
-import { cn } from '@/packages/utils/styles'
+import * as React from 'react'
+
 import { forwardRefWithAs } from '@/packages/utils/misc/forward-ref-with-as'
+import { cn } from '@/packages/utils/styles'
 
 export interface HeadingProps {
   className?: string

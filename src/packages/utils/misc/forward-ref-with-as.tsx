@@ -4,8 +4,8 @@
  * It fixes TypeScript type inferencing to work with <Comp as={AnotherComp} />
  */
 
-import * as React from 'react'
 import type { ValidationMap } from 'prop-types'
+import * as React from 'react'
 
 /**
  * React.Ref uses the readonly type `React.RefObject` instead of

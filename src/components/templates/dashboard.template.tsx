@@ -8,7 +8,9 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+
 import { H1 } from '@/components/atoms/heading'
+import SectionCards from '@/components/organisms/section-cards'
 import {
   Card,
   CardContent,
@@ -21,7 +23,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart.tsx'
-import SectionCards from '@/components/organisms/section-cards'
 import { useMetrics } from '@/services/reports'
 
 const userGrowthData = [

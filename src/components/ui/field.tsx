@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
+import { useMemo } from 'react'
 
-import { cn } from '@/packages/utils/styles'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
+import { cn } from '@/packages/utils/styles'
 
 function FieldSet({ className, ...props }: React.ComponentProps<'fieldset'>) {
   return (
@@ -203,7 +203,8 @@ function FieldError({
       ...new Map(errors.map((error) => [error?.message, error])).values(),
     ]
 
-    if (uniqueErrors.length == 1) {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (uniqueErrors?.length == 1) {
       return uniqueErrors[0]?.message
     }
 

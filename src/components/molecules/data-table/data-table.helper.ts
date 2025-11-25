@@ -1,5 +1,6 @@
-import { dragColumn } from './drag-column'
 import type { ColumnDef } from '@tanstack/react-table'
+
+import { dragColumn } from './drag-column'
 
 export function withDndColumn<T>(
   columns: Array<ColumnDef<T>>,

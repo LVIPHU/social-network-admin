@@ -1,9 +1,10 @@
+import { t } from '@lingui/core/macro'
 import { Trans } from '@lingui/react/macro'
 import { useForm, useStore } from '@tanstack/react-form'
-import { t } from '@lingui/core/macro'
-import { useState } from 'react'
-import { EyeIcon, EyeOffIcon } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
+import { EyeIcon, EyeOffIcon } from 'lucide-react'
+import { useState } from 'react'
+
 import { Button } from '@/components/ui/button.tsx'
 import {
   Field,
@@ -12,20 +13,20 @@ import {
   FieldGroup,
   FieldLabel,
 } from '@/components/ui/field.tsx'
-import { Input } from '@/components/ui/input.tsx'
-import { cn } from '@/packages/utils/styles.ts'
-import { signInSchema } from '@/packages/models'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
 } from '@/components/ui/input-group.tsx'
+import { Input } from '@/components/ui/input.tsx'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip.tsx'
+import { signInSchema } from '@/packages/models/auth'
+import { cn } from '@/packages/utils/styles.ts'
 import { useSignIn } from '@/services/auth/sign-in.ts'
 
 export default function SignInForm({

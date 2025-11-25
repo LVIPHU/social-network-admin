@@ -1,18 +1,19 @@
-import { useCallback, useMemo, useState } from 'react'
-import { useNavigate, useSearch } from '@tanstack/react-router'
-import { AlertCircleIcon, Search } from 'lucide-react'
 import { Trans } from '@lingui/react/macro'
+import { useNavigate, useSearch } from '@tanstack/react-router'
 import {
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { AlertCircleIcon, Search } from 'lucide-react'
+import { useCallback, useMemo, useState } from 'react'
+
 import { H1 } from '@/components/atoms/heading'
-import { Input } from '@/components/ui/input'
-import { UsersTable } from '@/components/organisms/tables/users.table'
 import { DataTablePagination } from '@/components/molecules/data-table/data-table-pagination'
-import { useUsers } from '@/services/users'
+import { UsersTable } from '@/components/organisms/tables/users.table'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
+import { Input } from '@/components/ui/input'
+import { useUsers } from '@/services/users'
 
 export default function UsersTemplate() {
   const search = useSearch({ from: '/_authenticated/users/' })

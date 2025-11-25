@@ -1,8 +1,9 @@
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
-import { useAuthStore } from '@/stores/auth'
-import { queryClient } from '@/packages/libs/query-client'
+
 import { axios } from '@/packages/libs/axios'
+import { queryClient } from '@/packages/libs/query-client'
+import { useAuthStore } from '@/stores/auth'
 
 export const signOut = () => axios.post('/auth/sign-out')
 

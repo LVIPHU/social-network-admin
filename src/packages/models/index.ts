@@ -1,6 +1,0 @@
-export * from './admin'
-export * from './app'
-export * from './auth'
-export * from './profile'
-export * from './shared'
-export * from './user'

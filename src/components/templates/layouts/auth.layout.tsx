@@ -1,6 +1,7 @@
 import { Outlet } from '@tanstack/react-router'
-import { Logo } from '@/components/atoms/logo.tsx'
+
 import { LocaleSwitch } from '@/components/atoms/locale-switch.tsx'
+import { Logo } from '@/components/atoms/logo.tsx'
 import { ThemeSwitch } from '@/components/atoms/theme-switch.tsx'
 
 export function AuthLayout() {

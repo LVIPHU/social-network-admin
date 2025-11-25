@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-import { refreshToken } from '@/services/auth/refresh'
 import { axios } from '@/packages/libs/axios'
+import { refreshToken } from '@/services/auth/refresh'
 import { useAuthStore } from '@/stores/auth'
 
 type Props = {

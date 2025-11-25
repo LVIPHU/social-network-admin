@@ -1,17 +1,22 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { EllipsisVertical } from 'lucide-react'
 import {
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import dayjs from 'dayjs'
 import type { ColumnDef } from '@tanstack/react-table'
-import type { UserDto } from '@/packages/models/user/user.model.ts'
-import { Checkbox } from '@/components/ui/checkbox.tsx'
+import dayjs from 'dayjs'
+import { EllipsisVertical } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+import { DataTable } from '@/components/molecules/data-table'
+import { DataTableColumnHeader } from '@/components/molecules/data-table/data-table-column-header.tsx'
+import { DataTableSkeleton } from '@/components/molecules/data-table/data-table-skeleton.tsx'
+import { DataTableViewOptions } from '@/components/molecules/data-table/data-table-view-options.tsx'
+import { dragColumn } from '@/components/molecules/data-table/drag-column.tsx'
 import { Badge } from '@/components/ui/badge.tsx'
 import { Button } from '@/components/ui/button.tsx'
+import { Checkbox } from '@/components/ui/checkbox.tsx'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,12 +24,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx'
-import { DataTable } from '@/components/molecules/data-table'
-import { DataTableColumnHeader } from '@/components/molecules/data-table/data-table-column-header.tsx'
-import { DataTableViewOptions } from '@/components/molecules/data-table/data-table-view-options.tsx'
-import { DataTableSkeleton } from '@/components/molecules/data-table/data-table-skeleton.tsx'
+import type { UserDto } from '@/packages/models/user/user.model.ts'
 import { useTableColumns } from '@/packages/utils/table-columns.ts'
-import { dragColumn } from '@/components/molecules/data-table/drag-column.tsx'
 
 type UsersTableProps = {
   data: Array<UserDto>

@@ -1,16 +1,17 @@
 import { t } from '@lingui/core/macro'
 import { useLingui } from '@lingui/react'
+import { LanguagesIcon } from 'lucide-react'
 import { useState } from 'react'
 
-import { LanguagesIcon } from 'lucide-react'
-import { LocaleCombobox } from './locale-combobox.tsx'
-import { changeLanguage } from '@/providers/locale.provider.tsx'
+import { Button } from '@/components/ui/button.tsx'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover.tsx'
-import { Button } from '@/components/ui/button.tsx'
+import { changeLanguage } from '@/providers/locale.provider.tsx'
+
+import { LocaleCombobox } from './locale-combobox.tsx'
 
 export const LocaleSwitch = () => {
   const { i18n } = useLingui()

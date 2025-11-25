@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect } from 'react'
+
 import { isBrowser } from '@/packages/utils/browser.ts'
 
 /**

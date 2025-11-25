@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { SearchIcon } from 'lucide-react'
 import { useLingui } from '@lingui/react'
-import type { NavSection } from '@/types/navigation.type.ts'
+import { SearchIcon } from 'lucide-react'
+import * as React from 'react'
+
 import { Button } from '@/components/ui/button'
 import {
   CommandDialog,
@@ -12,8 +12,9 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/components/ui/command'
-import { useEventListener } from '@/hooks/use-event-listener'
 import { NAVIGATION_ITEMS } from '@/constants/navigation.constants.ts'
+import { useEventListener } from '@/hooks/use-event-listener'
+import type { NavSection } from '@/types/navigation.type.ts'
 
 interface SearchItem extends NavSection {
   group: string

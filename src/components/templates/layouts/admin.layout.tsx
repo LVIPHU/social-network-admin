@@ -1,8 +1,8 @@
 import { Outlet } from '@tanstack/react-router'
 
-import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar.tsx'
-import { AppSidebar } from '@/components/organisms/app-sidebar'
 import AppHeader from '@/components/organisms/app-header'
+import { AppSidebar } from '@/components/organisms/app-sidebar'
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar.tsx'
 
 export function AdminLayout() {
   return (

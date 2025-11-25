@@ -1,6 +1,6 @@
-import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from 'lucide-react'
 import { Trans } from '@lingui/react/macro'
 import type { Column } from '@tanstack/react-table'
+import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {

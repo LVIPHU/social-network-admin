@@ -1,23 +1,24 @@
-import { z } from 'zod'
+import { t } from '@lingui/core/macro'
 import { Trans } from '@lingui/react/macro'
 import { useForm, useStore } from '@tanstack/react-form'
-import { t } from '@lingui/core/macro'
-import type { LanguageDto, ThemeDto } from '@/packages/models'
-import { useTheme } from '@/providers/theme.provider.tsx'
-import { useProfile } from '@/services/profile'
+import { z } from 'zod'
+
 import { H2 } from '@/components/atoms/heading.tsx'
-import { languageSchema, themeSchema } from '@/packages/models'
-import { DEFAULT_LANGUAGE } from '@/constants/language.constants.ts'
+import { LocaleComboboxPopover } from '@/components/atoms/locale-combobox.tsx'
+import { Button } from '@/components/ui/button.tsx'
+import { Combobox } from '@/components/ui/combobox.tsx'
 import {
   Field,
   FieldError,
   FieldGroup,
   FieldLabel,
 } from '@/components/ui/field.tsx'
-import { Combobox } from '@/components/ui/combobox.tsx'
+import { DEFAULT_LANGUAGE } from '@/constants/language.constants.ts'
+import type { LanguageDto, ThemeDto } from '@/packages/models/app'
+import { languageSchema, themeSchema } from '@/packages/models/app'
 import { cn } from '@/packages/utils/styles.ts'
-import { Button } from '@/components/ui/button.tsx'
-import { LocaleComboboxPopover } from '@/components/atoms/locale-combobox.tsx'
+import { useTheme } from '@/providers/theme.provider.tsx'
+import { useProfile } from '@/services/profile'
 
 const formSchema = z.object({
   theme: themeSchema,
