@@ -9,8 +9,8 @@
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
-    "check": "prettier --write . && eslint --fix",
     "messages:extract": "pnpm exec lingui extract --clean --overwrite",
+    "check": "prettier --write . && eslint --fix",
     "check:circular": "madge --circular --extensions ts,tsx src",
     "check:circular:json": "madge --circular --json --extensions ts,tsx src",
     "check:deps": "madge --image deps.svg --extensions ts,tsx src"

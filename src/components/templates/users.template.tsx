@@ -5,14 +5,13 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { AlertCircleIcon, Search } from 'lucide-react'
+import { AlertCircleIcon } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
 
 import { H1 } from '@/components/atoms/heading'
 import { DataTablePagination } from '@/components/molecules/data-table/data-table-pagination'
 import { UsersTable } from '@/components/organisms/tables/users.table'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
-import { Input } from '@/components/ui/input'
 import { useUsers } from '@/services/users'
 
 export default function UsersTemplate() {
@@ -35,7 +34,7 @@ export default function UsersTemplate() {
 
   const { users, loading, error } = useUsers(params)
 
-  const handleSearch = (value: string) => {
+  const handleSearch = useCallback((value: string) => {
     void navigate({
       to: '/users',
       search: {
@@ -44,13 +43,7 @@ export default function UsersTemplate() {
         page: 1,
       },
     })
-  }
-
-  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleSearch(e.currentTarget.value)
-    }
-  }
+  }, [search])
 
   // Create a dummy table for pagination
   const table = useReactTable({
@@ -100,18 +93,6 @@ export default function UsersTemplate() {
         </p>
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="relative flex-1 max-w-sm">
-          <Search className="text-muted-foreground absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
-          <Input
-            placeholder="Search by name or user ID..."
-            defaultValue={search.search}
-            onKeyDown={handleSearchKeyDown}
-            className="pl-9"
-          />
-        </div>
-      </div>
-
       {error && !loading && (
         <Alert variant="destructive">
           <AlertCircleIcon />
@@ -132,6 +113,8 @@ export default function UsersTemplate() {
           loading={loading}
           selectedRows={selectedRows}
           onRowSelect={handleRowSelect}
+          search={search.search || ''}
+          onSearch={handleSearch}
           pagination={
             users?.pagination || {
               page: 1,

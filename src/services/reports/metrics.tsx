@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import type { AxiosResponse } from 'axios'
 
+import { METRICS_KEY } from '@/constants/query-keys.constants.ts'
 import { axios } from '@/packages/libs/axios.ts'
 import type { MetricData } from '@/types/report.type.ts'
-
-import { METRICS_KEY } from './constants.tsx'
 
 export const getMetrics = async () => {
   const response = await axios.get<MetricData, AxiosResponse<MetricData>>(

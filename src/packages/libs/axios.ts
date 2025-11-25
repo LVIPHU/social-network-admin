@@ -5,12 +5,12 @@ import type { AxiosRequestHeaders } from 'axios'
 import createAuthRefreshInterceptor from 'axios-auth-refresh'
 import { toast } from 'sonner'
 
+import { PROFILE_KEY } from '@/constants/query-keys.constants.ts'
 import { router } from '@/main'
 import { deepSearchAndParseDates } from '@/packages/utils/date'
 import type { ErrorMessage } from '@/packages/utils/error'
 import { refreshToken } from '@/services/auth'
 import { translateError } from '@/services/errors/translate-error'
-import { PROFILE_KEY } from '@/services/profile'
 import { useAuthStore } from '@/stores/auth.ts'
 
 import { queryClient } from './query-client'

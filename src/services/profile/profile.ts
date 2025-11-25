@@ -2,11 +2,10 @@ import { useQuery } from '@tanstack/react-query'
 import type { AxiosResponse } from 'axios'
 import { useEffect } from 'react'
 
+import { PROFILE_KEY } from '@/constants/query-keys.constants.ts'
 import { axios } from '@/packages/libs/axios.ts'
 import type { ProfileDto } from '@/packages/models/profile'
 import { useAuthStore } from '@/stores/auth.ts'
-
-import { PROFILE_KEY } from './constants.ts'
 
 export const getProfile = async () => {
   const response = await axios.get<ProfileDto, AxiosResponse<ProfileDto>>(

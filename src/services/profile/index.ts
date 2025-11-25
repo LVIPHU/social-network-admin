@@ -1,2 +1,2 @@
 export * from './profile.ts'
-export * from './constants.ts'
+export * from './update-profile.ts'

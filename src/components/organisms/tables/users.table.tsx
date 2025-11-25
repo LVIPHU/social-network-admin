@@ -6,7 +6,7 @@ import {
 } from '@tanstack/react-table'
 import type { ColumnDef } from '@tanstack/react-table'
 import dayjs from 'dayjs'
-import { EllipsisVertical } from 'lucide-react'
+import { EllipsisVertical, Search } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { DataTable } from '@/components/molecules/data-table'
@@ -24,6 +24,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx'
+import { Input } from '@/components/ui/input.tsx'
 import type { UserDto } from '@/packages/models/user/user.model.ts'
 import { useTableColumns } from '@/packages/utils/table-columns.ts'
 
@@ -32,6 +33,8 @@ type UsersTableProps = {
   loading: boolean
   selectedRows: Array<string>
   onRowSelect: (userIds: Array<string>) => void
+  search: string
+  onSearch: (keyword: string) => void
   pagination: {
     page: number
     limit: number
@@ -46,6 +49,8 @@ export function UsersTable({
   data,
   loading,
   onRowSelect,
+  search,
+  onSearch,
   pagination,
 }: UsersTableProps) {
   const [rowSelection, setRowSelection] = useState<Record<string, boolean>>({})
@@ -196,6 +201,18 @@ export function UsersTable({
     [],
   )
 
+  const handleSearchKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onSearch(e.currentTarget.value)
+    }
+  }, [])
+
+  const handleSearchEmpty = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.currentTarget.value === '') {
+      onSearch(e.currentTarget.value)
+    }
+  }, [])
+
   // Apply column order and visibility
   const orderedColumns = useMemo(() => {
     const columnMap = new Map(allColumns.map((col) => [col.id!, col]))
@@ -278,7 +295,16 @@ export function UsersTable({
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <div className="flex-1" />
+        <div className="relative flex-1 max-w-sm">
+          <Search className="text-muted-foreground absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
+          <Input
+            placeholder="Search by name or user ID..."
+            defaultValue={search}
+            onChange={handleSearchEmpty}
+            onKeyDown={handleSearchKeyDown}
+            className="pl-9"
+          />
+        </div>
         <DataTableViewOptions
           table={table}
           columnStates={columnStates}
