@@ -1,8 +1,13 @@
+import { useLingui } from '@lingui/react'
+
 import { Label } from '@/components/ui/label.tsx'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group.tsx'
 import {
+  NAVBAR_STYLE_OPTIONS,
   NAVBAR_STYLE_VALUES,
+  SIDEBAR_COLLAPSIBLE_OPTIONS,
   SIDEBAR_COLLAPSIBLE_VALUES,
+  SIDEBAR_VARIANT_OPTIONS,
   SIDEBAR_VARIANT_VALUES,
 } from '@/constants/layout.constants.ts'
 import type {
@@ -14,6 +19,7 @@ import { getPreference, setValueToCookie } from '@/packages/utils/cookie.ts'
 import { updateNavbarStyle } from '@/packages/utils/misc/layout.ts'
 
 export default function LayoutControls() {
+  const { i18n } = useLingui()
   const [sidebarVariant, sidebarCollapsible, navbarStyle] = [
     getPreference<SidebarVariant>(
       'sidebar_variant',
@@ -46,15 +52,16 @@ export default function LayoutControls() {
           value={sidebarVariant}
           onValueChange={(value) => handleValueChange('sidebar_variant', value)}
         >
-          <ToggleGroupItem value="inset" aria-label="Toggle inset">
-            Inset
-          </ToggleGroupItem>
-          <ToggleGroupItem value="sidebar" aria-label="Toggle sidebar">
-            Sidebar
-          </ToggleGroupItem>
-          <ToggleGroupItem value="floating" aria-label="Toggle floating">
-            Floating
-          </ToggleGroupItem>
+          {SIDEBAR_VARIANT_OPTIONS.map((option) => (
+            <ToggleGroupItem
+              key={option.value}
+              value={option.value}
+              aria-label={`Toggle ${option.value}`}
+              className="cursor-pointer"
+            >
+              {i18n._(option.label)}
+            </ToggleGroupItem>
+          ))}
         </ToggleGroup>
       </div>
 
@@ -67,12 +74,16 @@ export default function LayoutControls() {
           value={navbarStyle}
           onValueChange={(value) => handleValueChange('navbar_style', value)}
         >
-          <ToggleGroupItem value="sticky" aria-label="Toggle sticky">
-            Sticky
-          </ToggleGroupItem>
-          <ToggleGroupItem value="scroll" aria-label="Toggle scroll">
-            Scroll
-          </ToggleGroupItem>
+          {NAVBAR_STYLE_OPTIONS.map((option) => (
+            <ToggleGroupItem
+              key={option.value}
+              value={option.value}
+              aria-label={`Toggle ${option.value}`}
+              className="cursor-pointer"
+            >
+              {i18n._(option.label)}
+            </ToggleGroupItem>
+          ))}
         </ToggleGroup>
       </div>
 
@@ -87,12 +98,16 @@ export default function LayoutControls() {
             handleValueChange('sidebar_collapsible', value)
           }
         >
-          <ToggleGroupItem value="icon" aria-label="Toggle icon">
-            Icon
-          </ToggleGroupItem>
-          <ToggleGroupItem value="offcanvas" aria-label="Toggle offcanvas">
-            OffCanvas
-          </ToggleGroupItem>
+          {SIDEBAR_COLLAPSIBLE_OPTIONS.map((option) => (
+            <ToggleGroupItem
+              key={option.value}
+              value={option.value}
+              aria-label={`Toggle ${option.value}`}
+              className="cursor-pointer"
+            >
+              {i18n._(option.label)}
+            </ToggleGroupItem>
+          ))}
         </ToggleGroup>
       </div>
     </div>

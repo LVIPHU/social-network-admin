@@ -13,53 +13,45 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/services/errors/translate-error.ts:10
+#: src/services/errors/translate-error.ts:11
 msgid "A user with this email address and/or username already exists."
 msgstr "A user with this email address and/or username already exists."
 
-#: src/constants/navigation.constants.ts:71
-msgid "Account"
-msgstr "Account"
-
-#: src/components/organisms/section-cards/section-card.helper.ts:51
+#: src/components/organisms/section-cards/section-card.helper.ts:52
 msgid "Active hashtags"
 msgstr "Active hashtags"
 
-#: src/constants/navigation.constants.ts:56
+#: src/constants/navigation.constants.ts:58
 msgid "Admin Management"
 msgstr "Admin Management"
-
-#: src/components/organisms/forms/app.form.tsx:49
-msgid "App"
-msgstr "App"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:56
 msgid "Asc"
 msgstr "Asc"
 
-#: src/components/atoms/locale-switch.tsx:22
+#: src/components/atoms/locale-switch.tsx:23
 msgid "Change Language"
 msgstr "Change Language"
 
-#: src/components/organisms/section-cards/section-card.helper.ts:22
-#: src/components/organisms/section-cards/section-card.helper.ts:32
-#: src/components/organisms/section-cards/section-card.helper.ts:42
+#: src/components/organisms/section-cards/section-card.helper.ts:23
+#: src/components/organisms/section-cards/section-card.helper.ts:33
+#: src/components/organisms/section-cards/section-card.helper.ts:43
 msgid "compared with the previous month"
 msgstr "compared with the previous month"
 
-#: src/constants/navigation.constants.ts:38
+#: src/constants/navigation.constants.ts:40
 msgid "Content Moderation"
 msgstr "Content Moderation"
 
-#: src/components/organisms/forms/app.form.tsx:83
+#: src/components/organisms/forms/settings.form.tsx:84
 msgid "Dark"
 msgstr "Dark"
 
-#: src/constants/navigation.constants.ts:20
+#: src/constants/navigation.constants.ts:22
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/components/templates/dashboard.template.tsx:53
+#: src/components/templates/dashboard.template.tsx:54
 msgid "Dashboard overview"
 msgstr "Dashboard overview"
 
@@ -67,215 +59,257 @@ msgstr "Dashboard overview"
 msgid "Desc"
 msgstr "Desc"
 
-#: src/components/organisms/forms/app.form.tsx:128
+#: src/components/organisms/forms/settings.form.tsx:129
 msgid "Discard"
 msgstr "Discard"
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:177
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
 
-#: src/constants/navigation.constants.ts:44
+#: src/constants/navigation.constants.ts:46
 msgid "Donation Management"
 msgstr "Donation Management"
 
-#: src/components/organisms/forms/sign-in.form.tsx:133
+#: src/components/organisms/forms/sign-in.form.tsx:134
 msgid "Enter password"
 msgstr "Enter password"
 
-#: src/components/organisms/forms/sign-in.form.tsx:78
+#: src/components/organisms/forms/sign-in.form.tsx:79
 msgid "Enter your username below to sign in to your account"
 msgstr "Enter your username below to sign in to your account"
 
-#: src/components/templates/users.template.tsx:118
+#: src/components/templates/users.template.tsx:103
 msgid "Error loading users"
 msgstr "Error loading users"
 
-#: src/constants/navigation.constants.ts:32
+#: src/constants/navigation.constants.ts:34
 msgid "Event Management"
 msgstr "Event Management"
 
-#: src/components/organisms/forms/sign-in.form.tsx:122
+#: src/constants/layout.constants.ts:7
+msgid "Floating"
+msgstr "Floating"
+
+#: src/components/organisms/forms/sign-in.form.tsx:123
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
-#: src/components/organisms/forms/app.form.tsx:52
-msgid "Here, you can update your app to customize and personalize your experience."
-msgstr "Here, you can update your app to customize and personalize your experience."
+#: src/components/templates/settings.template.tsx:14
+#: src/constants/navigation.constants.ts:88
+msgid "General"
+msgstr "General"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:67
 msgid "Hide"
 msgstr "Hide"
 
-#: src/components/organisms/forms/sign-in.form.tsx:152
+#: src/components/organisms/forms/sign-in.form.tsx:153
 msgid "Hide password"
 msgstr "Hide password"
 
-#: src/services/errors/translate-error.ts:7
+#: src/constants/layout.constants.ts:16
+msgid "Icon"
+msgstr "Icon"
+
+#: src/constants/layout.constants.ts:5
+msgid "Inset"
+msgstr "Inset"
+
+#: src/services/errors/translate-error.ts:8
 msgid "It doesn't look like a user exists with the credentials you provided."
 msgstr "It doesn't look like a user exists with the credentials you provided."
 
-#: src/services/errors/translate-error.ts:19
+#: src/services/errors/translate-error.ts:20
 msgid "It looks like the reset token you provided is invalid. Please try restarting the password reset process again."
 msgstr "It looks like the reset token you provided is invalid. Please try restarting the password reset process again."
 
-#: src/services/errors/translate-error.ts:22
+#: src/services/errors/translate-error.ts:23
 msgid "It looks like the verification token you provided is invalid. Please try restarting the verification process again."
 msgstr "It looks like the verification token you provided is invalid. Please try restarting the verification process again."
 
-#: src/services/errors/translate-error.ts:25
+#: src/services/errors/translate-error.ts:26
 msgid "It looks like your email address has already been verified."
 msgstr "It looks like your email address has already been verified."
 
-#: src/components/organisms/forms/app.form.tsx:100
+#: src/components/organisms/forms/settings.form.tsx:101
 msgid "Language"
 msgstr "Language"
 
-#: src/components/organisms/forms/app.form.tsx:82
+#: src/components/organisms/forms/settings.form.tsx:83
 msgid "Light"
 msgstr "Light"
 
-#: src/components/organisms/forms/sign-in.form.tsx:99
+#: src/components/organisms/forms/sign-in.form.tsx:100
 msgid "m@example.com"
 msgstr "m@example.com"
 
-#: src/components/templates/users.template.tsx:98
+#: src/components/templates/users.template.tsx:95
 msgid "Manage and view all users in the system"
 msgstr "Manage and view all users in the system"
 
-#: src/components/organisms/section-cards/section-card.helper.ts:52
+#: src/components/organisms/section-cards/section-card.helper.ts:53
 msgid "new hashtags this month"
 msgstr "new hashtags this month"
 
-#: src/components/organisms/section-cards/section-card.helper.ts:31
+#: src/components/organisms/section-cards/section-card.helper.ts:32
 msgid "New users"
 msgstr "New users"
 
-#: src/constants/navigation.constants.ts:50
+#: src/constants/navigation.constants.ts:52
 msgid "NFT Management"
 msgstr "NFT Management"
 
-#: src/components/molecules/data-table/data-table-empty.tsx:19
+#: src/components/molecules/data-table/data-table-empty.tsx:20
 msgid "No data found"
 msgstr "No data found"
 
-#: src/components/molecules/data-table/data-table-empty.tsx:22
+#: src/components/molecules/data-table/data-table-empty.tsx:23
 msgid "No data match your search criteria. Try adjusting your search or filters."
 msgstr "No data match your search criteria. Try adjusting your search or filters."
 
-#: src/components/atoms/locale-combobox.tsx:47
+#: src/components/atoms/locale-combobox.tsx:48
 msgid "No results found"
 msgstr "No results found"
 
-#: src/constants/navigation.constants.ts:77
+#: src/constants/navigation.constants.ts:79
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/packages/libs/axios.ts:47
+#: src/constants/layout.constants.ts:17
+msgid "Offcanvas"
+msgstr "Offcanvas"
+
+#: src/packages/libs/axios.ts:49
 msgid "Oops, the server returned an error."
 msgstr "Oops, the server returned an error."
 
-#: src/components/organisms/forms/sign-in.form.tsx:116
+#: src/components/organisms/forms/sign-in.form.tsx:117
 msgid "Password"
 msgstr "Password"
 
-#: src/components/templates/users.template.tsx:121
+#: src/components/templates/users.template.tsx:106
 msgid "Please try again or contact support if the problem persists."
 msgstr "Please try again or contact support if the problem persists."
 
-#: src/components/organisms/forms/app.form.tsx:125
+#: src/constants/navigation.constants.ts:73
+#: src/constants/navigation.constants.ts:94
+msgid "Profile"
+msgstr "Profile"
+
+#: src/components/organisms/forms/settings.form.tsx:126
 msgid "Save Changes"
 msgstr "Save Changes"
 
-#: src/components/atoms/locale-combobox.tsx:42
+#: src/constants/layout.constants.ts:27
+msgid "Scroll"
+msgstr "Scroll"
+
+#: src/components/atoms/locale-combobox.tsx:43
 msgid "Search for a language"
 msgstr "Search for a language"
 
-#: src/components/templates/settings.template.tsx:10
+#: src/components/templates/layouts/settings.layout.tsx:22
 msgid "Setting"
 msgstr "Setting"
 
-#: src/constants/navigation.constants.ts:65
+#: src/constants/navigation.constants.ts:64
 msgid "Settings"
 msgstr "Settings"
 
-#: src/components/organisms/forms/sign-in.form.tsx:154
+#: src/components/templates/settings.template.tsx:17
+msgid "Settings and options for your application"
+msgstr "Settings and options for your application"
+
+#: src/components/organisms/forms/sign-in.form.tsx:155
 msgid "Show password"
 msgstr "Show password"
 
-#: src/components/organisms/forms/sign-in.form.tsx:168
+#: src/constants/layout.constants.ts:6
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: src/components/organisms/forms/sign-in.form.tsx:172
 msgid "Sign in"
 msgstr "Sign in"
 
-#: src/components/organisms/forms/sign-in.form.tsx:75
+#: src/components/organisms/forms/sign-in.form.tsx:76
 msgid "Sign in to your account"
 msgstr "Sign in to your account"
 
-#: src/components/organisms/app-sidebar/nav-profile.tsx:94
+#: src/components/organisms/app-sidebar/nav-profile.tsx:95
 msgid "Sign out"
 msgstr "Sign out"
 
-#: src/components/organisms/forms/sign-in.form.tsx:175
+#: src/components/organisms/forms/sign-in.form.tsx:179
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/organisms/forms/sign-in.form.tsx:168
+#: src/components/organisms/forms/sign-in.form.tsx:172
 msgid "Signing in..."
 msgstr "Signing in..."
 
-#: src/components/templates/dashboard.template.tsx:56
+#: src/components/templates/dashboard.template.tsx:57
 msgid "Social network activity at a glance"
 msgstr "Social network activity at a glance"
 
-#: src/services/errors/translate-error.ts:28
+#: src/services/errors/translate-error.ts:29
 msgid "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
 msgstr "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
 
-#: src/components/atoms/theme-switch.tsx:55
+#: src/constants/layout.constants.ts:26
+msgid "Sticky"
+msgstr "Sticky"
+
+#: src/components/atoms/theme-switch.tsx:56
 msgid "Switch to Dark Mode"
 msgstr "Switch to Dark Mode"
 
-#: src/components/atoms/theme-switch.tsx:45
+#: src/components/atoms/theme-switch.tsx:46
 msgid "Switch to Light Mode"
 msgstr "Switch to Light Mode"
 
-#: src/components/organisms/forms/app.form.tsx:81
+#: src/components/organisms/forms/settings.form.tsx:82
 msgid "System"
 msgstr "System"
 
-#: src/components/organisms/forms/app.form.tsx:69
+#: src/components/organisms/forms/settings.form.tsx:70
 msgid "Theme"
 msgstr "Theme"
 
-#: src/services/errors/translate-error.ts:16
+#: src/services/errors/translate-error.ts:17
 msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 msgstr "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 
-#: src/components/organisms/section-cards/section-card.helper.ts:41
+#: src/components/organisms/section-cards/section-card.helper.ts:42
 msgid "Total posts"
 msgstr "Total posts"
 
-#: src/components/organisms/section-cards/section-card.helper.ts:21
+#: src/components/organisms/section-cards/section-card.helper.ts:22
 msgid "Total users"
 msgstr "Total users"
 
-#: src/components/atoms/theme-switch.tsx:50
+#: src/components/templates/layouts/settings.layout.tsx:25
+msgid "Update account preferences and manage integrations."
+msgstr "Update account preferences and manage integrations."
+
+#: src/components/atoms/theme-switch.tsx:51
 msgid "Use System Theme"
 msgstr "Use System Theme"
 
-#: src/services/errors/translate-error.ts:13
+#: src/services/errors/translate-error.ts:14
 msgid "User does not have an associated 'secrets' record. Please report this issue on GitHub."
 msgstr "User does not have an associated 'secrets' record. Please report this issue on GitHub."
 
-#: src/components/templates/users.template.tsx:95
-#: src/constants/navigation.constants.ts:26
+#: src/components/templates/users.template.tsx:92
+#: src/constants/navigation.constants.ts:28
 msgid "User Management"
 msgstr "User Management"
 
-#: src/components/organisms/forms/sign-in.form.tsx:89
+#: src/components/organisms/forms/sign-in.form.tsx:90
 msgid "Username"
 msgstr "Username"
 
 #: src/components/molecules/data-table/data-table-view-options.tsx:141
-msgid "View options"
-msgstr "View options"
+msgid "View"
+msgstr "View"

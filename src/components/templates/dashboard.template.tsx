@@ -70,8 +70,11 @@ export default function DashboardTemplate() {
               Monthly view of new users versus total users
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[300px]">
+          <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
+            <ChartContainer
+              config={chartConfig}
+              className="aspect-auto h-[250px] w-full"
+            >
               <LineChart data={userGrowthData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
@@ -101,8 +104,11 @@ export default function DashboardTemplate() {
               Bar chart showing new user acquisition by month
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[300px]">
+          <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
+            <ChartContainer
+              config={chartConfig}
+              className="aspect-auto h-[250px] w-full"
+            >
               <BarChart data={userGrowthData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
