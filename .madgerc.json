@@ -1,0 +1,11 @@
+{
+  "fileExtensions": ["ts", "tsx"],
+  "excludeRegExp": [
+    "\\.test\\.(ts|tsx)$",
+    "\\.spec\\.(ts|tsx)$",
+    "\\.stories\\.(ts|tsx)$",
+    "routeTree\\.gen\\.ts$",
+    "vitest\\.setup\\.ts$"
+  ],
+  "tsConfig": "./tsconfig.json"
+}
