@@ -20,7 +20,6 @@ import { Route as AuthSignInIndexRouteImport } from './routes/auth/sign-in/index
 import { Route as AuthenticatedUsersIndexRouteImport } from './routes/_authenticated/users/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './routes/_authenticated/settings/index'
 import { Route as AuthenticatedNftIndexRouteImport } from './routes/_authenticated/nft/index'
-import { Route as AuthenticatedEventsIndexRouteImport } from './routes/_authenticated/events/index'
 import { Route as AuthenticatedDonationsIndexRouteImport } from './routes/_authenticated/donations/index'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard/index'
 import { Route as AuthenticatedContentIndexRouteImport } from './routes/_authenticated/content/index'
@@ -83,12 +82,6 @@ const AuthenticatedNftIndexRoute = AuthenticatedNftIndexRouteImport.update({
   path: '/nft/',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedEventsIndexRoute =
-  AuthenticatedEventsIndexRouteImport.update({
-    id: '/events/',
-    path: '/events/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
 const AuthenticatedDonationsIndexRoute =
   AuthenticatedDonationsIndexRouteImport.update({
     id: '/donations/',
@@ -129,7 +122,6 @@ export interface FileRoutesByFullPath {
   '/content': typeof AuthenticatedContentIndexRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
   '/donations': typeof AuthenticatedDonationsIndexRoute
-  '/events': typeof AuthenticatedEventsIndexRoute
   '/nft': typeof AuthenticatedNftIndexRoute
   '/settings/': typeof AuthenticatedSettingsIndexRoute
   '/users': typeof AuthenticatedUsersIndexRoute
@@ -146,7 +138,6 @@ export interface FileRoutesByTo {
   '/content': typeof AuthenticatedContentIndexRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
   '/donations': typeof AuthenticatedDonationsIndexRoute
-  '/events': typeof AuthenticatedEventsIndexRoute
   '/nft': typeof AuthenticatedNftIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/users': typeof AuthenticatedUsersIndexRoute
@@ -166,7 +157,6 @@ export interface FileRoutesById {
   '/_authenticated/content/': typeof AuthenticatedContentIndexRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
   '/_authenticated/donations/': typeof AuthenticatedDonationsIndexRoute
-  '/_authenticated/events/': typeof AuthenticatedEventsIndexRoute
   '/_authenticated/nft/': typeof AuthenticatedNftIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexRoute
@@ -186,7 +176,6 @@ export interface FileRouteTypes {
     | '/content'
     | '/dashboard'
     | '/donations'
-    | '/events'
     | '/nft'
     | '/settings/'
     | '/users'
@@ -203,7 +192,6 @@ export interface FileRouteTypes {
     | '/content'
     | '/dashboard'
     | '/donations'
-    | '/events'
     | '/nft'
     | '/settings'
     | '/users'
@@ -222,7 +210,6 @@ export interface FileRouteTypes {
     | '/_authenticated/content/'
     | '/_authenticated/dashboard/'
     | '/_authenticated/donations/'
-    | '/_authenticated/events/'
     | '/_authenticated/nft/'
     | '/_authenticated/settings/'
     | '/_authenticated/users/'
@@ -316,13 +303,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedNftIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/events/': {
-      id: '/_authenticated/events/'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof AuthenticatedEventsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_authenticated/donations/': {
       id: '/_authenticated/donations/'
       path: '/donations'
@@ -385,7 +365,6 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedContentIndexRoute: typeof AuthenticatedContentIndexRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
   AuthenticatedDonationsIndexRoute: typeof AuthenticatedDonationsIndexRoute
-  AuthenticatedEventsIndexRoute: typeof AuthenticatedEventsIndexRoute
   AuthenticatedNftIndexRoute: typeof AuthenticatedNftIndexRoute
   AuthenticatedUsersIndexRoute: typeof AuthenticatedUsersIndexRoute
 }
@@ -397,7 +376,6 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedContentIndexRoute: AuthenticatedContentIndexRoute,
   AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
   AuthenticatedDonationsIndexRoute: AuthenticatedDonationsIndexRoute,
-  AuthenticatedEventsIndexRoute: AuthenticatedEventsIndexRoute,
   AuthenticatedNftIndexRoute: AuthenticatedNftIndexRoute,
   AuthenticatedUsersIndexRoute: AuthenticatedUsersIndexRoute,
 }

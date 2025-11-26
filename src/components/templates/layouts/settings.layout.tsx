@@ -85,7 +85,9 @@ function SelectItems({ items }: { items: ReadonlyArray<NavItem> }) {
   const navigate = useNavigate()
 
   // Tìm item hiện tại dựa trên pathname
-  const currentItem = items.find((item) => pathname === item.href || pathname.endsWith(item.href))
+  const currentItem = items.find(
+    (item) => pathname === item.href || pathname.endsWith(item.href),
+  )
   const value = currentItem?.href || ''
 
   const handleValueChange = (newValue: string) => {

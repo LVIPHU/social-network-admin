@@ -1,7 +1,6 @@
 import { msg } from '@lingui/core/macro'
 import {
   BellIcon,
-  CalendarIcon,
   CircleDollarSignIcon,
   ImageIcon,
   LayoutDashboardIcon,
@@ -27,12 +26,6 @@ export const NAVIGATION_ITEMS: Navigation = [
     href: '/users',
     title: msg`User Management`,
     icon: UsersRoundIcon,
-  },
-  {
-    id: 'event-management',
-    href: '/events',
-    title: msg`Event Management`,
-    icon: CalendarIcon,
   },
   {
     id: 'content-moderation',

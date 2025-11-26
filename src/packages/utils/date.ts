@@ -40,9 +40,7 @@ export function parseDate(value: any): Date | undefined {
     return dayjs(value).toDate()
   }
   if (
-    typeof value === 'object' &&
-    value !== null &&
-    'seconds' in value &&
+    typeof value === 'object' && 'seconds' in value &&
     'nanos' in value
   ) {
     return new Date(value.seconds * 1000 + Math.floor(value.nanos / 1_000_000))
@@ -85,7 +83,7 @@ export const deepSearchAndParseDates = (
       !Array.isArray(value)
     ) {
       obj[key] = deepSearchAndParseDates(value, dateKeys)
-    } else if (Array.isArray(value)) {
+    } else if (value !== null && Array.isArray(value)) {
       obj[key] = value.map((item) => deepSearchAndParseDates(item, dateKeys))
     }
   }
