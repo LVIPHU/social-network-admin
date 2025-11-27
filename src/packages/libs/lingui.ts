@@ -1,6 +1,8 @@
 import { i18n } from '@lingui/core'
 import dayjs from 'dayjs'
 
+import { DEFAULT_LANGUAGE } from '@/constants/language.constants'
+
 import { dayjsLocales } from './dayjs'
 
 /**
@@ -24,4 +26,12 @@ export async function dynamicActivate(locale: string) {
     console.error(`Failed to load messages for locale: ${locale}`, error)
     throw new Error(`Failed to load messages for locale: ${locale}`)
   }
+}
+
+/**
+ * Initialize Lingui with default locale (English)
+ * This should be called before rendering the app to prevent I18nProvider warnings
+ */
+export async function initializeLingui() {
+  await dynamicActivate(DEFAULT_LANGUAGE)
 }

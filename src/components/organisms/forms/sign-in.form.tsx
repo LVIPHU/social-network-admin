@@ -5,6 +5,8 @@ import { Link } from '@tanstack/react-router'
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
 import { useState } from 'react'
 
+import { signInSchema } from '@/packages/models/auth'
+
 import { Button } from '@/components/ui/button.tsx'
 import {
   Field,
@@ -25,7 +27,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip.tsx'
-import { signInSchema } from '@/packages/models/auth'
 import { cn } from '@/packages/utils/styles.ts'
 import { useSignIn } from '@/services/auth/sign-in.ts'
 

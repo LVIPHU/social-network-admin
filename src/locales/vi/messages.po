@@ -15,301 +15,403 @@ msgstr ""
 
 #: src/services/errors/translate-error.ts:11
 msgid "A user with this email address and/or username already exists."
-msgstr ""
+msgstr "Người dùng với địa chỉ email và/hoặc tên người dùng này đã tồn tại."
 
 #: src/components/organisms/section-cards/section-card.helper.ts:52
 msgid "Active hashtags"
-msgstr ""
+msgstr "Hashtag đang hoạt động"
 
-#: src/constants/navigation.constants.ts:58
+#: src/constants/navigation.constants.ts:51
 msgid "Admin Management"
-msgstr ""
+msgstr "Quản lý Quản trị viên"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:56
 msgid "Asc"
-msgstr ""
+msgstr "Tăng dần"
+
+#: src/components/organisms/forms/profile.form.tsx:239
+msgid "Avatar URL"
+msgstr "URL Ảnh đại diện"
+
+#: src/components/organisms/forms/profile.form.tsx:299
+msgid "Banner URL"
+msgstr "URL Ảnh bìa"
+
+#: src/components/organisms/forms/profile.form.tsx:150
+msgid "Bio"
+msgstr "Tiểu sử"
 
 #: src/components/atoms/locale-switch.tsx:23
 msgid "Change Language"
-msgstr ""
+msgstr "Đổi ngôn ngữ"
+
+#: src/components/organisms/forms/profile.form.tsx:190
+msgid "City, Country"
+msgstr "Thành phố, Quốc gia"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:23
 #: src/components/organisms/section-cards/section-card.helper.ts:33
 #: src/components/organisms/section-cards/section-card.helper.ts:43
 msgid "compared with the previous month"
-msgstr ""
+msgstr "so với tháng trước"
 
-#: src/constants/navigation.constants.ts:40
+#: src/constants/navigation.constants.ts:33
 msgid "Content Moderation"
-msgstr ""
+msgstr "Kiểm duyệt Nội dung"
 
-#: src/components/organisms/forms/settings.form.tsx:84
+#: src/components/organisms/forms/settings.form.tsx:96
 msgid "Dark"
-msgstr ""
+msgstr "Tối"
 
-#: src/constants/navigation.constants.ts:22
+#: src/constants/navigation.constants.ts:21
 msgid "Dashboard"
-msgstr ""
+msgstr "Bảng điều khiển"
 
 #: src/components/templates/dashboard.template.tsx:54
 msgid "Dashboard overview"
-msgstr ""
+msgstr "Tổng quan bảng điều khiển"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:60
 msgid "Desc"
-msgstr ""
+msgstr "Giảm dần"
 
-#: src/components/organisms/forms/settings.form.tsx:129
+#: src/components/organisms/forms/settings.form.tsx:141
 msgid "Discard"
-msgstr ""
+msgstr "Hủy"
 
-#: src/components/organisms/forms/sign-in.form.tsx:177
+#: src/components/organisms/forms/sign-in.form.tsx:178
 msgid "Don't have an account?"
-msgstr ""
+msgstr "Chưa có tài khoản?"
 
-#: src/constants/navigation.constants.ts:46
+#: src/constants/navigation.constants.ts:39
 msgid "Donation Management"
-msgstr ""
+msgstr "Quản lý Quyên góp"
 
-#: src/components/organisms/forms/sign-in.form.tsx:134
+#: src/components/organisms/forms/sign-in.form.tsx:135
 msgid "Enter password"
-msgstr ""
+msgstr "Nhập mật khẩu"
 
-#: src/components/organisms/forms/sign-in.form.tsx:79
+#: src/components/organisms/forms/sign-in.form.tsx:80
 msgid "Enter your username below to sign in to your account"
-msgstr ""
+msgstr "Nhập tên người dùng của bạn bên dưới để đăng nhập vào tài khoản"
 
 #: src/components/templates/users.template.tsx:103
 msgid "Error loading users"
-msgstr ""
-
-#: src/constants/navigation.constants.ts:34
-msgid "Event Management"
-msgstr ""
+msgstr "Lỗi khi tải người dùng"
 
 #: src/constants/layout.constants.ts:7
 msgid "Floating"
-msgstr ""
+msgstr "Nổi"
 
-#: src/components/organisms/forms/sign-in.form.tsx:123
+#: src/components/organisms/forms/sign-in.form.tsx:124
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Quên mật khẩu?"
 
 #: src/components/templates/settings.template.tsx:14
-#: src/constants/navigation.constants.ts:88
+#: src/constants/navigation.constants.ts:81
 msgid "General"
-msgstr ""
+msgstr "Chung"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:67
 msgid "Hide"
-msgstr ""
+msgstr "Ẩn"
 
-#: src/components/organisms/forms/sign-in.form.tsx:153
+#: src/components/organisms/forms/sign-in.form.tsx:154
 msgid "Hide password"
-msgstr ""
+msgstr "Ẩn mật khẩu"
+
+#: src/components/organisms/forms/profile.form.tsx:221
+msgid "https://example.com"
+msgstr "https://example.com"
+
+#: src/components/organisms/forms/profile.form.tsx:252
+msgid "https://example.com/avatar.jpg"
+msgstr "https://example.com/avatar.jpg"
+
+#: src/components/organisms/forms/profile.form.tsx:312
+msgid "https://example.com/banner.jpg"
+msgstr "https://example.com/banner.jpg"
+
+#: src/components/organisms/forms/profile.form.tsx:282
+msgid "https://example.com/thumbnail.jpg"
+msgstr "https://example.com/thumbnail.jpg"
 
 #: src/constants/layout.constants.ts:16
 msgid "Icon"
-msgstr ""
+msgstr "Biểu tượng"
 
 #: src/constants/layout.constants.ts:5
 msgid "Inset"
-msgstr ""
+msgstr "Lồng"
 
 #: src/services/errors/translate-error.ts:8
 msgid "It doesn't look like a user exists with the credentials you provided."
-msgstr ""
+msgstr "Có vẻ như không có người dùng nào tồn tại với thông tin đăng nhập bạn đã cung cấp."
 
 #: src/services/errors/translate-error.ts:20
 msgid "It looks like the reset token you provided is invalid. Please try restarting the password reset process again."
-msgstr ""
+msgstr "Có vẻ như mã đặt lại mật khẩu bạn cung cấp không hợp lệ. Vui lòng thử bắt đầu lại quá trình đặt lại mật khẩu."
 
 #: src/services/errors/translate-error.ts:23
 msgid "It looks like the verification token you provided is invalid. Please try restarting the verification process again."
-msgstr ""
+msgstr "Có vẻ như mã xác minh bạn cung cấp không hợp lệ. Vui lòng thử bắt đầu lại quá trình xác minh."
 
 #: src/services/errors/translate-error.ts:26
 msgid "It looks like your email address has already been verified."
-msgstr ""
+msgstr "Có vẻ như địa chỉ email của bạn đã được xác minh."
 
-#: src/components/organisms/forms/settings.form.tsx:101
+#: src/components/organisms/forms/settings.form.tsx:113
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
-#: src/components/organisms/forms/settings.form.tsx:83
+#: src/components/organisms/forms/settings.form.tsx:95
 msgid "Light"
-msgstr ""
+msgstr "Sáng"
 
-#: src/components/organisms/forms/sign-in.form.tsx:100
+#: src/components/organisms/forms/profile.form.tsx:180
+msgid "Location"
+msgstr "Vị trí"
+
+#: src/components/organisms/forms/sign-in.form.tsx:101
 msgid "m@example.com"
-msgstr ""
+msgstr "m@example.com"
 
 #: src/components/templates/users.template.tsx:95
 msgid "Manage and view all users in the system"
-msgstr ""
+msgstr "Quản lý và xem tất cả người dùng trong hệ thống"
+
+#: src/components/organisms/forms/profile.form.tsx:122
+msgid "Name"
+msgstr "Tên"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:53
 msgid "new hashtags this month"
-msgstr ""
+msgstr "hashtag mới trong tháng này"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:32
 msgid "New users"
-msgstr ""
+msgstr "Người dùng mới"
 
-#: src/constants/navigation.constants.ts:52
+#: src/constants/navigation.constants.ts:45
 msgid "NFT Management"
-msgstr ""
+msgstr "Quản lý NFT"
 
 #: src/components/molecules/data-table/data-table-empty.tsx:20
 msgid "No data found"
-msgstr ""
+msgstr "Không tìm thấy dữ liệu"
 
 #: src/components/molecules/data-table/data-table-empty.tsx:23
 msgid "No data match your search criteria. Try adjusting your search or filters."
-msgstr ""
+msgstr "Không có dữ liệu nào khớp với tiêu chí tìm kiếm của bạn. Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc."
 
 #: src/components/atoms/locale-combobox.tsx:48
 msgid "No results found"
-msgstr ""
+msgstr "Không tìm thấy kết quả"
 
-#: src/constants/navigation.constants.ts:79
+#: src/constants/navigation.constants.ts:72
 msgid "Notifications"
-msgstr ""
+msgstr "Thông báo"
 
 #: src/constants/layout.constants.ts:17
 msgid "Offcanvas"
-msgstr ""
+msgstr "Bảng trượt"
 
 #: src/packages/libs/axios.ts:49
 msgid "Oops, the server returned an error."
-msgstr ""
+msgstr "Ối, máy chủ đã trả về lỗi."
 
-#: src/components/organisms/forms/sign-in.form.tsx:117
+#: src/components/organisms/forms/sign-in.form.tsx:118
 msgid "Password"
-msgstr ""
+msgstr "Mật khẩu"
 
 #: src/components/templates/users.template.tsx:106
 msgid "Please try again or contact support if the problem persists."
-msgstr ""
+msgstr "Vui lòng thử lại hoặc liên hệ hỗ trợ nếu vấn đề vẫn tiếp tục."
 
-#: src/constants/navigation.constants.ts:73
-#: src/constants/navigation.constants.ts:94
+#: src/components/templates/profile.template.tsx:12
+#: src/constants/navigation.constants.ts:66
+#: src/constants/navigation.constants.ts:87
 msgid "Profile"
-msgstr ""
+msgstr "Hồ sơ"
 
-#: src/components/organisms/forms/settings.form.tsx:126
+#: src/components/organisms/forms/profile.form.tsx:58
+msgid "Profile updated successfully"
+msgstr "Cập nhật hồ sơ thành công"
+
+#: src/components/organisms/forms/profile.form.tsx:326
+msgid "Save changes"
+msgstr "Lưu thay đổi"
+
+#: src/components/organisms/forms/settings.form.tsx:138
 msgid "Save Changes"
-msgstr ""
+msgstr "Lưu thay đổi"
+
+#: src/components/organisms/forms/profile.form.tsx:324
+msgid "Saving..."
+msgstr "Đang lưu..."
 
 #: src/constants/layout.constants.ts:27
 msgid "Scroll"
-msgstr ""
+msgstr "Cuộn"
 
 #: src/components/atoms/locale-combobox.tsx:43
 msgid "Search for a language"
-msgstr ""
+msgstr "Tìm kiếm ngôn ngữ"
 
-#: src/components/templates/layouts/settings.layout.tsx:22
+#: src/components/templates/layouts/settings.layout.tsx:107
+msgid "Select a section"
+msgstr "Chọn một phần"
+
+#: src/components/templates/layouts/settings.layout.tsx:30
 msgid "Setting"
-msgstr ""
+msgstr "Cài đặt"
 
-#: src/constants/navigation.constants.ts:64
+#: src/constants/navigation.constants.ts:57
 msgid "Settings"
-msgstr ""
+msgstr "Cài đặt"
 
 #: src/components/templates/settings.template.tsx:17
 msgid "Settings and options for your application"
-msgstr ""
+msgstr "Cài đặt và tùy chọn cho ứng dụng của bạn"
 
-#: src/components/organisms/forms/sign-in.form.tsx:155
+#: src/components/organisms/forms/sign-in.form.tsx:156
 msgid "Show password"
-msgstr ""
+msgstr "Hiện mật khẩu"
 
 #: src/constants/layout.constants.ts:6
 msgid "Sidebar"
-msgstr ""
+msgstr "Thanh bên"
 
-#: src/components/organisms/forms/sign-in.form.tsx:172
+#: src/components/organisms/forms/sign-in.form.tsx:173
 msgid "Sign in"
-msgstr ""
+msgstr "Đăng nhập"
 
-#: src/components/organisms/forms/sign-in.form.tsx:76
+#: src/components/organisms/forms/sign-in.form.tsx:77
 msgid "Sign in to your account"
-msgstr ""
+msgstr "Đăng nhập vào tài khoản của bạn"
 
 #: src/components/organisms/app-sidebar/nav-profile.tsx:95
 msgid "Sign out"
-msgstr ""
+msgstr "Đăng xuất"
 
-#: src/components/organisms/forms/sign-in.form.tsx:179
+#: src/components/organisms/forms/sign-in.form.tsx:180
 msgid "Sign up"
-msgstr ""
+msgstr "Đăng ký"
 
-#: src/components/organisms/forms/sign-in.form.tsx:172
+#: src/components/organisms/forms/sign-in.form.tsx:173
 msgid "Signing in..."
-msgstr ""
+msgstr "Đang đăng nhập..."
 
 #: src/components/templates/dashboard.template.tsx:57
 msgid "Social network activity at a glance"
-msgstr ""
+msgstr "Hoạt động mạng xã hội trong nháy mắt"
 
 #: src/services/errors/translate-error.ts:29
 msgid "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
-msgstr ""
+msgstr "Đã xảy ra lỗi khi xử lý yêu cầu của bạn. Vui lòng thử lại sau hoặc báo lỗi trên GitHub."
 
 #: src/constants/layout.constants.ts:26
 msgid "Sticky"
-msgstr ""
+msgstr "Dính"
 
 #: src/components/atoms/theme-switch.tsx:56
 msgid "Switch to Dark Mode"
-msgstr ""
+msgstr "Chuyển sang Chế độ Tối"
 
 #: src/components/atoms/theme-switch.tsx:46
 msgid "Switch to Light Mode"
-msgstr ""
+msgstr "Chuyển sang Chế độ Sáng"
+
+#: src/components/organisms/forms/settings.form.tsx:94
+msgid "System"
+msgstr "Hệ thống"
+
+#: src/components/organisms/forms/profile.form.tsx:153
+msgid "Tell us about yourself (max 255 characters)"
+msgstr "Hãy cho chúng tôi biết về bạn (tối đa 255 ký tự)"
 
 #: src/components/organisms/forms/settings.form.tsx:82
-msgid "System"
-msgstr ""
-
-#: src/components/organisms/forms/settings.form.tsx:70
 msgid "Theme"
-msgstr ""
+msgstr "Giao diện"
 
 #: src/services/errors/translate-error.ts:17
 msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
-msgstr ""
+msgstr "Địa chỉ email này được liên kết với tài khoản OAuth. Vui lòng đăng nhập bằng nhà cung cấp OAuth của bạn."
+
+#: src/components/organisms/forms/profile.form.tsx:269
+msgid "Thumbnail URL"
+msgstr "URL Ảnh thu nhỏ"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:42
 msgid "Total posts"
-msgstr ""
+msgstr "Tổng bài viết"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:22
 msgid "Total users"
-msgstr ""
+msgstr "Tổng người dùng"
 
-#: src/components/templates/layouts/settings.layout.tsx:25
+#: src/components/templates/layouts/settings.layout.tsx:33
 msgid "Update account preferences and manage integrations."
-msgstr ""
+msgstr "Cập nhật tùy chọn tài khoản và quản lý tích hợp."
+
+#: src/components/templates/profile.template.tsx:15
+msgid "Update your profile details."
+msgstr "Cập nhật thông tin hồ sơ của bạn."
+
+#: src/components/organisms/forms/profile.form.tsx:242
+msgid "URL to your profile avatar image"
+msgstr "URL đến ảnh đại diện hồ sơ của bạn"
+
+#: src/components/organisms/forms/profile.form.tsx:302
+msgid "URL to your profile banner image"
+msgstr "URL đến ảnh bìa hồ sơ của bạn"
+
+#: src/components/organisms/forms/profile.form.tsx:272
+msgid "URL to your profile thumbnail image"
+msgstr "URL đến ảnh thu nhỏ hồ sơ của bạn"
 
 #: src/components/atoms/theme-switch.tsx:51
 msgid "Use System Theme"
-msgstr ""
+msgstr "Sử dụng Giao diện Hệ thống"
 
 #: src/services/errors/translate-error.ts:14
 msgid "User does not have an associated 'secrets' record. Please report this issue on GitHub."
-msgstr ""
+msgstr "Người dùng không có bản ghi 'secrets' liên kết. Vui lòng báo lỗi này trên GitHub."
 
 #: src/components/templates/users.template.tsx:92
-#: src/constants/navigation.constants.ts:28
+#: src/constants/navigation.constants.ts:27
 msgid "User Management"
-msgstr ""
+msgstr "Quản lý Người dùng"
 
-#: src/components/organisms/forms/sign-in.form.tsx:90
+#: src/components/organisms/forms/profile.form.tsx:104
+msgid "username"
+msgstr "tên người dùng"
+
+#: src/components/organisms/forms/profile.form.tsx:88
+#: src/components/organisms/forms/sign-in.form.tsx:91
 msgid "Username"
-msgstr ""
+msgstr "Tên người dùng"
+
+#: src/components/organisms/forms/profile.form.tsx:91
+msgid "Usernames can only contain letters, numbers, periods, hyphens, and underscores."
+msgstr "Tên người dùng chỉ có thể chứa chữ cái, số, dấu chấm, dấu gạch ngang và dấu gạch dưới."
 
 #: src/components/molecules/data-table/data-table-view-options.tsx:141
 msgid "View"
-msgstr ""
+msgstr "Xem"
+
+#: src/components/organisms/forms/profile.form.tsx:208
+msgid "Website"
+msgstr "Trang web"
+
+#: src/components/organisms/forms/profile.form.tsx:162
+msgid "Write a short bio..."
+msgstr "Viết một tiểu sử ngắn..."
+
+#: src/components/organisms/forms/profile.form.tsx:132
+msgid "Your full name"
+msgstr "Họ và tên đầy đủ của bạn"
+
+#: src/components/organisms/forms/profile.form.tsx:211
+msgid "Your personal or professional website URL"
+msgstr "URL trang web cá nhân hoặc chuyên nghiệp của bạn"

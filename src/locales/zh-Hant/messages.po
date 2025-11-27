@@ -15,301 +15,403 @@ msgstr ""
 
 #: src/services/errors/translate-error.ts:11
 msgid "A user with this email address and/or username already exists."
-msgstr ""
+msgstr "使用此電子郵件地址和/或用戶名的用戶已存在。"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:52
 msgid "Active hashtags"
-msgstr ""
+msgstr "活躍的話題標籤"
 
-#: src/constants/navigation.constants.ts:58
+#: src/constants/navigation.constants.ts:51
 msgid "Admin Management"
-msgstr ""
+msgstr "管理員管理"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:56
 msgid "Asc"
-msgstr ""
+msgstr "升序"
+
+#: src/components/organisms/forms/profile.form.tsx:239
+msgid "Avatar URL"
+msgstr "頭像 URL"
+
+#: src/components/organisms/forms/profile.form.tsx:299
+msgid "Banner URL"
+msgstr "橫幅 URL"
+
+#: src/components/organisms/forms/profile.form.tsx:150
+msgid "Bio"
+msgstr "簡介"
 
 #: src/components/atoms/locale-switch.tsx:23
 msgid "Change Language"
-msgstr ""
+msgstr "更改語言"
+
+#: src/components/organisms/forms/profile.form.tsx:190
+msgid "City, Country"
+msgstr "城市，國家"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:23
 #: src/components/organisms/section-cards/section-card.helper.ts:33
 #: src/components/organisms/section-cards/section-card.helper.ts:43
 msgid "compared with the previous month"
-msgstr ""
+msgstr "與上個月相比"
 
-#: src/constants/navigation.constants.ts:40
+#: src/constants/navigation.constants.ts:33
 msgid "Content Moderation"
-msgstr ""
+msgstr "內容審核"
 
-#: src/components/organisms/forms/settings.form.tsx:84
+#: src/components/organisms/forms/settings.form.tsx:96
 msgid "Dark"
-msgstr ""
+msgstr "深色"
 
-#: src/constants/navigation.constants.ts:22
+#: src/constants/navigation.constants.ts:21
 msgid "Dashboard"
-msgstr ""
+msgstr "儀表板"
 
 #: src/components/templates/dashboard.template.tsx:54
 msgid "Dashboard overview"
-msgstr ""
+msgstr "儀表板概覽"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:60
 msgid "Desc"
-msgstr ""
+msgstr "降序"
 
-#: src/components/organisms/forms/settings.form.tsx:129
+#: src/components/organisms/forms/settings.form.tsx:141
 msgid "Discard"
-msgstr ""
+msgstr "丟棄"
 
-#: src/components/organisms/forms/sign-in.form.tsx:177
+#: src/components/organisms/forms/sign-in.form.tsx:178
 msgid "Don't have an account?"
-msgstr ""
+msgstr "還沒有帳戶？"
 
-#: src/constants/navigation.constants.ts:46
+#: src/constants/navigation.constants.ts:39
 msgid "Donation Management"
-msgstr ""
+msgstr "捐贈管理"
 
-#: src/components/organisms/forms/sign-in.form.tsx:134
+#: src/components/organisms/forms/sign-in.form.tsx:135
 msgid "Enter password"
-msgstr ""
+msgstr "輸入密碼"
 
-#: src/components/organisms/forms/sign-in.form.tsx:79
+#: src/components/organisms/forms/sign-in.form.tsx:80
 msgid "Enter your username below to sign in to your account"
-msgstr ""
+msgstr "在下方輸入您的用戶名以登入您的帳戶"
 
 #: src/components/templates/users.template.tsx:103
 msgid "Error loading users"
-msgstr ""
-
-#: src/constants/navigation.constants.ts:34
-msgid "Event Management"
-msgstr ""
+msgstr "載入用戶時出錯"
 
 #: src/constants/layout.constants.ts:7
 msgid "Floating"
-msgstr ""
+msgstr "浮動"
 
-#: src/components/organisms/forms/sign-in.form.tsx:123
+#: src/components/organisms/forms/sign-in.form.tsx:124
 msgid "Forgot your password?"
-msgstr ""
+msgstr "忘記密碼？"
 
 #: src/components/templates/settings.template.tsx:14
-#: src/constants/navigation.constants.ts:88
+#: src/constants/navigation.constants.ts:81
 msgid "General"
-msgstr ""
+msgstr "常規"
 
 #: src/components/molecules/data-table/data-table-column-header.tsx:67
 msgid "Hide"
-msgstr ""
+msgstr "隱藏"
 
-#: src/components/organisms/forms/sign-in.form.tsx:153
+#: src/components/organisms/forms/sign-in.form.tsx:154
 msgid "Hide password"
-msgstr ""
+msgstr "隱藏密碼"
+
+#: src/components/organisms/forms/profile.form.tsx:221
+msgid "https://example.com"
+msgstr "https://example.com"
+
+#: src/components/organisms/forms/profile.form.tsx:252
+msgid "https://example.com/avatar.jpg"
+msgstr "https://example.com/avatar.jpg"
+
+#: src/components/organisms/forms/profile.form.tsx:312
+msgid "https://example.com/banner.jpg"
+msgstr "https://example.com/banner.jpg"
+
+#: src/components/organisms/forms/profile.form.tsx:282
+msgid "https://example.com/thumbnail.jpg"
+msgstr "https://example.com/thumbnail.jpg"
 
 #: src/constants/layout.constants.ts:16
 msgid "Icon"
-msgstr ""
+msgstr "圖標"
 
 #: src/constants/layout.constants.ts:5
 msgid "Inset"
-msgstr ""
+msgstr "嵌入"
 
 #: src/services/errors/translate-error.ts:8
 msgid "It doesn't look like a user exists with the credentials you provided."
-msgstr ""
+msgstr "看起來不存在使用您提供的憑證的用戶。"
 
 #: src/services/errors/translate-error.ts:20
 msgid "It looks like the reset token you provided is invalid. Please try restarting the password reset process again."
-msgstr ""
+msgstr "看起來您提供的重置令牌無效。請嘗試重新啟動密碼重置過程。"
 
 #: src/services/errors/translate-error.ts:23
 msgid "It looks like the verification token you provided is invalid. Please try restarting the verification process again."
-msgstr ""
+msgstr "看起來您提供的驗證令牌無效。請嘗試重新啟動驗證過程。"
 
 #: src/services/errors/translate-error.ts:26
 msgid "It looks like your email address has already been verified."
-msgstr ""
+msgstr "看起來您的電子郵件地址已被驗證。"
 
-#: src/components/organisms/forms/settings.form.tsx:101
+#: src/components/organisms/forms/settings.form.tsx:113
 msgid "Language"
-msgstr ""
+msgstr "語言"
 
-#: src/components/organisms/forms/settings.form.tsx:83
+#: src/components/organisms/forms/settings.form.tsx:95
 msgid "Light"
-msgstr ""
+msgstr "淺色"
 
-#: src/components/organisms/forms/sign-in.form.tsx:100
+#: src/components/organisms/forms/profile.form.tsx:180
+msgid "Location"
+msgstr "位置"
+
+#: src/components/organisms/forms/sign-in.form.tsx:101
 msgid "m@example.com"
-msgstr ""
+msgstr "m@example.com"
 
 #: src/components/templates/users.template.tsx:95
 msgid "Manage and view all users in the system"
-msgstr ""
+msgstr "管理和查看系統中的所有用戶"
+
+#: src/components/organisms/forms/profile.form.tsx:122
+msgid "Name"
+msgstr "姓名"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:53
 msgid "new hashtags this month"
-msgstr ""
+msgstr "本月新話題標籤"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:32
 msgid "New users"
-msgstr ""
+msgstr "新用戶"
 
-#: src/constants/navigation.constants.ts:52
+#: src/constants/navigation.constants.ts:45
 msgid "NFT Management"
-msgstr ""
+msgstr "NFT 管理"
 
 #: src/components/molecules/data-table/data-table-empty.tsx:20
 msgid "No data found"
-msgstr ""
+msgstr "未找到數據"
 
 #: src/components/molecules/data-table/data-table-empty.tsx:23
 msgid "No data match your search criteria. Try adjusting your search or filters."
-msgstr ""
+msgstr "沒有數據符合您的搜尋條件。請嘗試調整搜尋或篩選器。"
 
 #: src/components/atoms/locale-combobox.tsx:48
 msgid "No results found"
-msgstr ""
+msgstr "未找到結果"
 
-#: src/constants/navigation.constants.ts:79
+#: src/constants/navigation.constants.ts:72
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: src/constants/layout.constants.ts:17
 msgid "Offcanvas"
-msgstr ""
+msgstr "側邊欄"
 
 #: src/packages/libs/axios.ts:49
 msgid "Oops, the server returned an error."
-msgstr ""
+msgstr "糟糕，伺服器返回了錯誤。"
 
-#: src/components/organisms/forms/sign-in.form.tsx:117
+#: src/components/organisms/forms/sign-in.form.tsx:118
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: src/components/templates/users.template.tsx:106
 msgid "Please try again or contact support if the problem persists."
-msgstr ""
+msgstr "如果問題仍然存在，請重試或聯繫支援。"
 
-#: src/constants/navigation.constants.ts:73
-#: src/constants/navigation.constants.ts:94
+#: src/components/templates/profile.template.tsx:12
+#: src/constants/navigation.constants.ts:66
+#: src/constants/navigation.constants.ts:87
 msgid "Profile"
-msgstr ""
+msgstr "個人資料"
 
-#: src/components/organisms/forms/settings.form.tsx:126
+#: src/components/organisms/forms/profile.form.tsx:58
+msgid "Profile updated successfully"
+msgstr "個人資料更新成功"
+
+#: src/components/organisms/forms/profile.form.tsx:326
+msgid "Save changes"
+msgstr "儲存變更"
+
+#: src/components/organisms/forms/settings.form.tsx:138
 msgid "Save Changes"
-msgstr ""
+msgstr "儲存變更"
+
+#: src/components/organisms/forms/profile.form.tsx:324
+msgid "Saving..."
+msgstr "儲存中..."
 
 #: src/constants/layout.constants.ts:27
 msgid "Scroll"
-msgstr ""
+msgstr "滾動"
 
 #: src/components/atoms/locale-combobox.tsx:43
 msgid "Search for a language"
-msgstr ""
+msgstr "搜尋語言"
 
-#: src/components/templates/layouts/settings.layout.tsx:22
+#: src/components/templates/layouts/settings.layout.tsx:107
+msgid "Select a section"
+msgstr "選擇一個部分"
+
+#: src/components/templates/layouts/settings.layout.tsx:30
 msgid "Setting"
-msgstr ""
+msgstr "設定"
 
-#: src/constants/navigation.constants.ts:64
+#: src/constants/navigation.constants.ts:57
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: src/components/templates/settings.template.tsx:17
 msgid "Settings and options for your application"
-msgstr ""
+msgstr "應用程式的設定和選項"
 
-#: src/components/organisms/forms/sign-in.form.tsx:155
+#: src/components/organisms/forms/sign-in.form.tsx:156
 msgid "Show password"
-msgstr ""
+msgstr "顯示密碼"
 
 #: src/constants/layout.constants.ts:6
 msgid "Sidebar"
-msgstr ""
+msgstr "側邊欄"
 
-#: src/components/organisms/forms/sign-in.form.tsx:172
+#: src/components/organisms/forms/sign-in.form.tsx:173
 msgid "Sign in"
-msgstr ""
+msgstr "登入"
 
-#: src/components/organisms/forms/sign-in.form.tsx:76
+#: src/components/organisms/forms/sign-in.form.tsx:77
 msgid "Sign in to your account"
-msgstr ""
+msgstr "登入您的帳戶"
 
 #: src/components/organisms/app-sidebar/nav-profile.tsx:95
 msgid "Sign out"
-msgstr ""
+msgstr "登出"
 
-#: src/components/organisms/forms/sign-in.form.tsx:179
+#: src/components/organisms/forms/sign-in.form.tsx:180
 msgid "Sign up"
-msgstr ""
+msgstr "註冊"
 
-#: src/components/organisms/forms/sign-in.form.tsx:172
+#: src/components/organisms/forms/sign-in.form.tsx:173
 msgid "Signing in..."
-msgstr ""
+msgstr "登入中..."
 
 #: src/components/templates/dashboard.template.tsx:57
 msgid "Social network activity at a glance"
-msgstr ""
+msgstr "社交網絡活動一覽"
 
 #: src/services/errors/translate-error.ts:29
 msgid "Something went wrong while processing your request. Please try again later or raise an issue on GitHub."
-msgstr ""
+msgstr "處理您的請求時出現問題。請稍後重試或在 GitHub 上提出問題。"
 
 #: src/constants/layout.constants.ts:26
 msgid "Sticky"
-msgstr ""
+msgstr "粘性"
 
 #: src/components/atoms/theme-switch.tsx:56
 msgid "Switch to Dark Mode"
-msgstr ""
+msgstr "切換到深色模式"
 
 #: src/components/atoms/theme-switch.tsx:46
 msgid "Switch to Light Mode"
-msgstr ""
+msgstr "切換到淺色模式"
+
+#: src/components/organisms/forms/settings.form.tsx:94
+msgid "System"
+msgstr "系統"
+
+#: src/components/organisms/forms/profile.form.tsx:153
+msgid "Tell us about yourself (max 255 characters)"
+msgstr "向我們介紹一下您自己（最多 255 個字符）"
 
 #: src/components/organisms/forms/settings.form.tsx:82
-msgid "System"
-msgstr ""
-
-#: src/components/organisms/forms/settings.form.tsx:70
 msgid "Theme"
-msgstr ""
+msgstr "主題"
 
 #: src/services/errors/translate-error.ts:17
 msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
-msgstr ""
+msgstr "此電子郵件地址與 OAuth 帳戶關聯。請使用您的 OAuth 提供商登入。"
+
+#: src/components/organisms/forms/profile.form.tsx:269
+msgid "Thumbnail URL"
+msgstr "縮圖 URL"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:42
 msgid "Total posts"
-msgstr ""
+msgstr "總貼文數"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:22
 msgid "Total users"
-msgstr ""
+msgstr "總用戶數"
 
-#: src/components/templates/layouts/settings.layout.tsx:25
+#: src/components/templates/layouts/settings.layout.tsx:33
 msgid "Update account preferences and manage integrations."
-msgstr ""
+msgstr "更新帳戶偏好設定並管理整合。"
+
+#: src/components/templates/profile.template.tsx:15
+msgid "Update your profile details."
+msgstr "更新您的個人資料詳細資訊。"
+
+#: src/components/organisms/forms/profile.form.tsx:242
+msgid "URL to your profile avatar image"
+msgstr "您的個人資料頭像圖片的 URL"
+
+#: src/components/organisms/forms/profile.form.tsx:302
+msgid "URL to your profile banner image"
+msgstr "您的個人資料橫幅圖片的 URL"
+
+#: src/components/organisms/forms/profile.form.tsx:272
+msgid "URL to your profile thumbnail image"
+msgstr "您的個人資料縮圖圖片的 URL"
 
 #: src/components/atoms/theme-switch.tsx:51
 msgid "Use System Theme"
-msgstr ""
+msgstr "使用系統主題"
 
 #: src/services/errors/translate-error.ts:14
 msgid "User does not have an associated 'secrets' record. Please report this issue on GitHub."
-msgstr ""
+msgstr "用戶沒有關聯的 'secrets' 記錄。請在 GitHub 上報告此問題。"
 
 #: src/components/templates/users.template.tsx:92
-#: src/constants/navigation.constants.ts:28
+#: src/constants/navigation.constants.ts:27
 msgid "User Management"
-msgstr ""
+msgstr "用戶管理"
 
-#: src/components/organisms/forms/sign-in.form.tsx:90
+#: src/components/organisms/forms/profile.form.tsx:104
+msgid "username"
+msgstr "用戶名"
+
+#: src/components/organisms/forms/profile.form.tsx:88
+#: src/components/organisms/forms/sign-in.form.tsx:91
 msgid "Username"
-msgstr ""
+msgstr "用戶名"
+
+#: src/components/organisms/forms/profile.form.tsx:91
+msgid "Usernames can only contain letters, numbers, periods, hyphens, and underscores."
+msgstr "用戶名只能包含字母、數字、句點、連字符和底線。"
 
 #: src/components/molecules/data-table/data-table-view-options.tsx:141
 msgid "View"
-msgstr ""
+msgstr "查看"
+
+#: src/components/organisms/forms/profile.form.tsx:208
+msgid "Website"
+msgstr "網站"
+
+#: src/components/organisms/forms/profile.form.tsx:162
+msgid "Write a short bio..."
+msgstr "寫一個簡短的簡介..."
+
+#: src/components/organisms/forms/profile.form.tsx:132
+msgid "Your full name"
+msgstr "您的全名"
+
+#: src/components/organisms/forms/profile.form.tsx:211
+msgid "Your personal or professional website URL"
+msgstr "您的個人或專業網站 URL"

@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import type { LocaleId } from '@/constants/language.constants'
 import { DEFAULT_LANGUAGE, languages } from '@/constants/language.constants'
 import { dynamicActivate } from '@/packages/libs/lingui'
+import { configureZodLocale } from '@/packages/libs/zod'
 import { useAuthStore } from '@/stores/auth'
 
 type Props = {
@@ -20,22 +21,41 @@ export const LocaleProvider = ({ children }: Props) => {
   )
 
   useEffect(() => {
-    const detectedLocale =
-      detect(
-        fromUrl('locale'),
-        fromStorage('locale'),
-        userLocale,
-        DEFAULT_LANGUAGE,
-      ) ?? DEFAULT_LANGUAGE
+    async function activateLocale() {
+      const detectedLocale =
+        detect(
+          fromUrl('locale'),
+          fromStorage('locale'),
+          userLocale,
+          DEFAULT_LANGUAGE,
+        ) ?? DEFAULT_LANGUAGE
 
-    // Activate the locale only if it's supported
-    if (languages.some((lang) => lang.locale === detectedLocale)) {
-      void dynamicActivate(detectedLocale)
-    } else {
-      void dynamicActivate(DEFAULT_LANGUAGE)
+      // Activate the locale only if it's supported
+      const localeToActivate = languages.some(
+        (lang) => lang.id === detectedLocale,
+      )
+        ? detectedLocale
+        : DEFAULT_LANGUAGE
+
+      try {
+        await dynamicActivate(localeToActivate)
+        await configureZodLocale(localeToActivate)
+      } catch (error) {
+        console.error('Failed to activate locale:', error)
+        // Fallback to default locale
+        try {
+          await dynamicActivate(DEFAULT_LANGUAGE)
+          await configureZodLocale(DEFAULT_LANGUAGE)
+        } catch (fallbackError) {
+          console.error('Failed to activate default locale:', fallbackError)
+        }
+      }
     }
+
+    void activateLocale()
   }, [userLocale])
 
+  // i18n is already initialized in main.tsx, so I18nProvider can render immediately
   return <I18nProvider i18n={i18n}>{children}</I18nProvider>
 }
 

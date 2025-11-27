@@ -6,8 +6,14 @@ import './styles.css'
 import reportWebVitals from './reportWebVitals'
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
+// Initialize Zod with default locale
+import { initializeZod } from './packages/libs/zod'
+// Initialize Lingui with default locale
+import { initializeLingui } from './packages/libs/lingui'
 
-// Create a new router instance
+// Locales will be initialized in initApp() before rendering
+
+// Create a new router instanc
 export const router = createRouter({
   routeTree,
   context: {},
@@ -24,16 +30,24 @@ declare module '@tanstack/react-router' {
   }
 }
 
-// Render the app
-const rootElement = document.getElementById('app')
-if (rootElement && !rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement)
-  root.render(
-    <StrictMode>
-      <RouterProvider router={router} />
-    </StrictMode>,
-  )
+// Initialize and render the app
+async function initApp() {
+  // Wait for locale initialization before rendering
+  await initializeLingui()
+  await initializeZod()
+
+  const rootElement = document.getElementById('app')
+  if (rootElement && !rootElement.innerHTML) {
+    const root = ReactDOM.createRoot(rootElement)
+    root.render(
+      <StrictMode>
+        <RouterProvider router={router} />
+      </StrictMode>,
+    )
+  }
 }
+
+void initApp()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
 
+import ProfileTemplate from '@/components/templates/profile.template.tsx'
+
 export const Route = createFileRoute('/_authenticated/settings/profile/')({
-  component: RouteComponent,
+  component: ProfilePage,
 })
 
-function RouteComponent() {
-  return <div>Hello "/_authenticated/settings/profile/"!</div>
+function ProfilePage() {
+  return <ProfileTemplate />
 }

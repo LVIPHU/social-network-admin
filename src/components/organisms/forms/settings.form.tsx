@@ -1,3 +1,4 @@
+import { fromStorage } from '@lingui/detect-locale'
 import { t } from '@lingui/core/macro'
 import { Trans } from '@lingui/react/macro'
 import { useForm, useStore } from '@tanstack/react-form'
@@ -12,7 +13,8 @@ import {
   FieldGroup,
   FieldLabel,
 } from '@/components/ui/field.tsx'
-import { DEFAULT_LANGUAGE } from '@/constants/language.constants.ts'
+import { DEFAULT_LANGUAGE, localeIds } from '@/constants/language.constants.ts'
+import type { LocaleId } from '@/constants/language.constants.ts'
 import type { LanguageDto, ThemeDto } from '@/packages/models/app'
 import { languageSchema, themeSchema } from '@/packages/models/app'
 import { cn } from '@/packages/utils/styles.ts'
@@ -29,10 +31,17 @@ export const SettingsForm = () => {
   const { profile, loading } = useProfile()
   const { theme, setTheme } = useTheme()
 
+  // Get locale from localStorage, validate it's a valid LocaleId, fallback to profile locale or default
+  const storedLocale = fromStorage('locale')
+  const localeFromStorage: LocaleId =
+    storedLocale && localeIds.includes(storedLocale as LocaleId)
+      ? (storedLocale as LocaleId)
+      : (profile?.locale ?? DEFAULT_LANGUAGE)
+
   const form = useForm({
     defaultValues: {
       theme: theme,
-      locale: profile?.locale || DEFAULT_LANGUAGE,
+      locale: localeFromStorage,
     },
     validators: {
       onChange: formSchema,

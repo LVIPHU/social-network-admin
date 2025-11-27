@@ -6,7 +6,7 @@ import { userSchema } from '@/packages/models/user/user.model'
 export const adminSchema = userSchema.omit({ user_id: true }).extend({
   id: z.number(),
   roles: z.array(roleSchema),
-  password: z.string().optional(),
+  password: z.string(),
 })
 
 export type AdminDto = z.infer<typeof adminSchema>
