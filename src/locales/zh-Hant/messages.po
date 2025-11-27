@@ -29,15 +29,15 @@ msgstr "管理員管理"
 msgid "Asc"
 msgstr "升序"
 
-#: src/components/organisms/forms/profile.form.tsx:239
-msgid "Avatar URL"
-msgstr "頭像 URL"
+#: src/components/organisms/forms/profile.form.tsx:98
+msgid "Avatar"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:299
-msgid "Banner URL"
-msgstr "橫幅 URL"
+#: src/components/organisms/forms/profile.form.tsx:114
+msgid "Banner"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:150
+#: src/components/organisms/forms/profile.form.tsx:73
 msgid "Bio"
 msgstr "簡介"
 
@@ -45,7 +45,7 @@ msgstr "簡介"
 msgid "Change Language"
 msgstr "更改語言"
 
-#: src/components/organisms/forms/profile.form.tsx:190
+#: src/components/organisms/forms/profile.form.tsx:83
 msgid "City, Country"
 msgstr "城市，國家"
 
@@ -59,7 +59,7 @@ msgstr "與上個月相比"
 msgid "Content Moderation"
 msgstr "內容審核"
 
-#: src/components/organisms/forms/settings.form.tsx:96
+#: src/components/organisms/forms/settings.form.tsx:77
 msgid "Dark"
 msgstr "深色"
 
@@ -75,11 +75,12 @@ msgstr "儀表板概覽"
 msgid "Desc"
 msgstr "降序"
 
-#: src/components/organisms/forms/settings.form.tsx:141
+#: src/components/molecules/form-composition/form-composition.tsx:387
+#: src/components/organisms/forms/settings.form.tsx:149
 msgid "Discard"
 msgstr "丟棄"
 
-#: src/components/organisms/forms/sign-in.form.tsx:178
+#: src/components/organisms/forms/sign-in.form.tsx:101
 msgid "Don't have an account?"
 msgstr "還沒有帳戶？"
 
@@ -87,11 +88,11 @@ msgstr "還沒有帳戶？"
 msgid "Donation Management"
 msgstr "捐贈管理"
 
-#: src/components/organisms/forms/sign-in.form.tsx:135
+#: src/components/organisms/forms/sign-in.form.tsx:46
 msgid "Enter password"
 msgstr "輸入密碼"
 
-#: src/components/organisms/forms/sign-in.form.tsx:80
+#: src/components/organisms/forms/sign-in.form.tsx:68
 msgid "Enter your username below to sign in to your account"
 msgstr "在下方輸入您的用戶名以登入您的帳戶"
 
@@ -103,10 +104,6 @@ msgstr "載入用戶時出錯"
 msgid "Floating"
 msgstr "浮動"
 
-#: src/components/organisms/forms/sign-in.form.tsx:124
-msgid "Forgot your password?"
-msgstr "忘記密碼？"
-
 #: src/components/templates/settings.template.tsx:14
 #: src/constants/navigation.constants.ts:81
 msgid "General"
@@ -116,25 +113,13 @@ msgstr "常規"
 msgid "Hide"
 msgstr "隱藏"
 
-#: src/components/organisms/forms/sign-in.form.tsx:154
+#: src/components/molecules/form-composition/form-fields/form-password.tsx:95
 msgid "Hide password"
 msgstr "隱藏密碼"
 
-#: src/components/organisms/forms/profile.form.tsx:221
+#: src/components/organisms/forms/profile.form.tsx:91
 msgid "https://example.com"
 msgstr "https://example.com"
-
-#: src/components/organisms/forms/profile.form.tsx:252
-msgid "https://example.com/avatar.jpg"
-msgstr "https://example.com/avatar.jpg"
-
-#: src/components/organisms/forms/profile.form.tsx:312
-msgid "https://example.com/banner.jpg"
-msgstr "https://example.com/banner.jpg"
-
-#: src/components/organisms/forms/profile.form.tsx:282
-msgid "https://example.com/thumbnail.jpg"
-msgstr "https://example.com/thumbnail.jpg"
 
 #: src/constants/layout.constants.ts:16
 msgid "Icon"
@@ -160,19 +145,19 @@ msgstr "看起來您提供的驗證令牌無效。請嘗試重新啟動驗證過
 msgid "It looks like your email address has already been verified."
 msgstr "看起來您的電子郵件地址已被驗證。"
 
-#: src/components/organisms/forms/settings.form.tsx:113
+#: src/components/organisms/forms/settings.form.tsx:112
 msgid "Language"
 msgstr "語言"
 
-#: src/components/organisms/forms/settings.form.tsx:95
+#: src/components/organisms/forms/settings.form.tsx:76
 msgid "Light"
 msgstr "淺色"
 
-#: src/components/organisms/forms/profile.form.tsx:180
+#: src/components/organisms/forms/profile.form.tsx:81
 msgid "Location"
 msgstr "位置"
 
-#: src/components/organisms/forms/sign-in.form.tsx:101
+#: src/components/organisms/forms/sign-in.form.tsx:38
 msgid "m@example.com"
 msgstr "m@example.com"
 
@@ -180,7 +165,7 @@ msgstr "m@example.com"
 msgid "Manage and view all users in the system"
 msgstr "管理和查看系統中的所有用戶"
 
-#: src/components/organisms/forms/profile.form.tsx:122
+#: src/components/organisms/forms/profile.form.tsx:65
 msgid "Name"
 msgstr "姓名"
 
@@ -220,7 +205,7 @@ msgstr "側邊欄"
 msgid "Oops, the server returned an error."
 msgstr "糟糕，伺服器返回了錯誤。"
 
-#: src/components/organisms/forms/sign-in.form.tsx:118
+#: src/components/organisms/forms/sign-in.form.tsx:45
 msgid "Password"
 msgstr "密碼"
 
@@ -228,25 +213,26 @@ msgstr "密碼"
 msgid "Please try again or contact support if the problem persists."
 msgstr "如果問題仍然存在，請重試或聯繫支援。"
 
-#: src/components/templates/profile.template.tsx:12
+#: src/components/templates/profile.template.tsx:11
 #: src/constants/navigation.constants.ts:66
 #: src/constants/navigation.constants.ts:87
 msgid "Profile"
 msgstr "個人資料"
 
-#: src/components/organisms/forms/profile.form.tsx:58
+#: src/components/organisms/forms/profile.form.tsx:147
 msgid "Profile updated successfully"
 msgstr "個人資料更新成功"
 
-#: src/components/organisms/forms/profile.form.tsx:326
+#: src/components/organisms/forms/profile.form.tsx:182
 msgid "Save changes"
 msgstr "儲存變更"
 
-#: src/components/organisms/forms/settings.form.tsx:138
+#: src/components/molecules/form-composition/form-composition.tsx:363
+#: src/components/organisms/forms/settings.form.tsx:141
 msgid "Save Changes"
 msgstr "儲存變更"
 
-#: src/components/organisms/forms/profile.form.tsx:324
+#: src/components/organisms/forms/profile.form.tsx:180
 msgid "Saving..."
 msgstr "儲存中..."
 
@@ -274,7 +260,7 @@ msgstr "設定"
 msgid "Settings and options for your application"
 msgstr "應用程式的設定和選項"
 
-#: src/components/organisms/forms/sign-in.form.tsx:156
+#: src/components/molecules/form-composition/form-fields/form-password.tsx:97
 msgid "Show password"
 msgstr "顯示密碼"
 
@@ -282,11 +268,11 @@ msgstr "顯示密碼"
 msgid "Sidebar"
 msgstr "側邊欄"
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:95
 msgid "Sign in"
 msgstr "登入"
 
-#: src/components/organisms/forms/sign-in.form.tsx:77
+#: src/components/organisms/forms/sign-in.form.tsx:65
 msgid "Sign in to your account"
 msgstr "登入您的帳戶"
 
@@ -294,11 +280,11 @@ msgstr "登入您的帳戶"
 msgid "Sign out"
 msgstr "登出"
 
-#: src/components/organisms/forms/sign-in.form.tsx:180
+#: src/components/organisms/forms/sign-in.form.tsx:103
 msgid "Sign up"
 msgstr "註冊"
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:95
 msgid "Signing in..."
 msgstr "登入中..."
 
@@ -322,15 +308,15 @@ msgstr "切換到深色模式"
 msgid "Switch to Light Mode"
 msgstr "切換到淺色模式"
 
-#: src/components/organisms/forms/settings.form.tsx:94
+#: src/components/organisms/forms/settings.form.tsx:75
 msgid "System"
 msgstr "系統"
 
-#: src/components/organisms/forms/profile.form.tsx:153
+#: src/components/organisms/forms/profile.form.tsx:76
 msgid "Tell us about yourself (max 255 characters)"
 msgstr "向我們介紹一下您自己（最多 255 個字符）"
 
-#: src/components/organisms/forms/settings.form.tsx:82
+#: src/components/organisms/forms/settings.form.tsx:73
 msgid "Theme"
 msgstr "主題"
 
@@ -338,9 +324,9 @@ msgstr "主題"
 msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 msgstr "此電子郵件地址與 OAuth 帳戶關聯。請使用您的 OAuth 提供商登入。"
 
-#: src/components/organisms/forms/profile.form.tsx:269
-msgid "Thumbnail URL"
-msgstr "縮圖 URL"
+#: src/components/organisms/forms/profile.form.tsx:106
+msgid "Thumbnail"
+msgstr ""
 
 #: src/components/organisms/section-cards/section-card.helper.ts:42
 msgid "Total posts"
@@ -354,21 +340,21 @@ msgstr "總用戶數"
 msgid "Update account preferences and manage integrations."
 msgstr "更新帳戶偏好設定並管理整合。"
 
-#: src/components/templates/profile.template.tsx:15
+#: src/components/templates/profile.template.tsx:14
 msgid "Update your profile details."
 msgstr "更新您的個人資料詳細資訊。"
 
-#: src/components/organisms/forms/profile.form.tsx:242
-msgid "URL to your profile avatar image"
-msgstr "您的個人資料頭像圖片的 URL"
+#: src/components/organisms/forms/profile.form.tsx:100
+msgid "Upload your profile avatar image"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:302
-msgid "URL to your profile banner image"
-msgstr "您的個人資料橫幅圖片的 URL"
+#: src/components/organisms/forms/profile.form.tsx:116
+msgid "Upload your profile banner image"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:272
-msgid "URL to your profile thumbnail image"
-msgstr "您的個人資料縮圖圖片的 URL"
+#: src/components/organisms/forms/profile.form.tsx:108
+msgid "Upload your profile thumbnail image"
+msgstr ""
 
 #: src/components/atoms/theme-switch.tsx:51
 msgid "Use System Theme"
@@ -383,16 +369,16 @@ msgstr "用戶沒有關聯的 'secrets' 記錄。請在 GitHub 上報告此問�
 msgid "User Management"
 msgstr "用戶管理"
 
-#: src/components/organisms/forms/profile.form.tsx:104
+#: src/components/organisms/forms/profile.form.tsx:58
 msgid "username"
 msgstr "用戶名"
 
-#: src/components/organisms/forms/profile.form.tsx:88
-#: src/components/organisms/forms/sign-in.form.tsx:91
+#: src/components/organisms/forms/profile.form.tsx:56
+#: src/components/organisms/forms/sign-in.form.tsx:36
 msgid "Username"
 msgstr "用戶名"
 
-#: src/components/organisms/forms/profile.form.tsx:91
+#: src/components/organisms/forms/profile.form.tsx:60
 msgid "Usernames can only contain letters, numbers, periods, hyphens, and underscores."
 msgstr "用戶名只能包含字母、數字、句點、連字符和底線。"
 
@@ -400,18 +386,18 @@ msgstr "用戶名只能包含字母、數字、句點、連字符和底線。"
 msgid "View"
 msgstr "查看"
 
-#: src/components/organisms/forms/profile.form.tsx:208
+#: src/components/organisms/forms/profile.form.tsx:89
 msgid "Website"
 msgstr "網站"
 
-#: src/components/organisms/forms/profile.form.tsx:162
+#: src/components/organisms/forms/profile.form.tsx:74
 msgid "Write a short bio..."
 msgstr "寫一個簡短的簡介..."
 
-#: src/components/organisms/forms/profile.form.tsx:132
+#: src/components/organisms/forms/profile.form.tsx:67
 msgid "Your full name"
 msgstr "您的全名"
 
-#: src/components/organisms/forms/profile.form.tsx:211
+#: src/components/organisms/forms/profile.form.tsx:93
 msgid "Your personal or professional website URL"
 msgstr "您的個人或專業網站 URL"

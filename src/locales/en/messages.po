@@ -29,15 +29,15 @@ msgstr "Admin Management"
 msgid "Asc"
 msgstr "Asc"
 
-#: src/components/organisms/forms/profile.form.tsx:239
-msgid "Avatar URL"
-msgstr "Avatar URL"
+#: src/components/organisms/forms/profile.form.tsx:98
+msgid "Avatar"
+msgstr "Avatar"
 
-#: src/components/organisms/forms/profile.form.tsx:299
-msgid "Banner URL"
-msgstr "Banner URL"
+#: src/components/organisms/forms/profile.form.tsx:114
+msgid "Banner"
+msgstr "Banner"
 
-#: src/components/organisms/forms/profile.form.tsx:150
+#: src/components/organisms/forms/profile.form.tsx:73
 msgid "Bio"
 msgstr "Bio"
 
@@ -45,7 +45,7 @@ msgstr "Bio"
 msgid "Change Language"
 msgstr "Change Language"
 
-#: src/components/organisms/forms/profile.form.tsx:190
+#: src/components/organisms/forms/profile.form.tsx:83
 msgid "City, Country"
 msgstr "City, Country"
 
@@ -59,7 +59,7 @@ msgstr "compared with the previous month"
 msgid "Content Moderation"
 msgstr "Content Moderation"
 
-#: src/components/organisms/forms/settings.form.tsx:96
+#: src/components/organisms/forms/settings.form.tsx:77
 msgid "Dark"
 msgstr "Dark"
 
@@ -75,11 +75,12 @@ msgstr "Dashboard overview"
 msgid "Desc"
 msgstr "Desc"
 
-#: src/components/organisms/forms/settings.form.tsx:141
+#: src/components/molecules/form-composition/form-composition.tsx:387
+#: src/components/organisms/forms/settings.form.tsx:149
 msgid "Discard"
 msgstr "Discard"
 
-#: src/components/organisms/forms/sign-in.form.tsx:178
+#: src/components/organisms/forms/sign-in.form.tsx:101
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
 
@@ -87,11 +88,11 @@ msgstr "Don't have an account?"
 msgid "Donation Management"
 msgstr "Donation Management"
 
-#: src/components/organisms/forms/sign-in.form.tsx:135
+#: src/components/organisms/forms/sign-in.form.tsx:46
 msgid "Enter password"
 msgstr "Enter password"
 
-#: src/components/organisms/forms/sign-in.form.tsx:80
+#: src/components/organisms/forms/sign-in.form.tsx:68
 msgid "Enter your username below to sign in to your account"
 msgstr "Enter your username below to sign in to your account"
 
@@ -103,10 +104,6 @@ msgstr "Error loading users"
 msgid "Floating"
 msgstr "Floating"
 
-#: src/components/organisms/forms/sign-in.form.tsx:124
-msgid "Forgot your password?"
-msgstr "Forgot your password?"
-
 #: src/components/templates/settings.template.tsx:14
 #: src/constants/navigation.constants.ts:81
 msgid "General"
@@ -116,25 +113,13 @@ msgstr "General"
 msgid "Hide"
 msgstr "Hide"
 
-#: src/components/organisms/forms/sign-in.form.tsx:154
+#: src/components/molecules/form-composition/form-fields/form-password.tsx:95
 msgid "Hide password"
 msgstr "Hide password"
 
-#: src/components/organisms/forms/profile.form.tsx:221
+#: src/components/organisms/forms/profile.form.tsx:91
 msgid "https://example.com"
 msgstr "https://example.com"
-
-#: src/components/organisms/forms/profile.form.tsx:252
-msgid "https://example.com/avatar.jpg"
-msgstr "https://example.com/avatar.jpg"
-
-#: src/components/organisms/forms/profile.form.tsx:312
-msgid "https://example.com/banner.jpg"
-msgstr "https://example.com/banner.jpg"
-
-#: src/components/organisms/forms/profile.form.tsx:282
-msgid "https://example.com/thumbnail.jpg"
-msgstr "https://example.com/thumbnail.jpg"
 
 #: src/constants/layout.constants.ts:16
 msgid "Icon"
@@ -160,19 +145,19 @@ msgstr "It looks like the verification token you provided is invalid. Please try
 msgid "It looks like your email address has already been verified."
 msgstr "It looks like your email address has already been verified."
 
-#: src/components/organisms/forms/settings.form.tsx:113
+#: src/components/organisms/forms/settings.form.tsx:112
 msgid "Language"
 msgstr "Language"
 
-#: src/components/organisms/forms/settings.form.tsx:95
+#: src/components/organisms/forms/settings.form.tsx:76
 msgid "Light"
 msgstr "Light"
 
-#: src/components/organisms/forms/profile.form.tsx:180
+#: src/components/organisms/forms/profile.form.tsx:81
 msgid "Location"
 msgstr "Location"
 
-#: src/components/organisms/forms/sign-in.form.tsx:101
+#: src/components/organisms/forms/sign-in.form.tsx:38
 msgid "m@example.com"
 msgstr "m@example.com"
 
@@ -180,7 +165,7 @@ msgstr "m@example.com"
 msgid "Manage and view all users in the system"
 msgstr "Manage and view all users in the system"
 
-#: src/components/organisms/forms/profile.form.tsx:122
+#: src/components/organisms/forms/profile.form.tsx:65
 msgid "Name"
 msgstr "Name"
 
@@ -220,7 +205,7 @@ msgstr "Offcanvas"
 msgid "Oops, the server returned an error."
 msgstr "Oops, the server returned an error."
 
-#: src/components/organisms/forms/sign-in.form.tsx:118
+#: src/components/organisms/forms/sign-in.form.tsx:45
 msgid "Password"
 msgstr "Password"
 
@@ -228,25 +213,26 @@ msgstr "Password"
 msgid "Please try again or contact support if the problem persists."
 msgstr "Please try again or contact support if the problem persists."
 
-#: src/components/templates/profile.template.tsx:12
+#: src/components/templates/profile.template.tsx:11
 #: src/constants/navigation.constants.ts:66
 #: src/constants/navigation.constants.ts:87
 msgid "Profile"
 msgstr "Profile"
 
-#: src/components/organisms/forms/profile.form.tsx:58
+#: src/components/organisms/forms/profile.form.tsx:147
 msgid "Profile updated successfully"
 msgstr "Profile updated successfully"
 
-#: src/components/organisms/forms/profile.form.tsx:326
+#: src/components/organisms/forms/profile.form.tsx:182
 msgid "Save changes"
 msgstr "Save changes"
 
-#: src/components/organisms/forms/settings.form.tsx:138
+#: src/components/molecules/form-composition/form-composition.tsx:363
+#: src/components/organisms/forms/settings.form.tsx:141
 msgid "Save Changes"
 msgstr "Save Changes"
 
-#: src/components/organisms/forms/profile.form.tsx:324
+#: src/components/organisms/forms/profile.form.tsx:180
 msgid "Saving..."
 msgstr "Saving..."
 
@@ -274,7 +260,7 @@ msgstr "Settings"
 msgid "Settings and options for your application"
 msgstr "Settings and options for your application"
 
-#: src/components/organisms/forms/sign-in.form.tsx:156
+#: src/components/molecules/form-composition/form-fields/form-password.tsx:97
 msgid "Show password"
 msgstr "Show password"
 
@@ -282,11 +268,11 @@ msgstr "Show password"
 msgid "Sidebar"
 msgstr "Sidebar"
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:95
 msgid "Sign in"
 msgstr "Sign in"
 
-#: src/components/organisms/forms/sign-in.form.tsx:77
+#: src/components/organisms/forms/sign-in.form.tsx:65
 msgid "Sign in to your account"
 msgstr "Sign in to your account"
 
@@ -294,11 +280,11 @@ msgstr "Sign in to your account"
 msgid "Sign out"
 msgstr "Sign out"
 
-#: src/components/organisms/forms/sign-in.form.tsx:180
+#: src/components/organisms/forms/sign-in.form.tsx:103
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:95
 msgid "Signing in..."
 msgstr "Signing in..."
 
@@ -322,15 +308,15 @@ msgstr "Switch to Dark Mode"
 msgid "Switch to Light Mode"
 msgstr "Switch to Light Mode"
 
-#: src/components/organisms/forms/settings.form.tsx:94
+#: src/components/organisms/forms/settings.form.tsx:75
 msgid "System"
 msgstr "System"
 
-#: src/components/organisms/forms/profile.form.tsx:153
+#: src/components/organisms/forms/profile.form.tsx:76
 msgid "Tell us about yourself (max 255 characters)"
 msgstr "Tell us about yourself (max 255 characters)"
 
-#: src/components/organisms/forms/settings.form.tsx:82
+#: src/components/organisms/forms/settings.form.tsx:73
 msgid "Theme"
 msgstr "Theme"
 
@@ -338,9 +324,9 @@ msgstr "Theme"
 msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 msgstr "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 
-#: src/components/organisms/forms/profile.form.tsx:269
-msgid "Thumbnail URL"
-msgstr "Thumbnail URL"
+#: src/components/organisms/forms/profile.form.tsx:106
+msgid "Thumbnail"
+msgstr "Thumbnail"
 
 #: src/components/organisms/section-cards/section-card.helper.ts:42
 msgid "Total posts"
@@ -354,21 +340,21 @@ msgstr "Total users"
 msgid "Update account preferences and manage integrations."
 msgstr "Update account preferences and manage integrations."
 
-#: src/components/templates/profile.template.tsx:15
+#: src/components/templates/profile.template.tsx:14
 msgid "Update your profile details."
 msgstr "Update your profile details."
 
-#: src/components/organisms/forms/profile.form.tsx:242
-msgid "URL to your profile avatar image"
-msgstr "URL to your profile avatar image"
+#: src/components/organisms/forms/profile.form.tsx:100
+msgid "Upload your profile avatar image"
+msgstr "Upload your profile avatar image"
 
-#: src/components/organisms/forms/profile.form.tsx:302
-msgid "URL to your profile banner image"
-msgstr "URL to your profile banner image"
+#: src/components/organisms/forms/profile.form.tsx:116
+msgid "Upload your profile banner image"
+msgstr "Upload your profile banner image"
 
-#: src/components/organisms/forms/profile.form.tsx:272
-msgid "URL to your profile thumbnail image"
-msgstr "URL to your profile thumbnail image"
+#: src/components/organisms/forms/profile.form.tsx:108
+msgid "Upload your profile thumbnail image"
+msgstr "Upload your profile thumbnail image"
 
 #: src/components/atoms/theme-switch.tsx:51
 msgid "Use System Theme"
@@ -383,16 +369,16 @@ msgstr "User does not have an associated 'secrets' record. Please report this is
 msgid "User Management"
 msgstr "User Management"
 
-#: src/components/organisms/forms/profile.form.tsx:104
+#: src/components/organisms/forms/profile.form.tsx:58
 msgid "username"
 msgstr "username"
 
-#: src/components/organisms/forms/profile.form.tsx:88
-#: src/components/organisms/forms/sign-in.form.tsx:91
+#: src/components/organisms/forms/profile.form.tsx:56
+#: src/components/organisms/forms/sign-in.form.tsx:36
 msgid "Username"
 msgstr "Username"
 
-#: src/components/organisms/forms/profile.form.tsx:91
+#: src/components/organisms/forms/profile.form.tsx:60
 msgid "Usernames can only contain letters, numbers, periods, hyphens, and underscores."
 msgstr "Usernames can only contain letters, numbers, periods, hyphens, and underscores."
 
@@ -400,18 +386,18 @@ msgstr "Usernames can only contain letters, numbers, periods, hyphens, and under
 msgid "View"
 msgstr "View"
 
-#: src/components/organisms/forms/profile.form.tsx:208
+#: src/components/organisms/forms/profile.form.tsx:89
 msgid "Website"
 msgstr "Website"
 
-#: src/components/organisms/forms/profile.form.tsx:162
+#: src/components/organisms/forms/profile.form.tsx:74
 msgid "Write a short bio..."
 msgstr "Write a short bio..."
 
-#: src/components/organisms/forms/profile.form.tsx:132
+#: src/components/organisms/forms/profile.form.tsx:67
 msgid "Your full name"
 msgstr "Your full name"
 
-#: src/components/organisms/forms/profile.form.tsx:211
+#: src/components/organisms/forms/profile.form.tsx:93
 msgid "Your personal or professional website URL"
 msgstr "Your personal or professional website URL"

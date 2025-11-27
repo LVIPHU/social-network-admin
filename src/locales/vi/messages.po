@@ -29,15 +29,15 @@ msgstr "Quản lý Quản trị viên"
 msgid "Asc"
 msgstr "Tăng dần"
 
-#: src/components/organisms/forms/profile.form.tsx:239
-msgid "Avatar URL"
-msgstr "URL Ảnh đại diện"
+#: src/components/organisms/forms/profile.form.tsx:98
+msgid "Avatar"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:299
-msgid "Banner URL"
-msgstr "URL Ảnh bìa"
+#: src/components/organisms/forms/profile.form.tsx:114
+msgid "Banner"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:150
+#: src/components/organisms/forms/profile.form.tsx:73
 msgid "Bio"
 msgstr "Tiểu sử"
 
@@ -45,7 +45,7 @@ msgstr "Tiểu sử"
 msgid "Change Language"
 msgstr "Đổi ngôn ngữ"
 
-#: src/components/organisms/forms/profile.form.tsx:190
+#: src/components/organisms/forms/profile.form.tsx:83
 msgid "City, Country"
 msgstr "Thành phố, Quốc gia"
 
@@ -59,7 +59,7 @@ msgstr "so với tháng trước"
 msgid "Content Moderation"
 msgstr "Kiểm duyệt Nội dung"
 
-#: src/components/organisms/forms/settings.form.tsx:96
+#: src/components/organisms/forms/settings.form.tsx:77
 msgid "Dark"
 msgstr "Tối"
 
@@ -75,11 +75,12 @@ msgstr "Tổng quan bảng điều khiển"
 msgid "Desc"
 msgstr "Giảm dần"
 
-#: src/components/organisms/forms/settings.form.tsx:141
+#: src/components/molecules/form-composition/form-composition.tsx:387
+#: src/components/organisms/forms/settings.form.tsx:149
 msgid "Discard"
 msgstr "Hủy"
 
-#: src/components/organisms/forms/sign-in.form.tsx:178
+#: src/components/organisms/forms/sign-in.form.tsx:101
 msgid "Don't have an account?"
 msgstr "Chưa có tài khoản?"
 
@@ -87,11 +88,11 @@ msgstr "Chưa có tài khoản?"
 msgid "Donation Management"
 msgstr "Quản lý Quyên góp"
 
-#: src/components/organisms/forms/sign-in.form.tsx:135
+#: src/components/organisms/forms/sign-in.form.tsx:46
 msgid "Enter password"
 msgstr "Nhập mật khẩu"
 
-#: src/components/organisms/forms/sign-in.form.tsx:80
+#: src/components/organisms/forms/sign-in.form.tsx:68
 msgid "Enter your username below to sign in to your account"
 msgstr "Nhập tên người dùng của bạn bên dưới để đăng nhập vào tài khoản"
 
@@ -103,10 +104,6 @@ msgstr "Lỗi khi tải người dùng"
 msgid "Floating"
 msgstr "Nổi"
 
-#: src/components/organisms/forms/sign-in.form.tsx:124
-msgid "Forgot your password?"
-msgstr "Quên mật khẩu?"
-
 #: src/components/templates/settings.template.tsx:14
 #: src/constants/navigation.constants.ts:81
 msgid "General"
@@ -116,25 +113,13 @@ msgstr "Chung"
 msgid "Hide"
 msgstr "Ẩn"
 
-#: src/components/organisms/forms/sign-in.form.tsx:154
+#: src/components/molecules/form-composition/form-fields/form-password.tsx:95
 msgid "Hide password"
 msgstr "Ẩn mật khẩu"
 
-#: src/components/organisms/forms/profile.form.tsx:221
+#: src/components/organisms/forms/profile.form.tsx:91
 msgid "https://example.com"
 msgstr "https://example.com"
-
-#: src/components/organisms/forms/profile.form.tsx:252
-msgid "https://example.com/avatar.jpg"
-msgstr "https://example.com/avatar.jpg"
-
-#: src/components/organisms/forms/profile.form.tsx:312
-msgid "https://example.com/banner.jpg"
-msgstr "https://example.com/banner.jpg"
-
-#: src/components/organisms/forms/profile.form.tsx:282
-msgid "https://example.com/thumbnail.jpg"
-msgstr "https://example.com/thumbnail.jpg"
 
 #: src/constants/layout.constants.ts:16
 msgid "Icon"
@@ -160,19 +145,19 @@ msgstr "Có vẻ như mã xác minh bạn cung cấp không hợp lệ. Vui lòn
 msgid "It looks like your email address has already been verified."
 msgstr "Có vẻ như địa chỉ email của bạn đã được xác minh."
 
-#: src/components/organisms/forms/settings.form.tsx:113
+#: src/components/organisms/forms/settings.form.tsx:112
 msgid "Language"
 msgstr "Ngôn ngữ"
 
-#: src/components/organisms/forms/settings.form.tsx:95
+#: src/components/organisms/forms/settings.form.tsx:76
 msgid "Light"
 msgstr "Sáng"
 
-#: src/components/organisms/forms/profile.form.tsx:180
+#: src/components/organisms/forms/profile.form.tsx:81
 msgid "Location"
 msgstr "Vị trí"
 
-#: src/components/organisms/forms/sign-in.form.tsx:101
+#: src/components/organisms/forms/sign-in.form.tsx:38
 msgid "m@example.com"
 msgstr "m@example.com"
 
@@ -180,7 +165,7 @@ msgstr "m@example.com"
 msgid "Manage and view all users in the system"
 msgstr "Quản lý và xem tất cả người dùng trong hệ thống"
 
-#: src/components/organisms/forms/profile.form.tsx:122
+#: src/components/organisms/forms/profile.form.tsx:65
 msgid "Name"
 msgstr "Tên"
 
@@ -220,7 +205,7 @@ msgstr "Bảng trượt"
 msgid "Oops, the server returned an error."
 msgstr "Ối, máy chủ đã trả về lỗi."
 
-#: src/components/organisms/forms/sign-in.form.tsx:118
+#: src/components/organisms/forms/sign-in.form.tsx:45
 msgid "Password"
 msgstr "Mật khẩu"
 
@@ -228,25 +213,26 @@ msgstr "Mật khẩu"
 msgid "Please try again or contact support if the problem persists."
 msgstr "Vui lòng thử lại hoặc liên hệ hỗ trợ nếu vấn đề vẫn tiếp tục."
 
-#: src/components/templates/profile.template.tsx:12
+#: src/components/templates/profile.template.tsx:11
 #: src/constants/navigation.constants.ts:66
 #: src/constants/navigation.constants.ts:87
 msgid "Profile"
 msgstr "Hồ sơ"
 
-#: src/components/organisms/forms/profile.form.tsx:58
+#: src/components/organisms/forms/profile.form.tsx:147
 msgid "Profile updated successfully"
 msgstr "Cập nhật hồ sơ thành công"
 
-#: src/components/organisms/forms/profile.form.tsx:326
+#: src/components/organisms/forms/profile.form.tsx:182
 msgid "Save changes"
 msgstr "Lưu thay đổi"
 
-#: src/components/organisms/forms/settings.form.tsx:138
+#: src/components/molecules/form-composition/form-composition.tsx:363
+#: src/components/organisms/forms/settings.form.tsx:141
 msgid "Save Changes"
 msgstr "Lưu thay đổi"
 
-#: src/components/organisms/forms/profile.form.tsx:324
+#: src/components/organisms/forms/profile.form.tsx:180
 msgid "Saving..."
 msgstr "Đang lưu..."
 
@@ -274,7 +260,7 @@ msgstr "Cài đặt"
 msgid "Settings and options for your application"
 msgstr "Cài đặt và tùy chọn cho ứng dụng của bạn"
 
-#: src/components/organisms/forms/sign-in.form.tsx:156
+#: src/components/molecules/form-composition/form-fields/form-password.tsx:97
 msgid "Show password"
 msgstr "Hiện mật khẩu"
 
@@ -282,11 +268,11 @@ msgstr "Hiện mật khẩu"
 msgid "Sidebar"
 msgstr "Thanh bên"
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:95
 msgid "Sign in"
 msgstr "Đăng nhập"
 
-#: src/components/organisms/forms/sign-in.form.tsx:77
+#: src/components/organisms/forms/sign-in.form.tsx:65
 msgid "Sign in to your account"
 msgstr "Đăng nhập vào tài khoản của bạn"
 
@@ -294,11 +280,11 @@ msgstr "Đăng nhập vào tài khoản của bạn"
 msgid "Sign out"
 msgstr "Đăng xuất"
 
-#: src/components/organisms/forms/sign-in.form.tsx:180
+#: src/components/organisms/forms/sign-in.form.tsx:103
 msgid "Sign up"
 msgstr "Đăng ký"
 
-#: src/components/organisms/forms/sign-in.form.tsx:173
+#: src/components/organisms/forms/sign-in.form.tsx:95
 msgid "Signing in..."
 msgstr "Đang đăng nhập..."
 
@@ -322,15 +308,15 @@ msgstr "Chuyển sang Chế độ Tối"
 msgid "Switch to Light Mode"
 msgstr "Chuyển sang Chế độ Sáng"
 
-#: src/components/organisms/forms/settings.form.tsx:94
+#: src/components/organisms/forms/settings.form.tsx:75
 msgid "System"
 msgstr "Hệ thống"
 
-#: src/components/organisms/forms/profile.form.tsx:153
+#: src/components/organisms/forms/profile.form.tsx:76
 msgid "Tell us about yourself (max 255 characters)"
 msgstr "Hãy cho chúng tôi biết về bạn (tối đa 255 ký tự)"
 
-#: src/components/organisms/forms/settings.form.tsx:82
+#: src/components/organisms/forms/settings.form.tsx:73
 msgid "Theme"
 msgstr "Giao diện"
 
@@ -338,9 +324,9 @@ msgstr "Giao diện"
 msgid "This email address is associated with an OAuth account. Please sign in with your OAuth provider."
 msgstr "Địa chỉ email này được liên kết với tài khoản OAuth. Vui lòng đăng nhập bằng nhà cung cấp OAuth của bạn."
 
-#: src/components/organisms/forms/profile.form.tsx:269
-msgid "Thumbnail URL"
-msgstr "URL Ảnh thu nhỏ"
+#: src/components/organisms/forms/profile.form.tsx:106
+msgid "Thumbnail"
+msgstr ""
 
 #: src/components/organisms/section-cards/section-card.helper.ts:42
 msgid "Total posts"
@@ -354,21 +340,21 @@ msgstr "Tổng người dùng"
 msgid "Update account preferences and manage integrations."
 msgstr "Cập nhật tùy chọn tài khoản và quản lý tích hợp."
 
-#: src/components/templates/profile.template.tsx:15
+#: src/components/templates/profile.template.tsx:14
 msgid "Update your profile details."
 msgstr "Cập nhật thông tin hồ sơ của bạn."
 
-#: src/components/organisms/forms/profile.form.tsx:242
-msgid "URL to your profile avatar image"
-msgstr "URL đến ảnh đại diện hồ sơ của bạn"
+#: src/components/organisms/forms/profile.form.tsx:100
+msgid "Upload your profile avatar image"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:302
-msgid "URL to your profile banner image"
-msgstr "URL đến ảnh bìa hồ sơ của bạn"
+#: src/components/organisms/forms/profile.form.tsx:116
+msgid "Upload your profile banner image"
+msgstr ""
 
-#: src/components/organisms/forms/profile.form.tsx:272
-msgid "URL to your profile thumbnail image"
-msgstr "URL đến ảnh thu nhỏ hồ sơ của bạn"
+#: src/components/organisms/forms/profile.form.tsx:108
+msgid "Upload your profile thumbnail image"
+msgstr ""
 
 #: src/components/atoms/theme-switch.tsx:51
 msgid "Use System Theme"
@@ -383,16 +369,16 @@ msgstr "Người dùng không có bản ghi 'secrets' liên kết. Vui lòng bá
 msgid "User Management"
 msgstr "Quản lý Người dùng"
 
-#: src/components/organisms/forms/profile.form.tsx:104
+#: src/components/organisms/forms/profile.form.tsx:58
 msgid "username"
 msgstr "tên người dùng"
 
-#: src/components/organisms/forms/profile.form.tsx:88
-#: src/components/organisms/forms/sign-in.form.tsx:91
+#: src/components/organisms/forms/profile.form.tsx:56
+#: src/components/organisms/forms/sign-in.form.tsx:36
 msgid "Username"
 msgstr "Tên người dùng"
 
-#: src/components/organisms/forms/profile.form.tsx:91
+#: src/components/organisms/forms/profile.form.tsx:60
 msgid "Usernames can only contain letters, numbers, periods, hyphens, and underscores."
 msgstr "Tên người dùng chỉ có thể chứa chữ cái, số, dấu chấm, dấu gạch ngang và dấu gạch dưới."
 
@@ -400,18 +386,18 @@ msgstr "Tên người dùng chỉ có thể chứa chữ cái, số, dấu chấ
 msgid "View"
 msgstr "Xem"
 
-#: src/components/organisms/forms/profile.form.tsx:208
+#: src/components/organisms/forms/profile.form.tsx:89
 msgid "Website"
 msgstr "Trang web"
 
-#: src/components/organisms/forms/profile.form.tsx:162
+#: src/components/organisms/forms/profile.form.tsx:74
 msgid "Write a short bio..."
 msgstr "Viết một tiểu sử ngắn..."
 
-#: src/components/organisms/forms/profile.form.tsx:132
+#: src/components/organisms/forms/profile.form.tsx:67
 msgid "Your full name"
 msgstr "Họ và tên đầy đủ của bạn"
 
-#: src/components/organisms/forms/profile.form.tsx:211
+#: src/components/organisms/forms/profile.form.tsx:93
 msgid "Your personal or professional website URL"
 msgstr "URL trang web cá nhân hoặc chuyên nghiệp của bạn"

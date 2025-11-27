@@ -5,8 +5,9 @@ import { useForm, useStore } from '@tanstack/react-form'
 import { z } from 'zod'
 
 import { LocaleComboboxPopover } from '@/components/atoms/locale-combobox.tsx'
+import type { ComboboxFieldConfig } from '@/components/molecules/form-composition'
+import { FormCombobox } from '@/components/molecules/form-composition/form-fields'
 import { Button } from '@/components/ui/button.tsx'
-import { Combobox } from '@/components/ui/combobox.tsx'
 import {
   Field,
   FieldError,
@@ -15,7 +16,7 @@ import {
 } from '@/components/ui/field.tsx'
 import { DEFAULT_LANGUAGE, localeIds } from '@/constants/language.constants.ts'
 import type { LocaleId } from '@/constants/language.constants.ts'
-import type { LanguageDto, ThemeDto } from '@/packages/models/app'
+import type { LanguageDto } from '@/packages/models/app'
 import { languageSchema, themeSchema } from '@/packages/models/app'
 import { cn } from '@/packages/utils/styles.ts'
 import { changeLanguage } from '@/providers/locale.provider.tsx'
@@ -26,6 +27,8 @@ const formSchema = z.object({
   theme: themeSchema,
   locale: languageSchema,
 })
+
+type SettingsFormValues = z.infer<typeof formSchema>
 
 export const SettingsForm = () => {
   const { profile, loading } = useProfile()
@@ -38,11 +41,13 @@ export const SettingsForm = () => {
       ? (storedLocale as LocaleId)
       : (profile?.locale ?? DEFAULT_LANGUAGE)
 
+  const defaultValues: SettingsFormValues = {
+    theme: theme,
+    locale: localeFromStorage,
+  }
+
   const form = useForm({
-    defaultValues: {
-      theme: theme,
-      locale: localeFromStorage,
-    },
+    defaultValues,
     validators: {
       onChange: formSchema,
     },
@@ -57,7 +62,21 @@ export const SettingsForm = () => {
     },
   })
 
-  const { isDirty, isDefaultValue } = useStore(form.store, (state) => state)
+  const { isDirty, isDefaultValue } = useStore(form.store, (state) => ({
+    isDirty: state.isDirty,
+    isDefaultValue: state.isDefaultValue,
+  }))
+
+  const themeFieldConfig: ComboboxFieldConfig = {
+    type: 'combobox',
+    name: 'theme',
+    label: t`Theme`,
+    options: [
+      { label: t`System`, value: 'system' },
+      { label: t`Light`, value: 'light' },
+      { label: t`Dark`, value: 'dark' },
+    ],
+  }
 
   return (
     <form
@@ -68,37 +87,20 @@ export const SettingsForm = () => {
       }}
     >
       <FieldGroup className="grid gap-6 sm:grid-cols-2">
+        {/* Theme field using FormComposition pattern */}
         <form.Field
           name="theme"
-          children={(field) => {
-            const isInvalid =
-              field.state.meta.isTouched && !field.state.meta.isValid
-            return (
-              <Field data-invalid={isInvalid}>
-                <FieldLabel htmlFor={field.name}>
-                  <Trans>Theme</Trans>
-                </FieldLabel>
-                <Combobox
-                  id={field.name}
-                  name={field.name}
-                  aria-invalid={isInvalid}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onValueChange={(value) => {
-                    field.handleChange(value as ThemeDto)
-                  }}
-                  options={[
-                    { label: t`System`, value: 'system' },
-                    { label: t`Light`, value: 'light' },
-                    { label: t`Dark`, value: 'dark' },
-                  ]}
-                />
-                {isInvalid && <FieldError errors={field.state.meta.errors} />}
-                {field.state.meta.isDirty}
-              </Field>
-            )
-          }}
+          children={(field) => (
+            <FormCombobox
+              name="theme"
+              field={field}
+              config={themeFieldConfig}
+              disabled={loading}
+            />
+          )}
         />
+
+        {/* Custom locale field with LocaleComboboxPopover */}
         <form.Field
           name="locale"
           children={(field) => {
@@ -120,21 +122,30 @@ export const SettingsForm = () => {
                   }}
                 />
                 {isInvalid && <FieldError errors={field.state.meta.errors} />}
-                {field.state.meta.isDirty}
               </Field>
             )
           }}
         />
+
+        {/* Buttons */}
         <div
           className={cn(
             'hidden items-center space-x-2 self-center sm:col-start-2',
             isDirty && !isDefaultValue && 'flex animate-in fade-in',
           )}
         >
-          <Button type="submit" disabled={loading}>
+          <Button
+            type="submit"
+            disabled={loading || !isDirty || isDefaultValue}
+          >
             <Trans>Save Changes</Trans>
           </Button>
-          <Button type="reset" variant="ghost" onClick={() => form.reset()}>
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => form.reset()}
+            disabled={loading || !isDirty || isDefaultValue}
+          >
             <Trans>Discard</Trans>
           </Button>
         </div>
