@@ -3,15 +3,10 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './styles.css'
-import reportWebVitals from './reportWebVitals'
-// Import the generated route tree
-import { routeTree } from './routeTree.gen'
-// Initialize Zod with default locale
-import { initializeZod } from './packages/libs/zod'
-// Initialize Lingui with default locale
 import { initializeLingui } from './packages/libs/lingui'
-
-// Locales will be initialized in initApp() before rendering
+import { initializeZod } from './packages/libs/zod'
+import reportWebVitals from './reportWebVitals'
+import { routeTree } from './routeTree.gen'
 
 // Create a new router instanc
 export const router = createRouter({

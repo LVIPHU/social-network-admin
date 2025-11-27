@@ -1,5 +1,5 @@
-import { fromStorage } from '@lingui/detect-locale'
 import { t } from '@lingui/core/macro'
+import { fromStorage } from '@lingui/detect-locale'
 import { Trans } from '@lingui/react/macro'
 import { useForm, useStore } from '@tanstack/react-form'
 import { z } from 'zod'
