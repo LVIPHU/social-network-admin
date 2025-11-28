@@ -44,7 +44,11 @@ export function FormRadioGroup({
         value={String(field.state.value || '')}
         onValueChange={(value) => field.handleChange(value)}
         disabled={disabled || config.disabled}
-        className={config.orientation === 'horizontal' ? 'flex-row' : ''}
+        className={
+          config.orientation === 'horizontal'
+            ? 'flex flex-row gap-4'
+            : 'flex flex-col gap-3'
+        }
       >
         {config.options.map((option) => (
           <div key={option.value} className="flex items-center space-x-2">

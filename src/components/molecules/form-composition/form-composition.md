@@ -4,12 +4,17 @@ A reusable form component built with TanStack Form Composition pattern. Supports
 
 ## Features
 
-- **12 Field Types**: input, textarea, select, combobox, checkbox, radio, switch, slider, calendar, input-group, password, multi-select
+- **13 Field Types**: input, textarea, select, combobox, checkbox, radio, switch, slider, calendar, input-group, password, multi-select, image-upload
 - **Type-safe**: Full TypeScript support with Zod schema validation
 - **Internationalization**: Built-in support for Lingui (i18n) with MessageDescriptor
 - **Accessibility**: ARIA attributes and keyboard navigation support
 - **Validation**: Zod schema integration with TanStack Form
 - **Composition Pattern**: Clean, maintainable code structure
+- **Layout Customization**: Grid layout with colSpan, rowSpan, gap, and fieldGroupClassName
+- **Orientation**: Support for vertical/horizontal orientation in checkbox and radio group
+- **Skeleton Loading**: Automatic skeleton display when loading
+- **Confirm Dialog**: Built-in confirmation dialog for form submission
+- **Event Handlers**: beforeSubmit, afterSubmit callbacks
 
 ## Installation
 
@@ -502,8 +507,163 @@ import { FormInput, FormSelect } from '@/components/molecules/form-composition'
 </form.Field>
 ```
 
+## Layout Customization
+
+FormComposition supports grid layout for flexible field arrangements.
+
+### Grid Layout
+
+```tsx
+<FormComposition
+  layout="grid"
+  gridCols={2}
+  gap={4}
+  fields={[
+    { type: 'input', name: 'firstName', colSpan: 1 },
+    { type: 'input', name: 'lastName', colSpan: 1 },
+    { type: 'textarea', name: 'bio', colSpan: 2 }, // Full width
+  ]}
+/>
+```
+
+### Grid with Custom Rows
+
+```tsx
+<FormComposition
+  layout="grid"
+  gridCols={2}
+  gridRows={2}
+  gap={6}
+  fieldGroupClassName="gap-4 @xl/form:gap-6" // Responsive gap
+  fields={[
+    { type: 'input', name: 'firstName', colSpan: 1, rowSpan: 1 },
+    { type: 'input', name: 'lastName', colSpan: 1, rowSpan: 1 },
+    { type: 'textarea', name: 'bio', colSpan: 2, rowSpan: 1 },
+  ]}
+/>
+```
+
+### Props
+
+- `layout`: `'default' | 'grid'` - Layout mode (default: 'default')
+- `gridCols`: `number` - Number of columns (default: 1)
+- `gridRows`: `number | 'auto'` - Number of rows (default: 'auto')
+- `gap`: `number` - Gap between fields in rem units (default: 4 = 1rem)
+- `fieldGroupClassName`: `string` - Custom className for FieldGroup (for responsive gaps, etc.)
+- `fieldClassName`: `string` - Default className for all fields
+- Field-level: `colSpan`, `rowSpan`, `className` - Per-field layout customization
+
+## Orientation
+
+Checkbox and Radio Group fields support orientation prop.
+
+### Checkbox Orientation
+
+```tsx
+{
+  type: 'checkbox',
+  name: 'terms',
+  label: msg`Accept terms`,
+  orientation: 'horizontal', // or 'vertical' (default)
+}
+```
+
+### Radio Group Orientation
+
+```tsx
+{
+  type: 'radio',
+  name: 'theme',
+  label: msg`Theme`,
+  options: [
+    { value: 'light', label: msg`Light` },
+    { value: 'dark', label: msg`Dark` },
+  ],
+  orientation: 'horizontal', // or 'vertical' (default)
+}
+```
+
+## Skeleton Loading
+
+FormComposition automatically shows skeleton placeholders when loading.
+
+```tsx
+<FormComposition
+  fields={fields}
+  defaultValues={defaultValues}
+  onSubmit={handleSubmit}
+  loading={isLoading} // Skeleton automatically shown when true
+  showSkeleton={true} // Force show skeleton
+  skeletonClassName="animate-pulse" // Custom skeleton styles
+/>
+```
+
+Skeleton respects grid layout with colSpan and rowSpan.
+
+## Confirm Dialog Integration
+
+FormComposition can show a confirmation dialog before submitting.
+
+```tsx
+<FormComposition
+  fields={fields}
+  defaultValues={defaultValues}
+  onSubmit={handleSubmit}
+  showConfirmDialog={true}
+  confirmDialogTitle={t`Save changes?`}
+  confirmDialogDescription={t`Are you sure you want to save these changes?`}
+  confirmDialogConfirmLabel={t`Save`}
+  confirmDialogCancelLabel={t`Cancel`}
+/>
+```
+
+When `showConfirmDialog={true}`, clicking submit button shows a confirmation dialog before calling `onSubmit`.
+
+## Event Handlers
+
+FormComposition supports event handlers for form lifecycle.
+
+### beforeSubmit
+
+Called before `onSubmit`. Can return `false` to cancel submission or throw error for validation.
+
+```tsx
+<FormComposition
+  fields={fields}
+  defaultValues={defaultValues}
+  onSubmit={handleSubmit}
+  beforeSubmit={async (values) => {
+    // Additional validation
+    if (values.email && !isValidEmail(values.email)) {
+      throw new Error('Invalid email')
+    }
+    // Return false to cancel
+    // return false
+  }}
+/>
+```
+
+### afterSubmit
+
+Called after `onSubmit` completes (success or error).
+
+```tsx
+<FormComposition
+  fields={fields}
+  defaultValues={defaultValues}
+  onSubmit={handleSubmit}
+  afterSubmit={(values, result) => {
+    // Log or track
+    console.log('Form submitted', values)
+    analytics.track('form_submit', { values })
+  }}
+/>
+```
+
 ## See Also
 
 - [TanStack Form Documentation](https://tanstack.com/form/latest)
 - [Zod Documentation](https://zod.dev/)
 - [Lingui Documentation](https://lingui.dev/)
+- [ModalComposition Documentation](./modal-composition.md)
+- [ConfirmDialog Documentation](../confirm-dialog/confirm-dialog.md)

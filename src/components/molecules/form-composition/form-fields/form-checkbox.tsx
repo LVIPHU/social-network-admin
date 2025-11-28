@@ -7,6 +7,7 @@ import {
   FieldError,
   FieldLabel,
 } from '@/components/ui/field'
+import { cn } from '@/packages/utils/styles'
 
 import type { CheckboxFieldConfig } from '../form-composition.types'
 
@@ -28,14 +29,22 @@ export function FormCheckbox({
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
   const checked = Boolean(field.state.value)
 
+  const orientation = config.orientation ?? 'vertical'
+  const isHorizontal = orientation === 'horizontal'
+
   return (
-    <Field data-invalid={isInvalid} orientation="horizontal">
-      <div className="flex items-center space-x-2">
+    <Field data-invalid={isInvalid} orientation={orientation}>
+      <div
+        className={cn(
+          'flex items-center',
+          isHorizontal ? 'flex-row space-x-2' : 'flex-col space-y-2',
+        )}
+      >
         <Checkbox
           id={name}
           name={name}
           checked={checked}
-          onCheckedChange={(checked) => field.handleChange(checked)}
+          onCheckedChange={(checkedChange) => field.handleChange(checkedChange)}
           onBlur={field.handleBlur}
           aria-invalid={isInvalid}
           disabled={disabled || config.disabled}

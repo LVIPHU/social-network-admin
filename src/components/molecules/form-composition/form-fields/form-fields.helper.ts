@@ -10,7 +10,7 @@ export function renderTranslatableContent(
 ): React.ReactNode {
   if (!content) return null
   if (typeof content === 'string') return content
-  if (typeof content === 'object' && content !== null && 'id' in content) {
+  if (typeof content === 'object' && 'id' in content) {
     return i18n._(content)
   }
   return content

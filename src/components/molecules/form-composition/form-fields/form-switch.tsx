@@ -35,7 +35,7 @@ export function FormSwitch({
           id={name}
           name={name}
           checked={checked}
-          onCheckedChange={(checked) => field.handleChange(checked)}
+          onCheckedChange={(checkedChange) => field.handleChange(checkedChange)}
           onBlur={field.handleBlur}
           aria-invalid={isInvalid}
           disabled={disabled || config.disabled}

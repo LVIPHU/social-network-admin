@@ -2,6 +2,8 @@ import type { MessageDescriptor } from '@lingui/core'
 import type { ReactNode } from 'react'
 import type { z } from 'zod'
 
+import type { MultiSelectProps } from '@/components/atoms/multi-select'
+
 /**
  * Union type of all supported field types
  */
@@ -38,6 +40,12 @@ export interface BaseFieldConfig {
   hidden?: boolean
   /** Custom validation function (optional, usually use schema instead) */
   validator?: (value: unknown) => string | undefined
+  /** Number of columns field spans in grid layout (default: 1) */
+  colSpan?: number
+  /** Number of rows field spans in grid layout (default: 1) */
+  rowSpan?: number
+  /** Custom className for field wrapper */
+  className?: string
 }
 
 /**
@@ -125,6 +133,8 @@ export interface CheckboxFieldConfig extends BaseFieldConfig {
   type: 'checkbox'
   /** Checkbox label (if different from field label) */
   checkboxLabel?: ReactNode | MessageDescriptor
+  /** Orientation: vertical or horizontal (default: 'vertical') */
+  orientation?: 'vertical' | 'horizontal'
 }
 
 /**
@@ -239,7 +249,7 @@ export interface MultiSelectFieldConfig extends BaseFieldConfig {
   emptyIndicator?: ReactNode
   /** Additional props for MultiSelect component */
   multiSelectProps?: Omit<
-    import('@/components/atoms/multi-select').MultiSelectProps,
+    MultiSelectProps,
     | 'options'
     | 'onValueChange'
     | 'defaultValue'
@@ -331,4 +341,38 @@ export interface FormCompositionProps<
   formId?: string
   /** Additional CSS classes */
   className?: string
+  /** Layout mode (default: 'default' = single column) */
+  layout?: 'default' | 'grid'
+  /** Number of columns in grid layout (default: 1) */
+  gridCols?: number
+  /** Number of rows in grid layout (default: 'auto' = auto-calculate) */
+  gridRows?: number | 'auto'
+  /** Gap between fields (default: 4, creates class gap-{gap}) */
+  gap?: number
+  /** Custom className for FieldGroup (to customize gap, layout, etc.) */
+  fieldGroupClassName?: string
+  /** Default className for all fields */
+  fieldClassName?: string
+  /** Show skeleton when loading (default: auto-detect from loading prop) */
+  showSkeleton?: boolean
+  /** Custom className for skeleton */
+  skeletonClassName?: string
+  /** Show confirm dialog before submit (default: false) */
+  showConfirmDialog?: boolean
+  /** Confirm dialog title */
+  confirmDialogTitle?: ReactNode | MessageDescriptor
+  /** Confirm dialog description */
+  confirmDialogDescription?: ReactNode | MessageDescriptor
+  /** Confirm dialog confirm label */
+  confirmDialogConfirmLabel?: ReactNode | MessageDescriptor
+  /** Confirm dialog cancel label */
+  confirmDialogCancelLabel?: ReactNode | MessageDescriptor
+  /** Callback before submit */
+  beforeSubmit?: (values: TFormValues) => void | Promise<void> | boolean
+  /** Callback after submit */
+  afterSubmit?: (values: TFormValues, result?: unknown) => void | Promise<void>
+  /** Callback when any field changes */
+  onFieldChange?: (name: string, value: unknown) => void
+  /** Callback when any field blurs */
+  onFieldBlur?: (name: string) => void
 }

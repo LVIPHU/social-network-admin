@@ -12,6 +12,7 @@ export { FormInputGroup } from './form-input-group'
 export { FormPassword } from './form-password'
 export { FormMultiSelect } from './form-multi-select'
 export { FormImageUpload } from './form-image-upload'
+export { FormFieldSkeleton } from './form-field-skeleton'
 
 // Export shared types and helpers
 export type { FieldState, BaseFieldProps } from './form-fields.types'

@@ -61,6 +61,7 @@ export function FormInputGroup({
               </InputGroupAddon>
             )
           }
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           if (addon.type === 'button') {
             const buttonProps =
               typeof addon.content === 'object' &&
