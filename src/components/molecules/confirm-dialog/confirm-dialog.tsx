@@ -68,9 +68,7 @@ export function ConfirmDialog({
   const finalCancelLabel = cancelLabel ?? config?.cancelLabel
   const finalOnConfirm = onConfirm ?? config?.onConfirm
   const finalOnCancel = onCancel ?? config?.onCancel
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const finalVariant = variant ?? config?.variant ?? 'destructive'
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const finalLoading = loading ?? config?.loading ?? false
 
   const [isSubmitting, setIsSubmitting] = useState(false)

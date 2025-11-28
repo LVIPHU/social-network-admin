@@ -33,7 +33,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet'
-import { useModal, useModalStore } from '@/stores/modal'
+import { useModal, useModalStore  } from '@/stores/modal'
 
 import type { ModalCompositionProps } from './modal-composition.types'
 
