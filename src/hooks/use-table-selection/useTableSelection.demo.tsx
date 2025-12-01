@@ -29,8 +29,6 @@ export default function Component() {
     selectedRows,
     selectedSet,
     rowSelection,
-    selectRow,
-    deselectRow,
     toggleRow,
     selectAll,
     clearSelection,

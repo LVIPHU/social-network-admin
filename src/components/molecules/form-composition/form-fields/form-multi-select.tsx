@@ -4,7 +4,6 @@ import { useRef } from 'react'
 import { MultiSelect } from '@/components/atoms/multi-select'
 import type {
   MultiSelectOption,
-  MultiSelectProps,
   MultiSelectRef,
 } from '@/components/atoms/multi-select'
 import {

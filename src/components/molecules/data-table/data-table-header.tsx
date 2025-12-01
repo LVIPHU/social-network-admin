@@ -40,7 +40,7 @@ export function DataTableHeader<TData>({
   onColumnOrderChange,
   className,
 }: DataTableHeaderProps<TData>) {
-  const searchTimeoutRef = useRef<NodeJS.Timeout>()
+  const searchTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const handleSearchChange = useCallback(
     (value: string) => {

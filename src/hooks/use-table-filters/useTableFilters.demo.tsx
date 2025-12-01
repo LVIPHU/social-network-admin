@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import type { FilterConfig } from '@/components/molecules/data-table/data-table.types'
 
 import { useTableFilters } from './useTableFilters'

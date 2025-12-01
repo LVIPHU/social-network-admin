@@ -1,10 +1,5 @@
 import { Trans } from '@lingui/react/macro'
 import { useNavigate, useSearch } from '@tanstack/react-router'
-import {
-  getCoreRowModel,
-  getPaginationRowModel,
-  useReactTable,
-} from '@tanstack/react-table'
 import { AlertCircleIcon } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
 
@@ -103,22 +98,6 @@ export default function UsersTemplate() {
     },
     [setFilter],
   )
-
-  // Create a dummy table for pagination
-  const table = useReactTable({
-    data: users?.data || [],
-    columns: [],
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    manualPagination: true,
-    pageCount: users?.pagination.total_pages || 0,
-    state: {
-      pagination: {
-        pageIndex: (users?.pagination.page || 1) - 1,
-        pageSize: users?.pagination.limit || 10,
-      },
-    },
-  })
 
   const handlePageChange = (page: number) => {
     void navigate({

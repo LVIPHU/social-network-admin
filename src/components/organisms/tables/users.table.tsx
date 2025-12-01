@@ -267,15 +267,11 @@ export function UsersTable({
   })
 
   // Use table selection hook
-  const { rowSelection, selectedRows } = useTableSelection(
-    table,
-    (row) => row.user_id,
-    {
-      onSelectionChange: (ids) => {
-        onRowSelect(ids)
-      },
+  const { rowSelection } = useTableSelection(table, (row) => row.user_id, {
+    onSelectionChange: (ids) => {
+      onRowSelect(ids)
     },
-  )
+  })
 
   // Update table state with rowSelection from hook
   useEffect(() => {

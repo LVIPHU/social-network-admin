@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro'
 import { useLingui } from '@lingui/react'
 import { Trans } from '@lingui/react/macro'
 import { useEffect, useState } from 'react'
@@ -14,7 +13,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
 import { useConfirmDialog } from '@/stores/confirm-dialog'
 
 import type { ConfirmDialogProps } from './confirm-dialog.types'
