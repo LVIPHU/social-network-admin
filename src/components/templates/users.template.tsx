@@ -9,10 +9,24 @@ import { AlertCircleIcon } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
 
 import { H1 } from '@/components/atoms/heading'
-import { DataTablePagination } from '@/components/molecules/data-table/data-table-pagination'
+import type { FilterConfig } from '@/components/molecules/data-table/data-table.types'
 import { UsersTable } from '@/components/organisms/tables/users.table'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
+import { useTableFilters } from '@/hooks/use-table-filters'
 import { useUsers } from '@/services/users'
+
+// Filter configurations
+const statusFilterConfig: FilterConfig = {
+  key: 'status',
+  label: 'Status',
+  options: [
+    { label: 'Active', value: 'ACTIVE' },
+    { label: 'Inactive', value: 'INACTIVE' },
+  ],
+  placeholder: 'Select status',
+}
+
+const filterConfigs: Array<FilterConfig> = [statusFilterConfig]
 
 export default function UsersTemplate() {
   const search = useSearch({ from: '/_authenticated/users/' })
@@ -23,13 +37,45 @@ export default function UsersTemplate() {
     setSelectedRows(userIds)
   }, [])
 
+  // Initialize filter values from URL
+  const initialFilterValues = useMemo(() => {
+    const values: Record<string, Array<string>> = {}
+    if (search.status && Array.isArray(search.status)) {
+      values.status = search.status
+    }
+    return values
+  }, [search.status])
+
+  // Use table filters hook
+  const { filterValues, setFilter } = useTableFilters(
+    filterConfigs,
+    initialFilterValues,
+    {
+      onFilterChange: (filters) => {
+        // Sync with URL
+        void navigate({
+          to: '/users',
+          search: {
+            ...search,
+            status:
+              filters.status && filters.status.length > 0
+                ? filters.status
+                : undefined,
+            page: 1, // Reset to first page when filter changes
+          },
+        })
+      },
+    },
+  )
+
   const params = useMemo(
     () => ({
       search: search.search,
+      status: search.status,
       page: search.page || 1,
       limit: search.limit || 10,
     }),
-    [search.search, search.page, search.limit],
+    [search.search, search.status, search.page, search.limit],
   )
 
   const { users, loading, error } = useUsers(params)
@@ -45,7 +91,17 @@ export default function UsersTemplate() {
         },
       })
     },
-    [search],
+    [navigate, search],
+  )
+
+  const handleFilterChange = useCallback(
+    (filters: Record<string, Array<string>>) => {
+      // Update filter using hook's setFilter
+      Object.keys(filters).forEach((key) => {
+        setFilter(key, filters[key])
+      })
+    },
+    [setFilter],
   )
 
   // Create a dummy table for pagination
@@ -118,6 +174,9 @@ export default function UsersTemplate() {
           onRowSelect={handleRowSelect}
           search={search.search || ''}
           onSearch={handleSearch}
+          filters={filterConfigs}
+          filterValues={filterValues}
+          onFilterChange={handleFilterChange}
           pagination={
             users?.pagination || {
               page: 1,
@@ -126,12 +185,6 @@ export default function UsersTemplate() {
               total_rows: 0,
             }
           }
-        />
-      )}
-
-      {users && users.pagination.total_pages > 0 && (
-        <DataTablePagination
-          table={table}
           onPageChange={handlePageChange}
           onPageSizeChange={handlePageSizeChange}
         />

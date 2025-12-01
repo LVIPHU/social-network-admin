@@ -6,13 +6,15 @@ import {
 } from '@tanstack/react-table'
 import type { ColumnDef } from '@tanstack/react-table'
 import dayjs from 'dayjs'
-import { EllipsisVertical, Search } from 'lucide-react'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { EllipsisVertical } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { DataTable } from '@/components/molecules/data-table'
 import { DataTableColumnHeader } from '@/components/molecules/data-table/data-table-column-header.tsx'
+import { DataTableFooter } from '@/components/molecules/data-table/data-table-footer.tsx'
+import { DataTableHeader } from '@/components/molecules/data-table/data-table-header.tsx'
 import { DataTableSkeleton } from '@/components/molecules/data-table/data-table-skeleton.tsx'
-import { DataTableViewOptions } from '@/components/molecules/data-table/data-table-view-options.tsx'
+import type { FilterConfig } from '@/components/molecules/data-table/data-table.types'
 import { dragColumn } from '@/components/molecules/data-table/drag-column.tsx'
 import { Badge } from '@/components/ui/badge.tsx'
 import { Button } from '@/components/ui/button.tsx'
@@ -24,7 +26,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx'
-import { Input } from '@/components/ui/input.tsx'
+import { useTableSelection } from '@/hooks/use-table-selection'
 import type { UserDto } from '@/packages/models/user/user.model.ts'
 import { useTableColumns } from '@/packages/utils/table-columns.ts'
 
@@ -35,12 +37,17 @@ type UsersTableProps = {
   onRowSelect: (userIds: Array<string>) => void
   search: string
   onSearch: (keyword: string) => void
+  filters?: Array<FilterConfig>
+  filterValues?: Record<string, Array<string>>
+  onFilterChange?: (filters: Record<string, Array<string>>) => void
   pagination: {
     page: number
     limit: number
     total_pages: number
     total_rows: number
   }
+  onPageChange?: (page: number) => void
+  onPageSizeChange?: (pageSize: number) => void
 }
 
 const defaultColumnIds = ['user_id', 'username', 'name', 'status', 'created_at']
@@ -51,13 +58,16 @@ export function UsersTable({
   onRowSelect,
   search,
   onSearch,
+  filters,
+  filterValues = {},
+  onFilterChange,
   pagination,
+  onPageChange,
+  onPageSizeChange,
 }: UsersTableProps) {
-  const [rowSelection, setRowSelection] = useState<Record<string, boolean>>({})
   const [localData, setLocalData] = useState<Array<UserDto & { id: string }>>(
     [],
   )
-  const prevSelectedRef = useRef<string>('')
 
   const { columnStates, visibleColumns, columnOrder, updateColumnOrder } =
     useTableColumns('users', defaultColumnIds)
@@ -201,24 +211,6 @@ export function UsersTable({
     [],
   )
 
-  const handleSearchKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter') {
-        onSearch(e.currentTarget.value)
-      }
-    },
-    [],
-  )
-
-  const handleSearchEmpty = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.currentTarget.value === '') {
-        onSearch(e.currentTarget.value)
-      }
-    },
-    [],
-  )
-
   // Apply column order and visibility
   const orderedColumns = useMemo(() => {
     const columnMap = new Map(allColumns.map((col) => [col.id!, col]))
@@ -267,32 +259,34 @@ export function UsersTable({
     pageCount: pagination.total_pages,
     getRowId: (row) => row.id,
     state: {
-      rowSelection,
       pagination: {
         pageIndex: pagination.page - 1,
         pageSize: pagination.limit,
       },
     },
-    onRowSelectionChange: setRowSelection,
   })
 
-  // Sync row selection with parent
+  // Use table selection hook
+  const { rowSelection, selectedRows } = useTableSelection(
+    table,
+    (row) => row.user_id,
+    {
+      onSelectionChange: (ids) => {
+        onRowSelect(ids)
+      },
+    },
+  )
+
+  // Update table state with rowSelection from hook
   useEffect(() => {
-    const selected = Object.keys(rowSelection).filter(
-      (key) => rowSelection[key],
-    )
-    const selectedUserIds = selected
-      .map((index) => localData[Number(index)]?.user_id)
-      .filter(Boolean)
-
-    // Only call onRowSelect if selection actually changed
-    const currentSelected = selectedUserIds.sort().join(',')
-
-    if (currentSelected !== prevSelectedRef.current) {
-      prevSelectedRef.current = currentSelected
-      onRowSelect(selectedUserIds)
-    }
-  }, [rowSelection, localData, onRowSelect])
+    table.setOptions((prev) => ({
+      ...prev,
+      state: {
+        ...prev.state,
+        rowSelection,
+      },
+    }))
+  }, [table, rowSelection])
 
   if (loading) {
     return <DataTableSkeleton columns={orderedColumns.length} />
@@ -300,23 +294,16 @@ export function UsersTable({
 
   return (
     <div className="space-y-4 md:space-y-6">
-      <div className="flex items-center justify-between">
-        <div className="relative flex-1 max-w-sm">
-          <Search className="text-muted-foreground absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
-          <Input
-            placeholder="Search by name or user ID..."
-            defaultValue={search}
-            onChange={handleSearchEmpty}
-            onKeyDown={handleSearchKeyDown}
-            className="pl-9"
-          />
-        </div>
-        <DataTableViewOptions
-          table={table}
-          columnStates={columnStates}
-          onColumnOrderChange={updateColumnOrder}
-        />
-      </div>
+      <DataTableHeader
+        search={search}
+        onSearch={onSearch}
+        filters={filters}
+        filterValues={filterValues}
+        onFilterChange={onFilterChange}
+        table={table}
+        columnStates={columnStates}
+        onColumnOrderChange={updateColumnOrder}
+      />
       <div className="overflow-hidden rounded-lg border">
         <DataTable
           table={table}
@@ -325,6 +312,11 @@ export function UsersTable({
           onReorder={handleReorder}
         />
       </div>
+      <DataTableFooter
+        table={table}
+        onPageChange={onPageChange}
+        onPageSizeChange={onPageSizeChange}
+      />
     </div>
   )
 }

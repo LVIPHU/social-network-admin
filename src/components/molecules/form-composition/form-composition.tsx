@@ -450,11 +450,11 @@ export function FormComposition<
     }
   }
 
-  const handleConfirmSubmit = () => {
+  const handleConfirmSubmit = async () => {
     setShowConfirm(false)
     // Small delay to ensure dialog closes before form submits
-    setTimeout(async () => {
-      await form.handleSubmit()
+    setTimeout(() => {
+      form.handleSubmit()
     }, 100)
   }
 

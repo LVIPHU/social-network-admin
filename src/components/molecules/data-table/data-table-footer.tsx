@@ -21,22 +21,39 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { cn } from '@/packages/utils/styles.ts'
 
-interface DataTablePaginationProps<TData> {
-  table: Table<TData>
-  onPageChange?: (page: number) => void
-  onPageSizeChange?: (pageSize: number) => void
-}
+import type { DataTableFooterProps } from './data-table.types'
 
-export function DataTablePagination<TData>({
+/**
+ * DataTableFooter - Footer component for data tables with selection count and pagination
+ *
+ * This component displays:
+ * - Selected row count (e.g., "5 of 100 row(s) selected")
+ * - Pagination controls (first, previous, page numbers, next, last)
+ * - Rows per page selector
+ *
+ * @example
+ * ```tsx
+ * <DataTableFooter
+ *   table={table}
+ *   onPageChange={(page) => navigate({ search: { page } })}
+ *   onPageSizeChange={(pageSize) => navigate({ search: { limit: pageSize, page: 1 } })}
+ * />
+ * ```
+ */
+export function DataTableFooter<TData>({
   table,
   onPageChange,
   onPageSizeChange,
-}: DataTablePaginationProps<TData>) {
+  className,
+}: DataTableFooterProps<TData>) {
   const currentPage = table.getState().pagination.pageIndex + 1
   const pageCount = table.getPageCount()
   const canPreviousPage = table.getCanPreviousPage()
   const canNextPage = table.getCanNextPage()
+  const selectedCount = table.getFilteredSelectedRowModel().rows.length
+  const totalCount = table.getFilteredRowModel().rows.length
 
   const handlePageChange = (page: number) => {
     table.setPageIndex(page - 1)
@@ -110,8 +127,15 @@ export function DataTablePagination<TData>({
   }
 
   return (
-    <div className="flex items-center justify-between px-4">
-      <div className="flex w-full items-center gap-8 lg:w-fit lg:ml-auto">
+    <div className={cn('flex items-center justify-between px-4', className)}>
+      {/* Selected Count */}
+      <div className="text-muted-foreground hidden flex-1 text-sm lg:flex">
+        {selectedCount} of {totalCount} row(s) selected.
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex w-full items-center gap-8 lg:w-fit">
+        {/* Rows per page selector */}
         <div className="hidden items-center gap-2 lg:flex">
           <Label
             htmlFor="rows-per-page"
@@ -139,6 +163,8 @@ export function DataTablePagination<TData>({
             </SelectContent>
           </Select>
         </div>
+
+        {/* Pagination */}
         <Pagination>
           <PaginationContent>
             <PaginationItem>

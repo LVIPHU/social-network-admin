@@ -7,6 +7,7 @@ import type { UserDto } from '@/packages/models/user'
 
 type GetUsersParams = {
   search?: string
+  status?: Array<string>
   page: number
   limit: number
 }
